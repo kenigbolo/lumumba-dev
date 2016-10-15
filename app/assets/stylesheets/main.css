@@ -837,7 +837,7 @@ hr {
   -webkit-transform: translate(-50%, 0);
       -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
-  background: url("../static/images/logo.png?v=1466944290074") center center no-repeat;
+  background: url("/assets/logo.png") center center no-repeat;
   background-size: cover;
   width: 244px;
   height: 67px; }
