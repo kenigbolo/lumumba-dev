@@ -26,8 +26,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
 # Use devise gem for user authentication
 gem 'devise'
+
+# Use omniauth for oauth
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
