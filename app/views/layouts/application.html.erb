@@ -37,6 +37,7 @@
              	<a class="header__social-link" href="https://www.instagram.com/XXX" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
              </div>
              <div class="header__personal">
+                <% if user_signed_in? %>
                 <a class="header__personal-link" href="javascript:;" target="_blank">
                    <div class="header__personal-icon">
                       <svg width="16" height="17" viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +58,7 @@
                       </svg>
                    </div>
                 </a>
-                <% if user_signed_in? %>
+
                   <a class="header__personal-link" href="<%= new_user_registration_path %>">
                    <div class="header__personal-icon">
                       <svg width="16" height="17" viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg">
@@ -67,13 +68,14 @@
                    </div>
                   </a>
                 <% end %>
-                
+
                 <% if user_signed_in? %>
                   <%= link_to "Edit Profile", edit_user_registration_path, class: "header__personal-link header__personal-link_auth" %>
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "header__personal-link header__personal-link_auth" %>
                 <% else %>
                   <%= link_to "Sign in", new_user_session_path, class: "header__personal-link header__personal-link_auth" %>
                   <%= link_to "Sign up", new_user_registration_path, class: "header__personal-link header__personal-link_auth" %>
+                  <%= link_to '   Sign in with Facebook', user_facebook_omniauth_authorize_path, class: "btn btn-social btn-facebook navbar-btn fa fa-facebook"%>
                 <% end %>
              </div>
           </div>
@@ -150,7 +152,7 @@
                    </li>
                    <li class="nav__item">
                       <% if user_signed_in? %>
-                        <a class="nav__link" href="#">
+                        <a class="nav__link" href="/users/<%= current_user.id%>">
                       <% end %>
                          <div class="nav__link-icon">
                             <svg width="42" height="43" viewBox="0 0 42 43" xmlns="http://www.w3.org/2000/svg">

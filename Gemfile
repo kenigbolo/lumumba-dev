@@ -34,6 +34,9 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+# Use fiagro gem for environment variables
+gem 'figaro'
+
 # Use simple form as default for forms
 gem 'simple_form'
 gem 'country_select'
