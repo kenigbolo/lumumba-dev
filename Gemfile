@@ -38,8 +38,8 @@ gem 'omniauth-facebook'
 gem 'figaro'
 
 # Use simple form as default for forms
-gem 'simple_form'
-gem 'country_select'
+# gem 'simple_form'
+# gem 'country_select'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
