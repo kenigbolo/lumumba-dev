@@ -34,6 +34,10 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+# Use simple form as default for forms
+gem 'simple_form'
+gem 'country_select'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

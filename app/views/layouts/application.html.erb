@@ -57,15 +57,24 @@
                       </svg>
                    </div>
                 </a>
-                <a class="header__personal-link" href="account-settings.html" target="_blank">
+                <% if user_signed_in? %>
+                  <a class="header__personal-link" href="<%= new_user_registration_path %>">
                    <div class="header__personal-icon">
                       <svg width="16" height="17" viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg">
                          <title>Fill 1</title>
                          <path d="M4.807 4.997c.012 1.91 1.542 3.436 3.418 3.45 1.93.014 3.472-1.54 3.474-3.435 0-1.913-1.533-3.45-3.435-3.455-1.912-.006-3.44 1.533-3.458 3.44m5.17 3.647c.074.022.147.047.22.066.42.112.825.267 1.216.455.458.22.887.485 1.287.797.534.418 1.004.9 1.407 1.446.42.567.752 1.182.986 1.847.1.286.174.582.25.876.088.35.134.704.154 1.063.01.173.015.346.018.52.002.114-.084.203-.187.254-.1.05-.173.012-.248-.035-.084-.052-.118-.133-.12-.236-.007-.226-.006-.455-.036-.68-.04-.305-.098-.61-.166-.91-.15-.66-.413-1.275-.763-1.853-.48-.792-1.097-1.457-1.85-1.998-.503-.36-1.044-.65-1.628-.854-.29-.1-.592-.174-.89-.25-.276-.067-.555-.11-.84-.117-.26-.007-.52-.026-.782-.023-.187.003-.374.028-.56.052-.198.025-.396.05-.59.094-.228.05-.454.11-.676.18-.49.16-.955.373-1.394.642-.632.387-1.188.864-1.665 1.433-.42.504-.762 1.057-1.022 1.66-.146.34-.273.69-.347 1.053-.055.274-.107.55-.143.826-.032.245-.042.494-.056.743-.007.162-.1.278-.258.306-.082.013-.24-.097-.27-.197-.016-.06-.023-.125-.022-.187.004-.173.01-.347.025-.52.02-.196.046-.392.08-.586.033-.2.075-.397.12-.593.1-.42.247-.826.425-1.22.242-.53.545-1.026.908-1.483.315-.398.668-.76 1.058-1.085.438-.365.91-.675 1.42-.93.367-.182.75-.33 1.14-.45.086-.027.175-.044.26-.07.035-.008.065-.027.106-.046-1.526-.83-2.33-2.092-2.28-3.826.03-1.093.487-2.03 1.304-2.764C7.264.514 9.774.72 11.206 2.31c.888.986 1.222 2.15.968 3.46s-1.02 2.24-2.196 2.85v.024" stroke="currentColor" stroke-width=".5" fill="currentColor" fill-rule="evenodd"/>
                       </svg>
                    </div>
-                </a>
-                <a class="header__personal-link header__personal-link_auth" href="javascript:;" target="_blank">Sign in </a><a class="header__personal-link header__personal-link_auth" href="javascript:;" target="_blank">Sign up</a>
+                  </a>
+                <% end %>
+                
+                <% if user_signed_in? %>
+                  <%= link_to "Edit Profile", edit_user_registration_path, class: "header__personal-link header__personal-link_auth" %>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "header__personal-link header__personal-link_auth" %>
+                <% else %>
+                  <%= link_to "Sign in", new_user_session_path, class: "header__personal-link header__personal-link_auth" %>
+                  <%= link_to "Sign up", new_user_registration_path, class: "header__personal-link header__personal-link_auth" %>
+                <% end %>
              </div>
           </div>
           <!-- nav start -->
@@ -140,7 +149,9 @@
                       </a>
                    </li>
                    <li class="nav__item">
-                      <a class="nav__link" href="account-settings.html">
+                      <% if user_signed_in? %>
+                        <a class="nav__link" href="#">
+                      <% end %>
                          <div class="nav__link-icon">
                             <svg width="42" height="43" viewBox="0 0 42 43" xmlns="http://www.w3.org/2000/svg">
                                <title>Page 1</title>
