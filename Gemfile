@@ -41,7 +41,8 @@ gem 'figaro'
 gem 'simple_form'
 gem 'country_select'
 
-
+# Use friendly_id for user profile
+gem 'friendly_id', '~> 5.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
