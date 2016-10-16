@@ -151,7 +151,7 @@
                    </li>
                    <li class="nav__item">
                       <% if user_signed_in? %>
-                        <a class="nav__link" href="/users/<%= current_user.id%>">
+                        <a class="nav__link" href="/users/<%= current_user.slug%>">
                       <% end %>
                          <div class="nav__link-icon">
                             <svg width="42" height="43" viewBox="0 0 42 43" xmlns="http://www.w3.org/2000/svg">
@@ -186,7 +186,7 @@
              	
              	<p class="notice"><%= notice %></p>
        			  <p class="alert"><%= alert %></p>
-              
+
              	<%= yield %>
              </div>
           </div>
