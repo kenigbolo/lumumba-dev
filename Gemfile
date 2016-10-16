@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use sqlite3 as the database for Active Record [Development Environment]
+gem 'sqlite3', group: :development
+# Use pg as the database for Active Record [Production Environment]
+gem 'pg', '0.18.1', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -45,6 +47,8 @@ gem 'country_select'
 # Use friendly_id for user profile
 gem 'friendly_id', '~> 5.1.0'
 
+# Use rails_12factor gem for production environment
+gem 'rails_12factor', group: :production
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
