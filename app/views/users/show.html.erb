@@ -1,0 +1,14 @@
+<% if current_user %>
+<h1 class="title_h1">My dashboard</h1>
+<p class="page-description">Welcome to your dashboard. You can set up your account, check your orders and manage your designs here.</p>
+<div class="columns">
+   <div class="columns__left-menu">
+
+   <!-- Left menu start -->
+	<%= render "left_menu" %>
+	<!-- Left menu finish -->
+
+   </div>
+	<%= render "profile" %>
+</div>
+<% end %>

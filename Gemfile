@@ -15,7 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+# Use Rspec for testing
+gem 'rspec-core'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -27,12 +28,37 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use devise gem for user authentication
+gem 'devise'
+
+# Use omniauth for oauth
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+# Use fiagro gem for environment variables
+gem 'figaro'
+
+# Use simple form as default for forms
+gem 'simple_form'
+gem 'country_select'
+
+# Use friendly_id for user profile
+gem 'friendly_id', '~> 5.1.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem "database_cleaner"
+  gem "shoulda-matchers", "3.1.1"
+  gem "coveralls", require: false
+  gem "factory_girl_rails"
 end
 
 group :development do
