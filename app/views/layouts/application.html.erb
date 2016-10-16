@@ -70,7 +70,6 @@
                 <% end %>
 
                 <% if user_signed_in? %>
-                  <%= link_to "Edit Profile", edit_user_registration_path, class: "header__personal-link header__personal-link_auth" %>
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "header__personal-link header__personal-link_auth" %>
                 <% else %>
                   <%= link_to "Sign in", new_user_session_path, class: "header__personal-link header__personal-link_auth" %>
@@ -184,9 +183,10 @@
           <!-- Dummy start -->
           <div class="dummy">
              <div class="dummy__wrapper">
-             	under construction
+             	
              	<p class="notice"><%= notice %></p>
-       			<p class="alert"><%= alert %></p>
+       			  <p class="alert"><%= alert %></p>
+              
              	<%= yield %>
              </div>
           </div>

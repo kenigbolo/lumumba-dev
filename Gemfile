@@ -41,6 +41,8 @@ gem 'figaro'
 gem 'simple_form'
 gem 'country_select'
 
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
