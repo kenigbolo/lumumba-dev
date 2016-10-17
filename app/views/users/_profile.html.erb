@@ -15,10 +15,12 @@ $(document).ready(function(){
       <div class="account__avatar">
          <% if @user.image_status == "upload" %>
             <%= image_tag @user.avatar.url.to_s, class: "account__avatar-photo" %>
-         <% else %>
+         <% elsif @user.image != nil%>
             <%= image_tag @user.image, class: "account__avatar-photo-facebook" %>
+         <% else  %>
+            <%= image_tag "default-user.png", class: "account__avatar-photo" %>
          <% end %>
-         <div class="account__avatar-edit" id="edit-image">Edit</div>
+         <div class="account__avatar-edit" id="edit-image">Upload Image</div>
 
          <!-- Image Upload-->
          <div id="upload-image">
