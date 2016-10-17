@@ -1,10 +1,30 @@
+<script>
+$(document).ready(function(){
+  $("#upload-image").hide();
+  $('#edit-image').click(function(){
+   $('#upload-image').fadeIn();
+  });
+});
+
+</script>
+
 <div class="columns__content">
    <h3 class="title_h3">My profile</h3>
    <!-- Account settings start -->
    <div class="account">
       <div class="account__avatar">
-         <img class="account__avatar-photo" src="<%= @user.image %>">
-         <div class="account__avatar-edit">Edit</div>
+         <% if @user.image_status == "upload" %>
+            <%= image_tag @user.image.url.to_s, class: "account__avatar-photo" %>
+         <% else %>
+            <%= image_tag @user.image, class: "account__avatar-photo" %>
+         <% end %>
+         <div class="account__avatar-edit" id="edit-image">Edit</div>
+
+         <!-- Image Upload-->
+         <div id="upload-image">
+            <%= render "image_upload" %>
+         </div>
+         <!-- End Image Upload -->
       </div>
       	<!-- Account settings start -->
 	 	<%= render "edit_profile" %>

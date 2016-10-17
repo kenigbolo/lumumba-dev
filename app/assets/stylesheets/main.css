@@ -2737,7 +2737,9 @@ hr {
 .account__avatar-photo {
   display: block;
   margin: auto;
-  border-radius: 50%; }
+  border-radius: 50%;
+  width: 150px;
+  height: 150px; }
 
 .account__avatar-edit {
   margin-top: 20px;
