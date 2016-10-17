@@ -2741,6 +2741,11 @@ hr {
   width: 150px;
   height: 150px; }
 
+.account__avatar-photo-facebook {
+  display: block;
+  margin: auto;
+  border-radius: 50%; }
+
 .account__avatar-edit {
   margin-top: 20px;
   color: #A2DEF7;

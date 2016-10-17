@@ -16,7 +16,7 @@ $(document).ready(function(){
          <% if @user.image_status == "upload" %>
             <%= image_tag @user.avatar.url.to_s, class: "account__avatar-photo" %>
          <% else %>
-            <%= image_tag @user.image, class: "account__avatar-photo" %>
+            <%= image_tag @user.image, class: "account__avatar-photo-facebook" %>
          <% end %>
          <div class="account__avatar-edit" id="edit-image">Edit</div>
 
