@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Add carriewave gem to upload pictures to user profile
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
-gem 'rmagick'
+
 # Use devise gem for user authentication
 gem 'devise'
 
