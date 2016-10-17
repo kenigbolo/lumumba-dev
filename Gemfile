@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Add carriewave gem to upload pictures to user profile
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 # Use devise gem for user authentication
 gem 'devise'
 
