@@ -1,6 +1,11 @@
 class User < ApplicationRecord
+  # Use friendly_id to generate user friendly urls
   extend FriendlyId
   friendly_id :first_name, use: [:slugged, :finders, :history]
+
+  # Add image uploader view
+  mount_uploader :image, ImageUploader
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable, :confirmable,
