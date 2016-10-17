@@ -4,8 +4,7 @@ class User < ApplicationRecord
   friendly_id :first_name, use: [:slugged, :finders, :history]
 
   # Add image uploader view
-  mount_uploader :image, ImageUploader
-
+  mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable, :confirmable,
