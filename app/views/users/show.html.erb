@@ -1,14 +1,46 @@
+<script>
+$(document).ready(function(){
+  $("#upload-image, #billing-info").hide();
+  $('#edit-image').click(function(){
+   $('#upload-image').fadeIn();
+  });
+
+  $('#billing').click(function(){
+   $('#account-settings').hide();
+   $('#billing-info').fadeIn();
+  });
+
+  $('#account').click(function(){
+   $('#billing-info').hide();
+   $('#account-settings').fadeIn();
+  });   
+});
+
+</script>
+
+
 <% if current_user %>
-<h1 class="title_h1">My dashboard</h1>
-<p class="page-description">Welcome to your dashboard. You can set up your account, check your orders and manage your designs here.</p>
-<div class="columns">
-   <div class="columns__left-menu">
+	<h1 class="title_h1">My dashboard</h1>
+	<p class="page-description">Welcome to your dashboard. You can set up your account, check your orders and manage your designs here.</p>
 
-   <!-- Left menu start -->
-	<%= render "left_menu" %>
-	<!-- Left menu finish -->
+	<div class="columns">
+		<!-- Left menu start -->
+	 	<div class="columns__left-menu">
+				<%= render "left_menu" %>
+		</div>
+		<!-- Left menu finish -->	
 
-   </div>
-	<%= render "profile" %>
-</div>
+		<!-- Edit profile div start -->
+		<div id="account-settings">
+			<%= render "profile" %>
+	  </div>
+		<!-- Edit profile div end -->
+
+		<!-- Billing Information div start -->
+		<div id="billing-info">
+			<%= render "billing_information" %>
+	  </div>
+		<!-- Billing Information div end -->
+	</div>
+
 <% end %>
