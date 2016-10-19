@@ -18,6 +18,6 @@ FactoryGirl.define do
     price "9.99"
     add_to "MyString"
     competition false
-    references ""
+    user nil
   end
 end

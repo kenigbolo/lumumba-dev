@@ -19,7 +19,7 @@ class CreateDesigns < ActiveRecord::Migration[5.0]
       t.decimal :price
       t.string :add_to
       t.boolean :competition
-      t.user :references
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
