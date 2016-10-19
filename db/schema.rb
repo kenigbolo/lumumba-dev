@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017120600) do
+ActiveRecord::Schema.define(version: 20161019190318) do
+
+  create_table "designs", force: :cascade do |t|
+    t.string   "image"
+    t.string   "image_desc"
+    t.string   "first_garment_model_design"
+    t.string   "first_garment_print_design"
+    t.string   "first_garment_technical_design"
+    t.string   "first_garment_desc"
+    t.string   "second_garment_model_design"
+    t.string   "second_garment_print_design"
+    t.string   "second_garment_technical_design"
+    t.string   "second_garment_desc"
+    t.string   "third_garment_model_design"
+    t.string   "third_garment_print_design"
+    t.string   "third_garment_technical_design"
+    t.boolean  "for_competition"
+    t.boolean  "for_sale"
+    t.decimal  "price"
+    t.string   "add_to"
+    t.boolean  "competition"
+    t.integer  "user_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["user_id"], name: "index_designs_on_user_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false

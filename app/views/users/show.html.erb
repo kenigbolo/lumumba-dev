@@ -1,18 +1,23 @@
 <script>
 $(document).ready(function(){
-  $("#upload-image, #billing-info").hide();
+  $("#upload-image, #billing-info, #design-info").hide();
   $('#edit-image').click(function(){
    $('#upload-image').fadeIn();
   });
 
   $('#billing').click(function(){
-   $('#account-settings').hide();
+   $('#account-settings, #design-info').hide();
    $('#billing-info').fadeIn();
   });
 
   $('#account').click(function(){
-   $('#billing-info').hide();
+   $('#billing-info, #design-info').hide();
    $('#account-settings').fadeIn();
+  });
+
+   $('#designs').click(function(){
+   $('#billing-info, #account-settings').hide();
+   $('#design-info').fadeIn();
   });   
 });
 
@@ -41,6 +46,12 @@ $(document).ready(function(){
 			<%= render "billing_information" %>
 	  </div>
 		<!-- Billing Information div end -->
+
+		<!-- Render designs div start-->
+		<div id="design-info">
+			<%= render "designs_all" %>
+	  </div>
+		<!-- Render designs div end -->
 	</div>
 
 <% end %>
