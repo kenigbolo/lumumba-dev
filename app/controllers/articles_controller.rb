@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
 
 	def create
 		@article = Article.new(article_params)
+		@article.author = current_user.last_name + " " + current_user.first_name
 		@article.save
 
 		if @article.persisted?
