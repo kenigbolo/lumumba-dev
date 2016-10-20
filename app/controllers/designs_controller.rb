@@ -1,4 +1,5 @@
 class DesignsController < ApplicationController
+	before_action :authenticate_user!, :except => [:index]
 	def index
 		@design = Design.new
 		

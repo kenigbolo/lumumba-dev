@@ -2172,7 +2172,8 @@ hr {
 
 .blog__image {
   display: block;
-  width: 100%; }
+  width: 187px;
+  height: 187px; }
 
 .blog__info {
   -webkit-box-flex: 1;
