@@ -1,5 +1,8 @@
 <% if @user.designs.empty? %>
 	<p> User has no designs </p>
+	<%= link_to "Add Design", designs_path, id: "new_design", class: "button button_blue"%>
 <% else %>
 	<p>User has some designs</p>
 <%end%>
+
+
