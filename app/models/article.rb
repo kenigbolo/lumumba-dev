@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   validates :description, presence: true,
                     length: { minimum: 500 }
   validates :image, presence: true
-  
+
+  belongs_to :user
 	mount_uploader :image, ImageUploader
 end

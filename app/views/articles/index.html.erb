@@ -8,9 +8,7 @@
                 <div class="top-post__title">Fashion trends changing technology</div>
                 <div class="top-post__author">by Amanda Kohar</div>
                 <div class="top-post__preview">Ut mi eros, elementum id nulla vitae, fermentum faucibus magna. Nunc egestas ultrices nibh et luctus. Vivamus mattis, arcu viverra tincidunt interdum, maur arcu, vel magna magna quis augue. Aenean congue eget quam eu auctor. Donec finibus sodal Intege vel facilisis tortor…</div>
-                <a class="button button_white-yellow top-post__button" href="javascript:;">
-                    <div class="button__text">Continue reading</div>
-                </a>
+
             </div>
         </div>
     </div>
@@ -23,7 +21,7 @@
             <div class="blog__heading">Trending posts</div>
             <div class="blog__button-wrapper">
                 <div class="button button_orange">
-                  <%= link_to "Post a Blog", new_article_path, class: "button__text", id: "new_link", remote: true%>
+                  <%= link_to "Post a Blog", new_article_path, class: "button__text", id: "new_link"%>
                 </div>
             </div>
         </div>
@@ -37,14 +35,20 @@
             <li class="blog__item">
                 <div class="blog__image-wrapper"><%= image_tag blog.image.url.to_s, class: "blog__image"%></div>
                 <div class="blog__info">
-                    <div class="blog__title"><%= blog.title%>Traaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-                    <div class="blog__author"><%= blog.title%></div>
+                    <div class="blog__title"><%= blog.title%>                           </div>
+                    <div class="blog__author"><%= blog.user.last_name%>  <%= blog.user.first_name%></div>
                     <div class="blog__preview"><%= blog.description%></div>
                     <div class="blog__date"><%= blog.created_at%></div>
                     <div class="blog__actions">
-                        <div class="button button_blue blog__button">
-                            <div class="button_text">Continue reading</div>
-                        </div>
+
+                        <td><%= link_to 'Continue Reading', article_path(blog), class: "button button_blue blog__button button__text" %></td>
+                        <% unless current_user.blank? %>
+                        <% unless (current_user.id != blog.user.id) %>
+                            <td><%= link_to 'Edit', edit_article_path(blog), class: "button button_blue blog__button button__text" %></td>
+                            <td><%= link_to 'Destroy', article_path(blog), method: :delete, data: { confirm: 'Are you sure?' }, class: "button button_blue blog__button button__text" %></td>
+                        <% end %>
+                        <% end %>
+
                         <div class="blog__action">
                             <svg width="22" height="20" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>Page 1</title>
