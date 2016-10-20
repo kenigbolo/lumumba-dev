@@ -1,6 +1,6 @@
-class CreateBlogs < ActiveRecord::Migration[5.0]
+class CreateArticles < ActiveRecord::Migration[5.0]
   def change
-    create_table :blogs do |t|
+    create_table :articles do |t|
       t.string :title
       t.string :image
       t.text :description
