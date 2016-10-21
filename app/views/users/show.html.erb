@@ -1,18 +1,23 @@
 <script>
 $(document).ready(function(){
-  $("#upload-image, #billing-info").hide();
+  $("#upload-image, #billing-info, #design-info").hide();
   $('#edit-image').click(function(){
    $('#upload-image').fadeIn();
   });
 
   $('#billing').click(function(){
-   $('#account-settings').hide();
+   $('#account-settings, #design-info').hide();
    $('#billing-info').fadeIn();
   });
 
   $('#account').click(function(){
-   $('#billing-info').hide();
+   $('#billing-info, #design-info').hide();
    $('#account-settings').fadeIn();
+  });
+
+   $('#designs').click(function(){
+   $('#billing-info, #account-settings').hide();
+   $('#design-info').fadeIn();
   });   
 });
 
@@ -20,6 +25,7 @@ $(document).ready(function(){
 
 
 <% if current_user %>
+<div class="container" id="my_profile">
 	<h1 class="title_h1">My dashboard</h1>
 	<p class="page-description">Welcome to your dashboard. You can set up your account, check your orders and manage your designs here.</p>
 
@@ -41,6 +47,12 @@ $(document).ready(function(){
 			<%= render "billing_information" %>
 	  </div>
 		<!-- Billing Information div end -->
-	</div>
 
+		<!-- Render designs div start-->
+		<div id="design-info">
+			<%= render "designs_all" %>
+	  </div>
+		<!-- Render designs div end -->
+	</div>
+</div>
 <% end %>

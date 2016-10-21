@@ -1,0 +1,56 @@
+<div class="layout__content">
+	<!-- Countdown start -->
+	<div class="countdown">
+	    <div class="countdown__wrapper">
+	        <div class="countdown__title">
+            <div class="countdown__timer">
+            	<div class="countdown__timer-value countdown__timer-value_h">00</div>
+            	<div class="countdown__timer-value countdown__timer-value_m">20</div>
+            	<div class="countdown__timer-value countdown__timer-value_s">49</div>
+            </div>
+	        	until competition ends
+	        </div>
+	        <div class="countdown__text">Vote to be eligible for flash pre-sale!</div>
+	    </div>
+	</div>
+	<!-- Countdown finish -->
+
+	<div class="container" id="small-description">
+  <!-- Section tittle -->
+    <h1 class="title_h1_description">become a lumumba designner</h1>
+    <p class="page-description">The october competition is about culture in india. Let´s get inspired by the <a href="./themes.html">Themes pages</a></p>
+    <!-- End Section tittle -->
+
+  <!-- Section Icon and small description become -->
+   <div class="wrapper" id="small-description">
+      <center>
+         <ul class="become__list">
+            <li class="become__item_3">
+               <div class="columns__content">
+                    <%= image_tag "design.svg", id: "svg_img" %>
+                    <p class="p_become">Design 1 outfit following our instructions<p>
+               </div>
+            </li>
+             <li class="become__item_3">
+               <div class="columns__content">
+                   <%= image_tag "upload.svg", id: "svg_img" %>
+                   <p class="p_become">Upload the files and fill the forms<p>
+               </div>
+            </li>
+             <li class="become__item_3">
+               <div class="columns__content">
+                   <%= image_tag "welcome.svg", id: "svg_img" %>
+                   <p class="p_become">Welcome, Lumumba designer!<p>
+               </div>
+            </li>
+         </ul>
+             <div class="button__text button button_orange" id="new-form-display">Get Started</div>
+       </center>
+     </div>
+  <!-- End Section Icon and small description become -->
+	</div>
+
+	<div class="container" id="hidden-design-form">
+		<%= render "new_design" %>
+	</div>
+</div>
