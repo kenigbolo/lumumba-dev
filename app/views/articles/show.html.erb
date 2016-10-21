@@ -3,7 +3,7 @@
         <div class="blog__image-wrapper"><%= image_tag @article.image.url.to_s, class: "blog__image"%></div>
         <div class="blog__info">
             <div class="blog__title"><%= @article.title%>                           </div>
-            <div class="blog__author"><%= @article.user.last_name%>  <%= @article.user.first_name%></div>
+            <div class="blog__author">By <%= @article.user.last_name%>  <%= @article.user.first_name%></div>
             <div class="blog__preview"><%= @article.description%></div>
             <div class="blog__date"><%= @article.created_at.strftime("%dth-%B-%Y")%></div>
             <div class="blog__actions">
