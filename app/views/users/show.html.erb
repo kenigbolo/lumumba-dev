@@ -1,58 +1,20 @@
-<script>
-$(document).ready(function(){
-  $("#upload-image, #billing-info, #design-info").hide();
-  $('#edit-image').click(function(){
-   $('#upload-image').fadeIn();
-  });
-
-  $('#billing').click(function(){
-   $('#account-settings, #design-info').hide();
-   $('#billing-info').fadeIn();
-  });
-
-  $('#account').click(function(){
-   $('#billing-info, #design-info').hide();
-   $('#account-settings').fadeIn();
-  });
-
-   $('#designs').click(function(){
-   $('#billing-info, #account-settings').hide();
-   $('#design-info').fadeIn();
-  });   
-});
-
-</script>
-
-
 <% if current_user %>
-<div class="container" id="my_profile">
-	<h1 class="title_h1">My dashboard</h1>
-	<p class="page-description">Welcome to your dashboard. You can set up your account, check your orders and manage your designs here.</p>
+	<div class="container" id="my_profile">
+		<h1 class="title_h1">My dashboard</h1>
+		<p class="page-description">Welcome to your dashboard. You can set up your account, check your orders and manage your designs here.</p>
 
-	<div class="columns">
-		<!-- Left menu start -->
-	 	<div class="columns__left-menu">
-				<%= render "left_menu" %>
+		<div class="columns">
+			<!-- Left menu start -->
+		 	<div class="columns__left-menu">
+					<%= render "left_menu" %>
+			</div>
+			<!-- Left menu finish -->	
+
+			<!-- Edit profile div start -->
+			<div id="account-settings">
+				<%= render "profile" %>
+		  </div>
+			<!-- Edit profile div end -->
 		</div>
-		<!-- Left menu finish -->	
-
-		<!-- Edit profile div start -->
-		<div id="account-settings">
-			<%= render "profile" %>
-	  </div>
-		<!-- Edit profile div end -->
-
-		<!-- Billing Information div start -->
-		<div id="billing-info">
-			<%= render "billing_information" %>
-	  </div>
-		<!-- Billing Information div end -->
-
-		<!-- Render designs div start-->
-		<div id="design-info">
-			<%= render "designs_all" %>
-	  </div>
-		<!-- Render designs div end -->
 	</div>
-</div>
 <% end %>

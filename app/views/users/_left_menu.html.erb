@@ -23,8 +23,8 @@
       </a>
    </li>
    <li class="left-menu__item">
-      <a class="left-menu__link" >
-         <div class="left-menu__link-text" id="designs">My designs</div>
+      <a class="left-menu__link" href="/user/designs/">
+         <div class="left-menu__link-text">My designs</div>
          <div class="left-menu__link-arrow">
             <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
                <title>Fill 1</title>
@@ -45,7 +45,7 @@
       </a>
    </li>
    <li class="left-menu__item">
-      <a class="left-menu__link left-menu__link_selected">
+      <a class="left-menu__link left-menu__link_selected" href="/users/<%= current_user.slug %>">
          <div class="left-menu__link-text" id="account">Account settings</div>
          <div class="left-menu__link-arrow">
             <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -58,17 +58,6 @@
    <li class="left-menu__item">
       <a class="left-menu__link">
          <div class="left-menu__link-text">Shipping address</div>
-         <div class="left-menu__link-arrow">
-            <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
-               <title>Fill 1</title>
-               <path d="M8 7.38c.003.175-.08.33-.215.463l-2.162 2.16c-1.156 1.156-2.312 2.31-3.466 3.467-.14.14-.292.246-.5.246-.267 0-.508-.144-.6-.378-.104-.26-.068-.503.13-.706.287-.294.58-.58.87-.87C3.49 10.326 4.924 8.89 6.358 7.46c.098-.1.098-.1 0-.2-1.713-1.71-3.425-3.423-5.14-5.134-.128-.13-.212-.275-.215-.462-.005-.282.125-.482.372-.603.233-.113.515-.064.707.124.275.267.544.54.816.812l4.883 4.882c.135.134.22.288.217.5" stroke="currentColor" fill="currentColor" fill-rule="evenodd"/>
-            </svg>
-         </div>
-      </a>
-   </li>
-   <li class="left-menu__item">
-      <a class="left-menu__link">
-         <div class="left-menu__link-text" id="billing">Billing information</div>
          <div class="left-menu__link-arrow">
             <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
                <title>Fill 1</title>

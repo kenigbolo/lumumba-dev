@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+## Gem for Rails 3+, Sinatra, and Merb Pagination
+gem 'will_paginate', '~> 3.1.0'
+
 # Add carriewave gem to upload pictures to user profile
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 
