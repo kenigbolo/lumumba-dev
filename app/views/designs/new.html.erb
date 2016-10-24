@@ -62,6 +62,11 @@
   <!-- Form additional information start -->
   <div class="wrapper" id="formAdd">
     <div class="input-wb">
+      <%= f.label :first_garment_design, '"Garment 1" File' %>
+      <%= f.file_field :first_garment_design, class: "form__input" %>
+    </div>
+
+    <div class="input-wb">
       <%= f.label :first_garment_print_design, '"Print design" File' %>
       <%= f.file_field :first_garment_print_design, class: "form__input" %>
     </div>
@@ -92,6 +97,11 @@
   <!-- Form additional information start -->
   <div class="wrapper" id="formAdd">
     <div class="input-wb">
+      <%= f.label :second_garment_design, '"Garment 2" File' %>
+      <%= f.file_field :second_garment_design, class: "form__input" %>
+    </div>
+
+    <div class="input-wb">
       <%= f.label :second_garment_print_design, '"Print design 2" File' %>
       <%= f.file_field :second_garment_print_design, class: "form__input" %>
     </div>
@@ -121,6 +131,10 @@
 
   <!-- Form additional information start -->
   <div class="wrapper" id="formAdd">
+    <div class="input-wb">
+      <%= f.label :third_garment_design, '"Garment 3" File' %>
+      <%= f.file_field :third_garment_design, class: "form__input" %>
+    </div>
 
     <div class="input-wb">
       <%= f.label :third_garment_print_design, '"Print design 3" File' %>
