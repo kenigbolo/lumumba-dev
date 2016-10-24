@@ -833,14 +833,14 @@ hr {
 .nav__logo {
   position: absolute;
   left: 50%;
-  top: 30px;
+  top: 20px;
   -webkit-transform: translate(-50%, 0);
       -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   /*background: asset-data-url("logo.png") center center no-repeat;*/
   background-size: cover;
   width: 244px;
-  height: 67px; }
+  height: 75px; }
 
 .nav__list {
   display: -webkit-box;
