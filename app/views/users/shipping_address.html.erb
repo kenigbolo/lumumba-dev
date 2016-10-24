@@ -1,0 +1,20 @@
+<% if current_user %>
+  <div class="container" id="my_profile">
+    <h1 class="title_h1">My dashboard</h1>
+    <p class="page-description">Welcome to your dashboard. You can set up your account, check your orders and manage your designs here.</p>
+
+    <div class="columns">
+      <!-- Left menu start -->
+      <div class="columns__left-menu">
+          <%= render "left_menu" %>
+      </div>
+      <!-- Left menu finish --> 
+
+      <!-- Render Add shipping addresss div start-->
+      <p class="button__text"> You have not saved a Shipping Address </p>
+        <div  class="columns__content">
+          <h3 class="title_h3">Shipping Address</h3>
+      <!-- Render Add shipping addresss div end -->
+    </div>
+  </div>
+<% end %>
