@@ -14,11 +14,13 @@ class DesignsController < ApplicationController
 		@design.save
 
 		if @design.persisted?
-			flash["notice"] = "Design successfully saved"
-			redirect_to @design
+			render 'success'
 		else
 			render 'new'
 		end
+	end
+
+	def success
 	end
 
 	def show
