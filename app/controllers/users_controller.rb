@@ -3,12 +3,10 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.friendly.find(params[:id])
-  	@designs = Design.where("user_id = ?", @user.id)
-  	if current_user.id == @user.id
-  	  @page = "settings"
-  	else
-  	  @page = "profile"
-  	end
+  	@designs = Design.where("user_id = ?", @user.id).paginate(:page => params[:page], :per_page => 2)
   end
 
+  def design
+    @designs = Design.where("user_id = ?", current_user.id).paginate(:page => params[:page], :per_page => 2)
+  end
 end

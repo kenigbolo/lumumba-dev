@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :articles
   root to: "home#index"
   get 'users/:id', to: 'users#show', as: :user
+  get 'user/designs/', to: 'users#design', as: :user_designs
 end
