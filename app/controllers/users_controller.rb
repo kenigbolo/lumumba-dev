@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def address
-  	@address = Address.where()where("user_id = ?", current_user.id)
+  	@address = Address.where("user_id = ?", current_user.id)
   	if @address.empty?
   		render 'shipping_address'
   	else

@@ -6,14 +6,16 @@
     <div class="columns">
       <!-- Left menu start -->
       <div class="columns__left-menu">
-          <%= render "left_menu" %>
+          <%= render "/users/left_menu" %>
       </div>
       <!-- Left menu finish --> 
 
       <!-- Render Add shipping addresss div start-->
-      <p class="button__text"> You have not saved a Shipping Address </p>
         <div  class="columns__content">
-          <h3 class="title_h3">Shipping Address</h3>
+          <div class="buttons_design">
+            <%= link_to "Add Shipping Address", new_address_path, class: "button button_blue"%>
+          </div>
+        </div>
       <!-- Render Add shipping addresss div end -->
     </div>
   </div>

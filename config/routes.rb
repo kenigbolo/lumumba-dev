@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   root to: "home#index"
   get 'users/:id', to: 'users#show', as: :user
   get 'user/designs/', to: 'users#design', as: :user_designs
+  get 'user/shipping-address/', to: 'users#address', as: :user_address
+  get '/address/subregion_options', to: 'addresses#subregion_options'
 end

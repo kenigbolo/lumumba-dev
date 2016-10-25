@@ -32,25 +32,20 @@ gem 'jbuilder', '~> 2.5'
 
 ## Gem for Rails 3+, Sinatra, and Merb Pagination
 gem 'will_paginate', '~> 3.1.0'
-
 # Add carriewave gem to upload pictures to user profile
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
-
 # Use devise gem for user authentication
 gem 'devise'
-
 # Use omniauth for oauth
 gem 'omniauth'
 gem 'omniauth-facebook'
-
 # Use fiagro gem for environment variables
 gem 'figaro'
-
 # Use simple form as default for forms
 gem 'simple_form'
 gem 'country_select'
-
-# Use friendly_id for user profile
+gem 'carmen-rails', '~> 1.0.0'
+# Use friendly_id for user profile urls
 gem 'friendly_id', '~> 5.1.0'
 
 # Use rails_12factor gem for production environment
