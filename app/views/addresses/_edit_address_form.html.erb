@@ -1,0 +1,48 @@
+<%= simple_form_for @address, url: {action: "update", id: current_user.id}, html: {class: "form "} do |f| %>
+
+  <% if @address.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@address.errors.count, "error") %> prohibited
+        this address from being saved:
+      </h2>
+      <ul>
+        <% @address.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p class="form__group">
+    <%= f.label :street_address, "Enter your Street Address" %><br>
+    <%= f.text_field :street_address, class: "form__input",placeholder: "Enter your Street Address" %>
+  </p><br>
+
+  <p class="form__group">
+    <%= f.label :city, "Enter your City/Surburb" %><br>
+    <%= f.text_field :city, class: "form__input",placeholder: "Enter a City or Surburb" %>
+  </p><br>
+
+  <p class="form__group">
+    <%= f.label :country, "Select a Country" %><br />
+    <%= f.country_select :country, priority: %w(ES US CA), prompt: 'Please select a country' %>
+  </p> <br>
+
+  <p class="form__group">
+    <%= f.label :state, "State/Province/County" %><br />
+    <%= render partial: 'subregion_select', locals: {parent_region: f.object.country} %>
+  </p> 
+
+  <p class="form__group">
+    <%= f.label :zip_code, "Enter your zip_code " %><br>
+    <%= f.text_field :zip_code, class: "form__input", placeholder: "Enter a zip_code"%>
+  </p><br>
+  
+  <p class="form__group">
+    <%= f.submit "Update Shipping Address", class: "button button_blue"%>
+  </p>
+<% end %>
+
+<br>
+<%= link_to 'Back', addresses_path, class: "button button_blue" %>
