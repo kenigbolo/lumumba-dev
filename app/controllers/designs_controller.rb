@@ -59,9 +59,11 @@ class DesignsController < ApplicationController
 	end
 
 	def upvote
+		byebug
 	  design = Design.find(params[:id])
 	  unless current_user.voted_for?  design
 	  	design.upvote_by current_user
+	  	flash["notice"] = "Your"
 	  end
 	  redirect_to :back
 	end 
