@@ -56,10 +56,12 @@ form:focus {
   margin-top:4em;
 
   li {
-    height:150px;
+    height:160px;
     margin-bottom:2em;
+    border-bottom: 1px solid #e5e5e5;
     .user-image-wrapper {
       margin-top: 40px;
+
       .user-image{
         margin: auto;
         height:150px;
