@@ -83,10 +83,9 @@
                         <% end %>
                     </div>
                     <div class="contestants__action">
-                        <%= link_to like_design_path(design), method: :put do %>
-                          Upvote
-                          <%= design.get_upvotes.size %> 
-                        <% end %>
+                        <div class="container">
+                          <%= design.get_upvotes.size %>
+                        </div> 
                     </div>
                 </div>
             </li>
