@@ -1,3 +1,89 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.bar {
+  border-bottom:1px solid gray;
+  height:50px;
+  margin-bottom:30px;
+}
+
+form:focus {
+  .bar {
+    border-bottom:1px solid #A2DEF7;
+  }
+}
+.search-page {
+  float: left;
+  margin: 7px;
+  width: 100%;
+  height: 30px;
+  border: none;
+  padding: 11px 30px;
+  vertical-align: middle;
+  resize: none;
+  font-size: 24px;
+  color: black;
+  background-image: url('search.svg');
+
+  background-repeat: no-repeat;
+  background-position: 5px 7.5px;
+  background-size: auto;
+  border-radius: 4.5px;
+  &::-webkit-input-placeholder {
+     color: black;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+     color: black;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+     color: black;
+  }
+
+  &:-ms-input-placeholder {
+     color: black;
+  }
+  &:focus {
+
+    outline: none;
+  }
+}
+
+.users-list {
+  text-align: left;
+  list-style: none;
+  margin-top:4em;
+
+  li {
+    height:150px;
+    margin-bottom:2em;
+    .user-image-wrapper {
+      margin-top: 40px;
+      .user-image{
+        margin: auto;
+        height:150px;
+        border-radius: 50%;
+        width: 150px;
+
+      }
+    }
+    a {
+      margin-bottom: 40px;
+      padding: 25px 0;
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: #CCCCCC;
+      position: absolute;
+      height: 150px;
+      line-height: 113px;
+      margin-left: 30px;
+      &:hover {
+        color: #A2DEF7;
+      }
+    }
+
+  }
+}
