@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get 'user/shipping-address/', to: 'users#address', as: :user_address
   get '/address/subregion_options', to: 'addresses#subregion_options'
   get '/competition', to: 'designs#competition'
-  get '/search', to: 'users#search'
+  get '/users', to: 'users#index', as: :users_default
+  get '/search', to: 'users#index'
 end
