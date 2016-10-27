@@ -4,7 +4,7 @@ development:
   api_key: '173961342875833'
   api_secret: ZRQwr-T2SF1ZzfwSbwBOQCTcMqE
   enhance_image_tag: true
-  static_image_support: false
+  static_image_support: true
 production:
   cloud_name: dg7gyrbqf
   api_key: '173961342875833'
@@ -16,4 +16,4 @@ test:
   api_key: '173961342875833'
   api_secret: ZRQwr-T2SF1ZzfwSbwBOQCTcMqE
   enhance_image_tag: true
-  static_image_support: false
+  static_image_support: true

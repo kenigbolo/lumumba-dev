@@ -4,9 +4,9 @@
    <div class="account">
       <div class="account__avatar">
          <% if @user.image_status == "upload" %>
-            <%= image_tag @user.avatar.url.to_s, class: "account__avatar-photo" %>
+            <%= image_tag @user.avatar_url, class: "account__avatar-photo" %>
          <% elsif @user.image != nil%>
-            <%= image_tag @user.image, class: "account__avatar-photo-facebook" %>
+            <%= image_tag @user.image_url, class: "account__avatar-photo" %>
          <% else  %>
             <%= image_tag "default-user.png", class: "account__avatar-photo" %>
          <% end %>
