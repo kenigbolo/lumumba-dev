@@ -1,5 +1,6 @@
 class Design < ApplicationRecord
   belongs_to :user
+  acts_as_votable
   
   mount_uploader :image, ImageUploader
   mount_uploader :first_garment_design, ImageUploader

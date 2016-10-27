@@ -2739,6 +2739,7 @@ hr {
 .account__avatar-photo {
   display: block;
   margin: auto;
+  height: 15em;
   border-radius: 50%; }
 
 .account__avatar-edit {

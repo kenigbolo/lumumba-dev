@@ -5,7 +5,8 @@ class User < ApplicationRecord
   # Use friendly_id to generate user friendly urls
   extend FriendlyId
   friendly_id :first_name, use: [:slugged, :finders, :history]
-
+  # Voting
+  acts_as_voter
   # Add image uploader view
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
