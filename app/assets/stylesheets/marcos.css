@@ -553,7 +553,7 @@ padding-left: 5%;
 }
 
 input[type="checkbox"] {
-    display:none;
+    /*display:none;*/
 }
 input[type="checkbox"] + label span {
     display:inline-block;
