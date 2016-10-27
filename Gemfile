@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use sqlite3 as the database for Active Record [Development Environment]
+gem 'sqlite3', group: :development
+# Use pg as the database for Active Record [Production Environment]
+gem 'pg', '0.18.1', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -28,23 +30,29 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+## Gem for Rails 3+, Sinatra, and Merb Pagination
+gem 'will_paginate', '~> 3.1.0'
+# Add carriewave gem to upload pictures to user profile
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'cloudinary'
 # Use devise gem for user authentication
 gem 'devise'
-
 # Use omniauth for oauth
 gem 'omniauth'
 gem 'omniauth-facebook'
-
 # Use fiagro gem for environment variables
 gem 'figaro'
-
 # Use simple form as default for forms
 gem 'simple_form'
 gem 'country_select'
-
-# Use friendly_id for user profile
+gem 'carmen-rails', '~> 1.0.0'
+# Use friendly_id for user profile urls
 gem 'friendly_id', '~> 5.1.0'
+# Voteable Gem
+gem 'acts_as_votable', '~> 0.10.0'
 
+# Use rails_12factor gem for production environment
+gem 'rails_12factor', group: :production
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

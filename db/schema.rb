@@ -10,7 +10,74 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161016110620) do
+ActiveRecord::Schema.define(version: 20161026215002) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "country"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.string   "image"
+    t.text     "description"
+    t.string   "author"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "top_post"
+    t.boolean  "valid_post"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.boolean  "yellow"
+    t.boolean  "red"
+    t.boolean  "green"
+    t.boolean  "blue"
+    t.boolean  "white"
+    t.boolean  "black"
+    t.boolean  "orange"
+    t.boolean  "gray"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "designs", force: :cascade do |t|
+    t.string   "image"
+    t.string   "image_desc"
+    t.string   "first_garment_model_design"
+    t.string   "first_garment_print_design"
+    t.string   "first_garment_technical_design"
+    t.string   "first_garment_desc"
+    t.string   "second_garment_model_design"
+    t.string   "second_garment_print_design"
+    t.string   "second_garment_technical_design"
+    t.string   "second_garment_desc"
+    t.string   "third_garment_model_design"
+    t.string   "third_garment_print_design"
+    t.string   "third_garment_technical_design"
+    t.boolean  "for_competition"
+    t.boolean  "for_sale"
+    t.decimal  "price"
+    t.string   "add_to"
+    t.boolean  "competition"
+    t.integer  "user_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "third_garment_desc"
+    t.string   "first_garment_design"
+    t.string   "second_garment_design"
+    t.string   "third_garment_design"
+    t.index ["user_id"], name: "index_designs_on_user_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -22,6 +89,46 @@ ActiveRecord::Schema.define(version: 20161016110620) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer  "quantity"
+    t.string   "size"
+    t.string   "color"
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_items_on_order_id"
+    t.index ["product_id"], name: "index_items_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "order_number"
+    t.string   "payment_method"
+    t.decimal  "total_amount"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.integer  "address_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["address_id"], name: "index_orders_on_address_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "main_image"
+    t.string   "first_thumnail"
+    t.string   "second_thumbnail"
+    t.string   "third_thumbnail"
+    t.decimal  "price"
+    t.string   "description"
+    t.string   "name"
+    t.integer  "color_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["color_id"], name: "index_products_on_color_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,9 +156,25 @@ ActiveRecord::Schema.define(version: 20161016110620) do
     t.string   "phone_number"
     t.string   "description"
     t.string   "slug"
+    t.string   "image_status"
+    t.string   "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string   "votable_type"
+    t.integer  "votable_id"
+    t.string   "voter_type"
+    t.integer  "voter_id"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
 end

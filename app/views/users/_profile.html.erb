@@ -3,11 +3,23 @@
    <!-- Account settings start -->
    <div class="account">
       <div class="account__avatar">
-         <img class="account__avatar-photo" src="<%= @user.image %>">
-         <div class="account__avatar-edit">Edit</div>
+         <% if @user.image_status == "upload" %>
+            <%= image_tag @user.avatar_url, class: "account__avatar-photo" %>
+         <% elsif @user.image != nil%>
+            <%= image_tag @user.image, class: "account__avatar-photo-facebook" %>
+         <% else  %>
+            <%= image_tag "default-user.png", class: "account__avatar-photo" %>
+         <% end %>
+         <div class="account__avatar-edit" id="edit-image">Upload Image</div>
+
+         <!-- Image Upload-->
+         <div id="upload-image">
+            <%= render "image_upload" %>
+         </div>
+         <!-- End Image Upload -->
       </div>
       	<!-- Account settings start -->
-	 	<%= render "edit_profile" %>
+	 	   <%= render "edit_profile" %>
 
          
          <div class="account__connect">

@@ -1,0 +1,66 @@
+$ver: '?v=' + '/* @echo VER */';			// Timestamp from Gulp for clear browser cache
+
+// paths
+$path: '..';
+$path_fonts: $path + '/fonts/';
+
+
+// grid main
+$g: 10px;									// Main grid step
+$g_space: 40px;								// Grid side step
+$g_layout: 1200px;                          // Page width
+$g_layout_min: 320px;						// Page width minimum
+$g_icon: 20px;								// Icon size
+
+
+// media
+$m_full: 1200px;							// Media for Full screen monitor
+$m_pad: 999px;								// Media for Tablet PC
+$m_fablet: 762px;							// Media for Fablets
+$m_smart: 600px;							// Media for Smartphones
+$m_phone: 480px;							// Media for small phones
+
+
+// colors
+$c_blue: #A2DEF7;                           // Blue
+$c_yellow: #F5B21B;                         // Yellow
+$c_orange: #E3762B;                         // Orange
+$c_orange_dark: #D46F30;                    // Orange Dark
+$c_red: #C03928;                            // Red
+$c_white: #fff;                             // White
+$c_grey: #CCCCCC;                           // Grey
+$c_grey_dark: #505050;                      // Dark grey
+$c_black: #000;                             // Black
+$c_text: #4C4C4C;                           // Text
+$c_text_light: #B2B2B2;                     // Text light
+$c_transparent: transparent;                // Transparent
+$c_radio_red: #A84D4D;                      // Radio button red
+$c_radio_blue: #4D7CA8;                     // Radio button blue
+
+
+// font-family
+$ff: 'Helvetica Neue', Helvetica, Arial, sans-serif;						     // main stack
+$ff_alt: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;      // alt stack
+$ff_alt2: 'Chalkboard', cursive, sans-serif;	                                 // alt2 stack
+$ff_title: 'MF I Love Glitter', 'Helvetica Neue', Helvetica, Arial, sans-serif;	 // title stack
+
+
+// font-size
+$fs_huge: 100px;                            // huge
+$fs_title: 50px;							// title
+$fs_larger: 30px;                           // larger text
+$fs_large: 24px;                            // large text
+$fs_heading: 18px;                          // heading
+$fs_button: 16px;
+$fs_subheading: 15px;                       // subheading
+$fs_body: 14px;                             // main size
+$fs_caption: 12px;                          // tiny size
+$fs_small: 10px;                            // tiny size
+
+
+// box shadow
+$bs: 1px 1px 4px rgba(0, 0, 0, .1);
+
+
+// animation speed
+$s: 0.15s;									// Main speed animation

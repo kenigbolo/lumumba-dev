@@ -1,14 +1,20 @@
 <% if current_user %>
-<h1 class="title_h1">My dashboard</h1>
-<p class="page-description">Welcome to your dashboard. You can set up your account, check your orders and manage your designs here.</p>
-<div class="columns">
-   <div class="columns__left-menu">
+	<div class="container" id="my_profile">
+		<h1 class="title_h1">My dashboard</h1>
+		<p class="page-description">Welcome to your dashboard. You can set up your account, check your orders and manage your designs here.</p>
 
-   <!-- Left menu start -->
-	<%= render "left_menu" %>
-	<!-- Left menu finish -->
+		<div class="columns">
+			<!-- Left menu start -->
+		 	<div class="columns__left-menu">
+					<%= render "left_menu" %>
+			</div>
+			<!-- Left menu finish -->	
 
-   </div>
-	<%= render "profile" %>
-</div>
+			<!-- Edit profile div start -->
+			<div id="account-settings">
+				<%= render "profile" %>
+		  </div>
+			<!-- Edit profile div end -->
+		</div>
+	</div>
 <% end %>

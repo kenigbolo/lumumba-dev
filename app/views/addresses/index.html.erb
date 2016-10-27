@@ -1,0 +1,22 @@
+<% if current_user %>
+  <div class="container" id="my_profile">
+    <h1 class="title_h1">My dashboard</h1>
+    <p class="page-description">Welcome to your dashboard. You can set up your account, check your orders and manage your designs here.</p>
+
+    <div class="columns">
+      <!-- Left menu start -->
+      <div class="columns__left-menu">
+          <%= render "/users/left_menu" %>
+      </div>
+      <!-- Left menu finish --> 
+
+      <!-- Render Add shipping addresss div start-->
+        <div  class="columns__content">
+          <div class="buttons_design">
+            <%= link_to "Add Shipping Address", new_address_path, class: "button button_blue"%>
+          </div>
+        </div>
+      <!-- Render Add shipping addresss div end -->
+    </div>
+  </div>
+<% end %>
