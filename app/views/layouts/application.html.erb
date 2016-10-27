@@ -62,7 +62,7 @@
                 <% end %>
 
                 <% if user_signed_in? %>
-                  <span><form action="" method="get"><input class="search" type="search" name="search" placeholder="Search..."></form></span>
+                  <span><form action="/users/" method="get"><input class="search" type="search" name="search" placeholder="Search..."></form></span>
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "header__personal-link header__personal-link_auth" %>
                 <% else %>
                   <%= link_to "Sign in", new_user_session_path, class: "header__personal-link header__personal-link_auth" %>

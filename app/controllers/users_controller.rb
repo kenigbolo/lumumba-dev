@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     if params[:search]
-      render plain: "OK Search is working"
+      @users = User.where("first_name LIKE ?", "%#{params[:search]}%").paginate(:page => params[:page], :per_page => 20)
     else
       @users = User.all.paginate(:page => params[:page], :per_page => 20)
     end
