@@ -9,7 +9,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.decimal :price
       t.string :description
       t.string :designer
-      t.boolean :preview
+      t.boolean :preview, default: false
 
       t.timestamps
     end
