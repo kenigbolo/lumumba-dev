@@ -188,7 +188,10 @@
     </div>
   </div><br>
   <!-- End of Model design upload view -->  
-  
+  <div>
+    <%= f.label :competition, 'Include Design in ongoing competition' %>
+    <%= f.check_box :competition, class: "form__input" %>
+  </div><br>
   <!-- Button -->
   <div class="wrapper">
     <%= f.submit "Save & Continue", class: "button button_blue"%>
@@ -198,4 +201,4 @@
 <% end %>
 
 <br>
-<%= link_to 'Back', designs_path, class: "button button_blue" %>
+<%= link_to 'Back', designs_path, class: "button-orange" %>
