@@ -1,0 +1,39 @@
+.header {
+  form {
+    display: inline;
+    .search {
+      float: left;
+      margin: 7px;
+      width: 140px;
+      height: 30px;
+      border: none;
+      padding: 11px 30px;
+      vertical-align: middle;
+      resize: none;
+      color: black;
+      background-image: url('search.svg');
+
+      background-repeat: no-repeat;
+      background-position: 5px 7.5px;
+      background-size: auto;
+      border-radius: 4.5px;
+      &::-webkit-input-placeholder {
+         color: black;
+      }
+
+      &:-moz-placeholder { /* Firefox 18- */
+         color: black;
+      }
+
+      &::-moz-placeholder {  /* Firefox 19+ */
+         color: black;
+      }
+
+      &:-ms-input-placeholder {
+         color: black;
+      }
+    }
+
+  }
+
+}
