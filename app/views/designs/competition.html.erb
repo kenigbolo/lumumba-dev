@@ -65,9 +65,9 @@
         <ul class="contestants__list">
             <% @designs.each do |design| %>
             <li class="contestants__item">
-                <a class="contestants__link" href="participant.html"><%= image_tag design.image.url.to_s, class: "contestants__photo"%></a>
+                <a class="contestants__link" href="/designs/<%= design.id %>"><%= image_tag design.image_url.to_s, class: "contestants__photo"%></a>
                 <div class="contestants__info">
-                    <div class="contestants__author">By <a class="contestants__author-link" href="/designs/<%= design.id %>"><%= design.user.first_name%></a></div>
+                    <div class="contestants__author">By <a class="contestants__author-link" href="/users/<%= design.user.slug %>"><%= design.user.first_name%></a></div>
                     <div class="contestants__action">
                         <svg width="22" height="20" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                             <title>Page 1</title>

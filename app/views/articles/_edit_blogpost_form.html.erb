@@ -25,6 +25,7 @@
   </p><br>
     <%= f.label :image, "Upload an image for your post"%>
     <%= f.file_field :image, class: "form__input" %>
+    <%= f.hidden_field :image_cache %>
   </p> <br>
   <p class="form__group">
     <%= f.submit "Post Blog", class: "button button_blue"%>

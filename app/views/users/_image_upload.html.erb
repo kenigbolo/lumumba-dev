@@ -1,6 +1,7 @@
 <%= form_for(resource, as: @user, url: registration_path(@user), html: { method: :put, class: "form account__form", multipart: true }) do |f| %>
  <%= devise_error_messages! %>
  <%= f.hidden_field :image_status, value: "upload" %>
+ <%= f.hidden_field :image_cache %>
  <p class="form__group">
   <%= f.file_field :avatar, class: "form__input" %>
  </p>
