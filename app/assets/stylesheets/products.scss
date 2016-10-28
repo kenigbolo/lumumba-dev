@@ -35,9 +35,11 @@
     background-repeat: no-repeat;
     height: 260px;
     background-position: center center;
+    a {
+      height: 260px;
+    }
     .product__description {
       position: absolute;
-      bottom: -70px;
       display: block;
     }
   }
