@@ -1,3 +1,44 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#product_show {
+  .product {
+    .product__preview-item {
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 150px;
+      width: 150px;
+      background-position: center center;
+    }
+    .product__photo-wrapper {
+      background-size: cover;
+      width:450px;
+      height:100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  }
+
+}
+
+#products_index {
+  .filter__wrapper {
+    select, a  {
+      font-size: 18px;
+    }
+    .filter__summary, .filter__droprown-title {
+      font-size: 16px;
+    }
+  }
+  .catalog__item {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 260px;
+    background-position: center center;
+    .product__description {
+      position: absolute;
+      bottom: -70px;
+      display: block;
+    }
+  }
+}

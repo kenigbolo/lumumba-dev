@@ -1,120 +1,126 @@
-<!-- Breadcrumbs start -->
-<div class="breadcrumbs">
-    <div class="breadcrumbs__wrapper">
-        <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;">Lumumba</a></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;">Shop</a></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;">Dresses</a></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;">Maxi dress - true blue</a></li>
-        </ul>
-    </div>
+<div id="product_show">
+  <!-- Breadcrumbs start -->
+  <div class="breadcrumbs">
+      <div class="breadcrumbs__wrapper">
+          <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;">Lumumba</a></li>
+              <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;">Shop</a></li>
+              <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;">Dresses</a></li>
+              <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;">Maxi dress - true blue</a></li>
+          </ul>
+      </div>
+  </div>
+  <!-- Breadcrumbs finish -->
+  <!-- Product start -->
+  <div class="product">
+      <div class="product__wrapper">
+          <div class="product__gallery">
+              <ul class="product__preview-list">
+                  <li class="product__preview-item" style="background-image: url(<%=  @product.first_thumbnail_url %>);"></li>
+                  <li class="product__preview-item" style="background-image: url(<%=  @product.second_thumbnail_url %>);"></li>
+                  <li class="product__preview-item" style="background-image: url(<%=  @product.third_thumbnail_url %>);"></li>
+              </ul>
+              <div class="product__photo-wrapper" style="background-image: url(<%=  @product.main_image_url %>);"></div>
+          </div>
+          <div class="product__info">
+              <div class="product__title"><%= @product.name %></div>
+              <div class="product__price">€ <%= @product.price %></div>
+              <dl class="product__param-list"><dt class="product__param-title">Color</dt>
+                  <dd class="product__param-value">
+                      <input class="product__input" type="radio" name="color" value="blue" checked="checked">
+                      <label class="product__label product__label_color product__label_blue"></label>
+                      <input class="product__input" type="radio" name="color" value="red">
+                      <label class="product__label product__label_color product__label_red"></label>
+                  </dd><dt class="product__param-title">Size</dt>
+                  <dd class="product__param-value">
+                      <input class="product__input" type="radio" name="size" value="s">
+                      <label class="product__label product__label">S</label>
+                      <input class="product__input" type="radio" name="size" value="m">
+                      <label class="product__label product__label">M</label>
+                      <input class="product__input" type="radio" name="size" value="l">
+                      <label class="product__label product__label">L</label>
+                      <input class="product__input" type="radio" name="size" value="xl">
+                      <label class="product__label product__label">XL</label>
+                  </dd>
+              </dl>
+              <p class="form__group product__quantity">
+                  <select class="form__select" name="quantity">
+                      <option value="1" selected="selected">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                  </select>
+              </p>
+              <div class="button button_blue">
+                <div class="button__icon">
+                    <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
+                        <title>Group 2</title>
+                        <g stroke="currentColor" fill="none" fill-rule="evenodd">
+                            <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
+                        </g>
+                    </svg>
+                </div><div class="button__text">Add to Shopping Cart</div>
+              </div>
+              <div class="product__desc-title">Description</div>
+              <p class="product__desc"><%= @product.description %></p>
+              <div class="product__social"><a class="product__social-link" href="https://www.facebook.com/XXX" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> </a><a class="product__social-link" href="https://twitter.com/XXX" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> </a><a class="product__social-link" href="https://plus.google.com/XXX" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> </a><a class="product__social-link" href="https://pinterest.com/XXX" target="_blank"><i class="fa fa-pinterest-p" aria-hidden="true"></i> </a><a class="product__social-link" href="https://www.instagram.com/XXX" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+          </div>
+      </div>
+  </div>
+  <!-- Product finish -->
+  <!-- Recommended products start -->
+  <hr>
+  <h2>Customers also bought</h2>
+  <div class="catalog">
+      <div class="catalog__wrapper">
+          <ul class="catalog__list">
+              <li class="catalog__item">
+                  <div class="catalog__to-cart">
+                      <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
+                          <title>Group 2</title>
+                          <g stroke="currentColor" fill="none" fill-rule="evenodd">
+                              <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
+                          </g>
+                      </svg>
+                  </div>
+                  <a class="catalog__link" href="javascript:;"><img class="catalog__photo" src="static/uploads/catalog_1.jpg?v=1466944291438"> <span class="catalog__name">Maxi Dress - True Black</span> <span class="catalog__price">$49.95</span></a>
+              </li>
+              <li class="catalog__item">
+                  <div class="catalog__to-cart">
+                      <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
+                          <title>Group 2</title>
+                          <g stroke="currentColor" fill="none" fill-rule="evenodd">
+                              <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
+                          </g>
+                      </svg>
+                  </div>
+                  <a class="catalog__link" href="javascript:;"><img class="catalog__photo" src="static/uploads/catalog_2.jpg?v=1466944291438"> <span class="catalog__name">T-Shirt Print - True Black</span> <span class="catalog__price">$29.95</span></a>
+              </li>
+              <li class="catalog__item">
+                  <div class="catalog__to-cart">
+                      <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
+                          <title>Group 2</title>
+                          <g stroke="currentColor" fill="none" fill-rule="evenodd">
+                              <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
+                          </g>
+                      </svg>
+                  </div>
+                  <a class="catalog__link" href="javascript:;"><img class="catalog__photo" src="static/uploads/catalog_3.jpg?v=1466944291438"> <span class="catalog__name">T-Shirt Print - Grey Heather</span> <span class="catalog__price">$34.95</span></a>
+              </li>
+              <li class="catalog__item">
+                  <div class="catalog__to-cart">
+                      <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
+                          <title>Group 2</title>
+                          <g stroke="currentColor" fill="none" fill-rule="evenodd">
+                              <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
+                          </g>
+                      </svg>
+                  </div>
+                  <a class="catalog__link" href="javascript:;"><img class="catalog__photo" src="static/uploads/catalog_4.jpg?v=1466944291438"> <span class="catalog__name">T-Shirt Print - Grey</span> <span class="catalog__price">$25.00</span></a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <!-- Recommended products finish -->
 </div>
-<!-- Breadcrumbs finish -->
-<!-- Product start -->
-<div class="product">
-    <div class="product__wrapper">
-        <div class="product__gallery">
-            <ul class="product__preview-list">
-                <li class="product__preview-item"><%= image_tag @product.first_thumbnail_url, 
-              :width => 100, :height => 150 %></li>
-                <li class="product__preview-item"><%= image_tag @product.second_thumbnail_url, 
-              :width => 100, :height => 150 %></li>
-                <li class="product__preview-item"><%= image_tag @product.third_thumbnail_url, 
-              :width => 100, :height => 150 %></li>
-            </ul>
-            <div class="product__photo-wrapper"><%= image_tag @product.main_image_url %></div>
-        </div>
-        <div class="product__info">
-            <div class="product__title"><%= @product.name %></div>
-            <div class="product__price">€ <%= @product.price %></div>
-            <dl class="product__param-list"><dt class="product__param-title">Color</dt>
-                <dd class="product__param-value">
-                    <input class="product__input" type="radio" name="color" value="blue" checked="checked">
-                    <label class="product__label product__label_color product__label_blue"></label>
-                    <input class="product__input" type="radio" name="color" value="red">
-                    <label class="product__label product__label_color product__label_red"></label>
-                </dd><dt class="product__param-title">Size</dt>
-                <dd class="product__param-value">
-                    <input class="product__input" type="radio" name="size" value="s">
-                    <label class="product__label product__label">S</label>
-                    <input class="product__input" type="radio" name="size" value="m">
-                    <label class="product__label product__label">M</label>
-                    <input class="product__input" type="radio" name="size" value="l">
-                    <label class="product__label product__label">L</label>
-                    <input class="product__input" type="radio" name="size" value="xl">
-                    <label class="product__label product__label">XL</label>
-                </dd>
-            </dl>
-            <p class="form__group product__quantity">
-                <select class="form__select" name="quantity">
-                    <option value="1" selected="selected">Qty: 1</option>
-                    <option value="2">Qty: 2</option>
-                    <option value="3">Qty: 3</option>
-                    <option value="4">Qty: 4</option>
-                    <option value="5">Qty: 5</option>
-                </select>
-            </p>
-            <div class="button button_blue">
-                <div class="button__text">Add to Bag</div>
-            </div>
-            <div class="product__desc-title">Description</div>
-            <p class="product__desc"><%= @product.description %></p>
-            <div class="product__social"><a class="product__social-link" href="https://www.facebook.com/XXX" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> </a><a class="product__social-link" href="https://twitter.com/XXX" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> </a><a class="product__social-link" href="https://plus.google.com/XXX" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> </a><a class="product__social-link" href="https://pinterest.com/XXX" target="_blank"><i class="fa fa-pinterest-p" aria-hidden="true"></i> </a><a class="product__social-link" href="https://www.instagram.com/XXX" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
-        </div>
-    </div>
-</div>
-<!-- Product finish -->
-<!-- Recommended products start -->
-<hr>
-<h2>Customers also bought</h2>
-<div class="catalog">
-    <div class="catalog__wrapper">
-        <ul class="catalog__list">
-            <li class="catalog__item">
-                <div class="catalog__to-cart">
-                    <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
-                        <title>Group 2</title>
-                        <g stroke="currentColor" fill="none" fill-rule="evenodd">
-                            <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
-                        </g>
-                    </svg>
-                </div>
-                <a class="catalog__link" href="javascript:;"><img class="catalog__photo" src="static/uploads/catalog_1.jpg?v=1466944291438"> <span class="catalog__name">Maxi Dress - True Black</span> <span class="catalog__price">$49.95</span></a>
-            </li>
-            <li class="catalog__item">
-                <div class="catalog__to-cart">
-                    <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
-                        <title>Group 2</title>
-                        <g stroke="currentColor" fill="none" fill-rule="evenodd">
-                            <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
-                        </g>
-                    </svg>
-                </div>
-                <a class="catalog__link" href="javascript:;"><img class="catalog__photo" src="static/uploads/catalog_2.jpg?v=1466944291438"> <span class="catalog__name">T-Shirt Print - True Black</span> <span class="catalog__price">$29.95</span></a>
-            </li>
-            <li class="catalog__item">
-                <div class="catalog__to-cart">
-                    <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
-                        <title>Group 2</title>
-                        <g stroke="currentColor" fill="none" fill-rule="evenodd">
-                            <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
-                        </g>
-                    </svg>
-                </div>
-                <a class="catalog__link" href="javascript:;"><img class="catalog__photo" src="static/uploads/catalog_3.jpg?v=1466944291438"> <span class="catalog__name">T-Shirt Print - Grey Heather</span> <span class="catalog__price">$34.95</span></a>
-            </li>
-            <li class="catalog__item">
-                <div class="catalog__to-cart">
-                    <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
-                        <title>Group 2</title>
-                        <g stroke="currentColor" fill="none" fill-rule="evenodd">
-                            <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
-                        </g>
-                    </svg>
-                </div>
-                <a class="catalog__link" href="javascript:;"><img class="catalog__photo" src="static/uploads/catalog_4.jpg?v=1466944291438"> <span class="catalog__name">T-Shirt Print - Grey</span> <span class="catalog__price">$25.00</span></a>
-            </li>
-        </ul>
-    </div>
-</div>
-<!-- Recommended products finish -->
