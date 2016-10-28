@@ -62,7 +62,7 @@
                 <% end %>
 
                 <% if user_signed_in? %>
-                  <span><form action="" method="get"><input class="search" type="search" name="search" placeholder="Search..."></form></span>
+                  <span><form action="/users/" method="get"><input class="search" type="search" name="search" placeholder="Search..."></form></span>
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "header__personal-link header__personal-link_auth" %>
                 <% else %>
                   <%= link_to "Sign in", new_user_session_path, class: "header__personal-link header__personal-link_auth" %>
@@ -158,7 +158,7 @@
                       </a>
                    </li>
                    <li class="nav__item">
-                      <a class="nav__link" href="#">
+                      <a class="nav__link" href="/products/">
                          <div class="nav__link-icon">
                             <svg width="41" height="41" viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg">
                                <title>Page 1</title>

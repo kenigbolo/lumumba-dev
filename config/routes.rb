@@ -6,15 +6,19 @@ Rails.application.routes.draw do
       put "like", to: "designs#upvote"
     end
   end
+  resources :products
   resources :articles
   resources :addresses
+
   root to: "home#index"
   get 'users/:id', to: 'users#show', as: :user
   get 'user/designs/', to: 'users#design', as: :user_designs
   get 'user/shipping-address/', to: 'users#address', as: :user_address
   get '/address/subregion_options', to: 'addresses#subregion_options'
   get '/competition', to: 'designs#competition'
-  get '/search', to: 'users#search'
+
+  get '/users', to: 'users#index', as: :users_default
+  get '/search', to: 'users#index'
   get '/profile', to: 'users#public_profile'
 
 end
