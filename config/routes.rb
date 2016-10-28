@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get '/address/subregion_options', to: 'addresses#subregion_options'
   get '/competition', to: 'designs#competition'
   get '/search', to: 'users#search'
+  get '/profile', to: 'users#public_profile'
+
 end

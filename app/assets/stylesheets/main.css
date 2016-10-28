@@ -1032,7 +1032,14 @@ hr {
 .dummy {
   position: relative;
   padding: 50px;
-  text-align: center; }
+  text-align: center;
+}
+
+@media screen and (max-width: 762px) {
+  .dummy, .dummy__wrapper {
+    padding:0;
+  }
+}
 
 .latest {
   position: relative;
