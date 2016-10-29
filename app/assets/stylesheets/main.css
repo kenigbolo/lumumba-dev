@@ -1,3 +1,7 @@
+.notice p, .alert p {
+  text-align: center;
+}
+
 .tether-element, .tether-element *, .tether-element :after, .tether-element :before, .tether-element:after, .tether-element:before {
   box-sizing: border-box; }
 
@@ -1181,7 +1185,7 @@ hr {
 
 .filter__droprown-title {
   display: inline-block;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   vertical-align: middle; }
 
@@ -1189,7 +1193,7 @@ hr {
   border: 0;
   background: none;
   padding: 0 30px 0 5px;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .05em;
@@ -1237,7 +1241,7 @@ hr {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   text-align: right; }
   @media screen and (max-width: 600px) {
@@ -2737,8 +2741,12 @@ hr {
 
 .account__avatar {
   margin-top: 40px;
-  width: 520px;
-  text-align: center; }
+  width: 250px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  height: 250px;
+  overflow: hidden;}
   @media screen and (max-width: 762px) {
     .account__avatar {
       width: 100%; } }
@@ -2747,7 +2755,14 @@ hr {
   display: block;
   margin: auto;
   height: 15em;
-  border-radius: 50%; }
+  border-radius: 50%;
+  background-image: url('default-user.png');
+  margin: auto;
+  width: 100%;
+  background-size: cover;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;}
 
 .account__avatar-edit {
   margin-top: 20px;

@@ -58,32 +58,40 @@ form:focus {
   margin-top:4em;
 
   li {
-    height:160px;
+    height:200px;
     margin-bottom:2em;
     border-bottom: 1px solid #e5e5e5;
+    .user-details{
+      display: inline-block;
+      margin-left: 5%;
+      margin-top: 5%;
+      position: absolute;
+    }
     .user-image-wrapper {
-      margin-top: 40px;
-
+      display: inline-block;
+      border-radius: 50%;
+      width:150px;
+      height: 150px;
+      overflow: hidden;
       .user-image{
+        background-image: url('default-user.png');
         margin: auto;
-        height:150px;
-        border-radius: 50%;
-        width: 150px;
+        width: 100%;
+        background-size: cover;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
 
       }
     }
     a {
-      margin-bottom: 40px;
-      padding: 25px 0;
+
       font-size: 18px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: .15em;
       color: #CCCCCC;
-      position: absolute;
-      height: 150px;
-      line-height: 113px;
-      margin-left: 30px;
+
       &:hover {
         color: #A2DEF7;
       }

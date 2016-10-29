@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   get '/search', to: 'users#index'
   get '/profile', to: 'users#public_profile'
 
+  get '/themes', to: 'home#themes'
+  get '/leaderboard', to: 'home#leaderboard'
+
 end
