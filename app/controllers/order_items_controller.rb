@@ -8,7 +8,8 @@ class OrderItemsController < ApplicationController
 		order = Order.where("status = ?", "open").first
 		amount = Product.find(params[:product_id]).price * item.quantity
 		if order.nil?
-			new_order = Order.create(user_id: current_user.id, status: "open", total_amount: amount)
+			address = confirm_shipping_info
+			new_order = current_user.orders.create(status: "open", total_amount: amount, address_id: address.id)
 			item_order_save(item, new_order, amount)
 		else
 			item_order_save(item, order, amount)
@@ -43,7 +44,17 @@ class OrderItemsController < ApplicationController
 			end
 		end
 
-		def calculate_vat (country)
+		def calculate_vat (address)
 
+		end
+
+		def confirm_shipping_info
+			address = Address.where("user_id = ?", current_user.id)
+			if address.empty?
+				address = Address.create(street_address: 'enter details', city: 'enter details', 
+					state: 'enter details', country: 'enter details', zip_code: 'enter details')
+			else
+				address = address.first
+			end
 		end
 end
