@@ -116,8 +116,6 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    has_secure_token (1.0.0)
-      activerecord (>= 3.0)
     hashie (3.4.6)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -321,7 +319,6 @@ DEPENDENCIES
   factory_girl_rails
   figaro
   friendly_id (~> 5.1.0)
-  has_secure_token
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

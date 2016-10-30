@@ -6,7 +6,6 @@ class Order < ApplicationRecord
   
   def set_default_values
     # Only set if total_amount and/or order_number IS NOT set
-    self.total_amount ||= 0.00
     self.order_number ||= SecureRandom.base58(24)
   end
 end

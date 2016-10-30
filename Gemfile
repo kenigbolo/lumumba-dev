@@ -50,8 +50,6 @@ gem 'carmen-rails', '~> 1.0.0'
 gem 'friendly_id', '~> 5.1.0'
 # Voteable Gem
 gem 'acts_as_votable', '~> 0.10.0'
-# Secure token for order_number
-gem 'has_secure_token'
 
 # Use rails_12factor gem for production environment
 gem 'rails_12factor', group: :production

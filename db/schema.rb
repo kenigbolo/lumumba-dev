@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161029235748) do
+ActiveRecord::Schema.define(version: 20161030091659) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street_address"
@@ -52,9 +52,6 @@ ActiveRecord::Schema.define(version: 20161029235748) do
     t.string   "third_garment_print_design"
     t.string   "third_garment_technical_design"
     t.boolean  "for_competition"
-    t.boolean  "for_sale"
-    t.decimal  "price"
-    t.string   "add_to"
     t.boolean  "competition"
     t.integer  "user_id"
     t.datetime "created_at",                      null: false

@@ -6,10 +6,12 @@ Rails.application.routes.draw do
       put "like", to: "designs#upvote"
     end
   end
-  resources :products
+  resources :products do
+    resources :order_items, only: [:create]
+  end
   resources :articles
   resources :addresses
-  resources :order_items, only: [:create]
+  
 
   root to: "home#index"
   get 'users/:id', to: 'users#show', as: :user
