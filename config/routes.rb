@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :products
   resources :articles
   resources :addresses
+  resources :order_items, only: [:create]
 
   root to: "home#index"
   get 'users/:id', to: 'users#show', as: :user
