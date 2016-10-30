@@ -74,7 +74,7 @@
   <%= simple_form_for @product.order_items.new, url: product_order_items_path(@product), html: {class: "form "} do |f| %>
     <%= f.collection_radio_buttons :color, [['red', 'Red'] ,['blue', 'Blue']], :first, :last, label: 'select a color please'%>
     <br>
-    <%= f.collection_radio_buttons :size, [['small', 'S'] ,['medium', 'M'], ['large', 'L'], ['x-large', 'XL']], :first, :last%>
+    <%= f.collection_radio_buttons :size, [['S', 'S'] ,['M', 'M'], ['L', 'L'], ['XL', 'XL']], :first, :last%>
     <br>
     <%= f.input :quantity, label: 'Select an amount' do %>
       <%= f.select :quantity, (1..5).each{ |quant| [quant] }%>

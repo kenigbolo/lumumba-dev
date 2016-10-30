@@ -3,4 +3,8 @@ class OrderItem < ApplicationRecord
   has_one :product
 
   validates :color, :quantity, :size, presence: true
+
+  def get_product
+  	Product.find(self.product_id)
+  end
 end

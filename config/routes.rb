@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   get '/leaderboard', to: 'home#leaderboard'
 
   post '/cart/checkout', to: 'order_items#checkout', as: :checkout
+  get '/cart', to: 'order_items#index', as: :cart
 
 end

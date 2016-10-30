@@ -1,11 +1,12 @@
 class OrderItemsController < ApplicationController
 	before_action :authenticate_user!
 	def index
+		@order = current_user.orders.where("status = ?", "open").first
 	end
 
 	def create
 		item = OrderItem.new(order_item_params)
-		order = Order.where("status = ?", "open").first
+		order = current_user.orders.where("status = ?", "open").first
 		amount = Product.find(params[:product_id]).price * item.quantity
 		if order.nil?
 			address = confirm_shipping_info
@@ -34,6 +35,7 @@ class OrderItemsController < ApplicationController
 			item.order_id = order.id
 			item.product_id = params[:product_id]
 			order.total_amount += amount
+			# order.vat = calculate_vat(order)
 			order.save
 			item.save
 
@@ -44,7 +46,7 @@ class OrderItemsController < ApplicationController
 			end
 		end
 
-		def calculate_vat (address)
+		def calculate_vat (order)
 
 		end
 
