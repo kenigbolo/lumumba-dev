@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :articles
   resources :addresses
+  resources :orders, only: [:show]
   
 
   root to: "home#index"
@@ -26,5 +27,7 @@ Rails.application.routes.draw do
 
   get '/themes', to: 'home#themes'
   get '/leaderboard', to: 'home#leaderboard'
+
+  post '/cart/checkout', to: 'order_items#checkout', as: :checkout
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030091659) do
+ActiveRecord::Schema.define(version: 20161030122204) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street_address"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20161030091659) do
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.decimal  "vat"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -111,6 +112,13 @@ ActiveRecord::Schema.define(version: 20161030091659) do
     t.boolean  "preview",          default: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+  end
+
+  create_table "taxes", force: :cascade do |t|
+    t.string   "country"
+    t.integer  "vat_rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

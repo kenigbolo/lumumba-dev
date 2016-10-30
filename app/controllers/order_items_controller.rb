@@ -1,5 +1,8 @@
 class OrderItemsController < ApplicationController
 	before_action :authenticate_user!
+	def index
+	end
+
 	def create
 		item = OrderItem.new(order_item_params)
 		order = Order.where("status = ?", "open").first
@@ -10,8 +13,11 @@ class OrderItemsController < ApplicationController
 		else
 			item_order_save(item, order, amount)
 		end
-		byebug
 		redirect_to products_path
+	end
+
+	def checkout
+
 	end
 
 	private
@@ -19,17 +25,25 @@ class OrderItemsController < ApplicationController
 			params.require(:order_item).permit(:quantity, :size, :color)
 		end
 
-		def item_order_save (item, order)
+		def order_params
+			params.permit(:id)
+		end
+
+		def item_order_save (item, order, amount)
 			item.order_id = order.id
 			item.product_id = params[:product_id]
 			order.total_amount += amount
 			order.save
 			item.save
 
-			if item.persits?
+			if item.persisted?
 				flash["notice"] = "Item successfully added to cart"
 			else
 				flash["notice"] = "Item could not be added to your cart, please try again"
 			end
+		end
+
+		def calculate_vat (country)
+
 		end
 end

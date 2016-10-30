@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Relationships with other models
   has_many :designs
   has_many :articles
+  has_many :addresses
   # Use friendly_id to generate user friendly urls
   extend FriendlyId
   friendly_id :first_name, use: [:slugged, :finders, :history]
