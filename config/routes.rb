@@ -22,14 +22,11 @@ Rails.application.routes.draw do
   get '/competition', to: 'designs#competition'
 
   get '/users', to: 'users#index', as: :users_default
-  get '/search', to: 'users#index'
-  get '/profile', to: 'users#public_profile'
-
   get '/themes', to: 'home#themes'
   get '/leaderboard', to: 'home#leaderboard'
 
   post '/checkout', to: 'orders#checkout', as: :checkout
-  post '/orders/shipping/:id', to: 'orders#shipping', as: :shipping
+  post 'orders/shipping/:id', to: 'orders#shipping', as: :shipping
   get 'orders/payment/:id', to: 'orders#payment', as: :payment
 
 end

@@ -1,4 +1,4 @@
-<% if current_user %>
+<% if current_user.id == @user.id %>
 <div class="dummy">
 	<div class="dummy__wrapper">
 		<div class="container" id="my_profile">
@@ -21,4 +21,6 @@
 		</div>
 	</div>
 </div>
+<% else %>
+	<%= render "public_profile" %>
 <% end %>
