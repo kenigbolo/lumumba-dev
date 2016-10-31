@@ -25,6 +25,7 @@ class User < ApplicationRecord
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
       user.location = auth.info.location
+      user.description = auth.info.about
       user.gender = auth.extra.raw_info.gender
       user.save
     end

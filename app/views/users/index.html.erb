@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <form action="/users/" method="get">
+  <form action="/users" method="get">
     <div class="bar">
       <input class="search-page" type="search" name="search" placeholder="Search...">
     </div>
@@ -20,7 +20,7 @@
 
   	    </div>
         <div class="user-details">
-          <a href="/users/<%= user.id%>"><%= user.first_name  %> <%= user.last_name  %> </a>
+          <a href="/users/<%= user.slug%>"><%= user.first_name  %> <%= user.last_name  %> </a>
         </div>
 
   	  </li>

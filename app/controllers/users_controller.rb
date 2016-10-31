@@ -11,6 +11,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.friendly.find(params[:id])
+    @designs = Design.where("user_id = ?", @user.id).paginate(:page => params[:page], :per_page => 6)
+    @articles = Article.where("user_id = ?", @user.id).paginate(:page => params[:page], :per_page => 3)
   end
 
   def design
