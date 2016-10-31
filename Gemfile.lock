@@ -43,6 +43,8 @@ GEM
     arel (7.1.4)
     aws_cf_signer (0.1.3)
     bcrypt (3.1.11)
+    braintree (2.68.1)
+      builder (>= 2.0.0)
     builder (3.2.2)
     byebug (9.0.6)
     capybara (2.10.1)
@@ -57,13 +59,13 @@ GEM
     carmen-rails (1.0.1)
       carmen (~> 1.0.0)
       rails
-    carrierwave (1.0.0.beta)
+    carrierwave (1.0.0.rc)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
-    cloudinary (1.2.3)
+    cloudinary (1.2.4)
       aws_cf_signer
       rest-client
     coderay (1.1.1)
@@ -306,6 +308,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable (~> 0.10.0)
+  braintree
   byebug
   capybara
   carmen-rails (~> 1.0.0)
