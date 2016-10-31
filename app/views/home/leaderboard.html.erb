@@ -6,7 +6,7 @@
             <!-- Left menu start -->
             <ul class="left-menu">
               <li class="left-menu__item">
-                  <a class="left-menu__link left-menu__link_selected"  href="trending_week.html" >
+                  <a class="left-menu__link left-menu__link_selected"  href="" >
                       <div class="left-menu__link-text">Trending This Week</div>
                       <div class="left-menu__link-arrow">
                           <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -17,7 +17,7 @@
                   </a>
               </li>
               <li class="left-menu__item">
-                  <a class="left-menu__link" href="leaderboard.html">
+                  <a class="left-menu__link" href="">
                       <div class="left-menu__link-text">Current Competition Leaders</div>
                       <div class="left-menu__link-arrow">
                           <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +28,7 @@
                   </a>
               </li>
               <li class="left-menu__item">
-                  <a class="left-menu__link" href="past_winners.html">
+                  <a class="left-menu__link" href="">
                       <div class="left-menu__link-text">Past Winners</div>
                       <div class="left-menu__link-arrow">
                           <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@
                   </a>
               </li>
               <li class="left-menu__item">
-                  <a class="left-menu__link" href="top_contributors.html">
+                  <a class="left-menu__link" href="">
                       <div class="left-menu__link-text">Top Lumumba Contributors</div>
                       <div class="left-menu__link-arrow">
                           <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +58,7 @@
             <ol class="top-designers">
               <% @designs.each do |design| %>
                 <li class="top-designers__item">
-                    <a class="top-designers__link" href="/designs/<%= design.id %>">
+                    <a class="top-designers__link" href="/users/<%= design.user.slug %>">
                         <div class="top-designers__project-wrapper">
                           <%= image_tag design.image_url, class: "top-designers__project" %>
                         </div>
@@ -75,7 +75,7 @@
 
                         <div class="top-designers__info">
                             <div class="top-designers__name"><%= design.user.first_name%> <%= design.user.last_name%></div>
-                            <div class="top-designers__location">Houston, TX</div>
+                            <div class="top-designers__location"><%= design.user.location %></div>
                             <div class="top-designers__location">Total Votes: <%= design.votes_for.size%></div>
                         </div>
                     </a>
