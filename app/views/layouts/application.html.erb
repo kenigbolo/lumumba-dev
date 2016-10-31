@@ -40,7 +40,7 @@
              <div class="header__personal">
                 <% if user_signed_in? %>
 
-                <a class="header__personal-link" href="javascript:;" target="_blank">
+                <a class="header__personal-link" href="/orders">
                    <div class="header__personal-icon">
                       <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
                          <title>Group 2</title>
@@ -95,7 +95,7 @@
                       </a>
                    </li>
                    <li class="nav__item">
-                      <a class="nav__link" href="#">
+                      <a class="nav__link" href="/themes">
                          <div class="nav__link-icon">
                             <svg width="35" height="42" viewBox="0 0 35 42" xmlns="http://www.w3.org/2000/svg">
                                <title>Page 1</title>
@@ -106,7 +106,7 @@
                       </a>
                    </li>
                    <li class="nav__item">
-                      <a class="nav__link" href="#">
+                      <a class="nav__link" href="/leaderboard">
                          <div class="nav__link-icon">
                             <svg width="41" height="41" viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                <title>Page 1</title>
@@ -176,15 +176,9 @@
        <!-- header finish -->
        <div class="layout__content">
           <!-- Dummy start -->
-          <div class="dummy">
-             <div class="dummy__wrapper">
-
-             	<p class="notice"><%= notice %></p>
-       			  <p class="alert"><%= alert %></p>
-
-             	<%= yield %>
-             </div>
-          </div>
+           	<p class="notice"><%= notice %></p>
+     			  <p class="alert"><%= alert %></p>
+            <%= yield %>
           <!-- Dummy finish -->
        </div>
        <!-- footer start -->

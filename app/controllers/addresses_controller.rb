@@ -20,7 +20,11 @@ class AddressesController < ApplicationController
 
 		if @address.persisted?
 			flash["notice"] = "Address successfully created"
-			redirect_to addresses_path
+			if request.referer == new_address_path
+				redirect_to addresses_path
+			else
+				redirect_to request.referer
+			end
 		else
 			render 'new'
 		end

@@ -31,7 +31,7 @@
 
   <p class="form__group">
     <%= f.label :state, "State/Province/County" %><br />
-    <%= render partial: 'subregion_select', locals: {parent_region: f.object.country} %>
+    <%= render partial: 'addresses/subregion_select', locals: {parent_region: f.object.country} %>
   </p> 
 
   <p class="form__group">
@@ -45,4 +45,4 @@
 <% end %>
 
 <br>
-<%= link_to 'Back', addresses_path, class: "button button_blue" %>
+<%= link_to 'Back', request.referer, class: "button button_blue" %>

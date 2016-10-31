@@ -1,0 +1,88 @@
+<div class="wrapper">
+    <h1 class="title_h1">Leaderboard</h1>
+    <p class="page-description">Discover who is who in the Lumumba community. Are you part of the competition? You can check here how many votes you have and how well you are doing.</p>
+    <div class="columns">
+        <div class="columns__left-menu">
+            <!-- Left menu start -->
+            <ul class="left-menu">
+              <li class="left-menu__item">
+                  <a class="left-menu__link left-menu__link_selected"  href="trending_week.html" >
+                      <div class="left-menu__link-text">Trending This Week</div>
+                      <div class="left-menu__link-arrow">
+                          <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fill 1</title>
+                              <path d="M8 7.38c.003.175-.08.33-.215.463l-2.162 2.16c-1.156 1.156-2.312 2.31-3.466 3.467-.14.14-.292.246-.5.246-.267 0-.508-.144-.6-.378-.104-.26-.068-.503.13-.706.287-.294.58-.58.87-.87C3.49 10.326 4.924 8.89 6.358 7.46c.098-.1.098-.1 0-.2-1.713-1.71-3.425-3.423-5.14-5.134-.128-.13-.212-.275-.215-.462-.005-.282.125-.482.372-.603.233-.113.515-.064.707.124.275.267.544.54.816.812l4.883 4.882c.135.134.22.288.217.5" stroke="currentColor" fill="currentColor" fill-rule="evenodd" />
+                          </svg>
+                      </div>
+                  </a>
+              </li>
+              <li class="left-menu__item">
+                  <a class="left-menu__link" href="leaderboard.html">
+                      <div class="left-menu__link-text">Current Competition Leaders</div>
+                      <div class="left-menu__link-arrow">
+                          <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fill 1</title>
+                              <path d="M8 7.38c.003.175-.08.33-.215.463l-2.162 2.16c-1.156 1.156-2.312 2.31-3.466 3.467-.14.14-.292.246-.5.246-.267 0-.508-.144-.6-.378-.104-.26-.068-.503.13-.706.287-.294.58-.58.87-.87C3.49 10.326 4.924 8.89 6.358 7.46c.098-.1.098-.1 0-.2-1.713-1.71-3.425-3.423-5.14-5.134-.128-.13-.212-.275-.215-.462-.005-.282.125-.482.372-.603.233-.113.515-.064.707.124.275.267.544.54.816.812l4.883 4.882c.135.134.22.288.217.5" stroke="currentColor" fill="currentColor" fill-rule="evenodd" />
+                          </svg>
+                      </div>
+                  </a>
+              </li>
+              <li class="left-menu__item">
+                  <a class="left-menu__link" href="past_winners.html">
+                      <div class="left-menu__link-text">Past Winners</div>
+                      <div class="left-menu__link-arrow">
+                          <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fill 1</title>
+                              <path d="M8 7.38c.003.175-.08.33-.215.463l-2.162 2.16c-1.156 1.156-2.312 2.31-3.466 3.467-.14.14-.292.246-.5.246-.267 0-.508-.144-.6-.378-.104-.26-.068-.503.13-.706.287-.294.58-.58.87-.87C3.49 10.326 4.924 8.89 6.358 7.46c.098-.1.098-.1 0-.2-1.713-1.71-3.425-3.423-5.14-5.134-.128-.13-.212-.275-.215-.462-.005-.282.125-.482.372-.603.233-.113.515-.064.707.124.275.267.544.54.816.812l4.883 4.882c.135.134.22.288.217.5" stroke="currentColor" fill="currentColor" fill-rule="evenodd" />
+                          </svg>
+                      </div>
+                  </a>
+              </li>
+              <li class="left-menu__item">
+                  <a class="left-menu__link" href="top_contributors.html">
+                      <div class="left-menu__link-text">Top Lumumba Contributors</div>
+                      <div class="left-menu__link-arrow">
+                          <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fill 1</title>
+                              <path d="M8 7.38c.003.175-.08.33-.215.463l-2.162 2.16c-1.156 1.156-2.312 2.31-3.466 3.467-.14.14-.292.246-.5.246-.267 0-.508-.144-.6-.378-.104-.26-.068-.503.13-.706.287-.294.58-.58.87-.87C3.49 10.326 4.924 8.89 6.358 7.46c.098-.1.098-.1 0-.2-1.713-1.71-3.425-3.423-5.14-5.134-.128-.13-.212-.275-.215-.462-.005-.282.125-.482.372-.603.233-.113.515-.064.707.124.275.267.544.54.816.812l4.883 4.882c.135.134.22.288.217.5" stroke="currentColor" fill="currentColor" fill-rule="evenodd" />
+                          </svg>
+                      </div>
+                  </a>
+              </li>
+            </ul>
+            <!-- Left menu finish -->
+        </div>
+        <div class="columns__content">
+            <h3 class="title_h3">Current Competition Leaders</h3>
+            <!-- Top designers start -->
+            <ol class="top-designers">
+              <% @designs.each do |design| %>
+                <li class="top-designers__item">
+                    <a class="top-designers__link" href="/designs/<%= design.id %>">
+                        <div class="top-designers__project-wrapper">
+                          <%= image_tag design.image_url, class: "top-designers__project" %>
+                        </div>
+
+                        <div class="top-designers__photo-wrapper">
+                          <% if design.user.image_status == "upload" %>
+                            <%= image_tag design.user.avatar_url, class: "top-designers__photo" %>
+                          <% elsif design.user.image != nil%>
+                            <%= image_tag design.user.image, class: "top-designers__photo" %>
+                          <% else  %>
+                            <%= image_tag "default-user.png", class: "top-designers__photo" %>
+                          <% end %>
+                        </div>
+
+                        <div class="top-designers__info">
+                            <div class="top-designers__name"><%= design.user.first_name%> <%= design.user.last_name%></div>
+                            <div class="top-designers__location">Houston, TX</div>
+                            <div class="top-designers__location">Total Votes: <%= design.votes_for.size%></div>
+                        </div>
+                    </a>
+                </li>
+              <% end %>
+            </ol>
+            <!-- Top designers finish -->
+        </div>
+    </div>
+</div>

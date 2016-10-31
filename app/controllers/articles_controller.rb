@@ -9,13 +9,13 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
-		@article = Article.new(article_params)
-		@article.user_id = current_user.id
-		@article.save
+		article = Article.new(article_params)
+		article.user_id = current_user.id
+		article.save
 
-		if @article.persisted?
+		if article.persisted?
 			flash["notice"] = "Post successfully created"
-			redirect_to @article
+			redirect_to article
 		else
 			render 'new'
 		end
@@ -26,10 +26,10 @@ class ArticlesController < ApplicationController
 	end
 
 	def update
-		@article = Article.find(params[:id])
+		article = Article.find(params[:id])
 
-		if @article.update(article_params)
-			redirect_to @article
+		if article.update(article_params)
+			redirect_to article
 		else
 			render 'edit'
 		end
@@ -43,9 +43,10 @@ class ArticlesController < ApplicationController
 	end
 
 	def destroy
-	  @article = Article.find(params[:id])
-	  if current_user.id == @article.user.id
-	  	@article.destroy
+	  article = Article.find(params[:id])
+	  if current_user.id == article.user.id
+	  	article.destroy
+	  	flash["notice"] = "successfully deleted this post"
 	  else
 	  	flash["notice"] = "You do not hae the permission to delete this post"	 
 	  end

@@ -1,24 +1,31 @@
-<form action="/users/" method="get">
-  <div class="bar">
-    <input class="search-page" type="search" name="search" placeholder="Search...">
-  </div>
-</form>
+<div class="wrapper">
+  <form action="/users/" method="get">
+    <div class="bar">
+      <input class="search-page" type="search" name="search" placeholder="Search...">
+    </div>
+  </form>
 
-<ul class="users-list">
-	<% @users.each do |user| %>
-	  <li>
-	    <span class="user-image-wrapper">
-	    	<% if user.image_status == "upload" %>
-	    		<%= image_tag user.avatar_url, class: "user-image" %>
-	    	<% elsif user.image != nil%>
-	    		<%= image_tag user.image, class: "user-image" %>
-	    	<% else %>
-	    		<%= image_tag "default-user.png", class: "user-image" %>
-	    	<% end %>
-	      <a href="/users/<%= user.id%>"> View Profile </a>
-	    </span>
-	  </li>
-  <% end %>
-</ul>
+  <ul class="users-list">
+  	<% @users.each do |user| %>
+  	  <li>
+  	    <div class="user-image-wrapper">
+  	    	<% if user.image_status == "upload" %>
+            <div class="user-image" style="background-image: url(<%=  user.avatar_url %>);"></div>
+  	    	<% elsif user.image != nil%>
+            <div class="user-image" ></div>
+  	    	<% else %>
+          <div class="user-image" ></div>
 
-<%= will_paginate @users %>
+  	    	<% end %>
+
+  	    </div>
+        <div class="user-details">
+          <a href="/users/<%= user.id%>"><%= user.first_name  %> <%= user.last_name  %> </a>
+        </div>
+
+  	  </li>
+    <% end %>
+  </ul>
+
+  <%= will_paginate @users %>
+</div>

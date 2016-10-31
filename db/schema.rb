@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027124553) do
+ActiveRecord::Schema.define(version: 20161030124102) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street_address"
@@ -52,9 +52,6 @@ ActiveRecord::Schema.define(version: 20161027124553) do
     t.string   "third_garment_print_design"
     t.string   "third_garment_technical_design"
     t.boolean  "for_competition"
-    t.boolean  "for_sale"
-    t.decimal  "price"
-    t.string   "add_to"
     t.boolean  "competition"
     t.integer  "user_id"
     t.datetime "created_at",                      null: false
@@ -78,6 +75,34 @@ ActiveRecord::Schema.define(version: 20161027124553) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "quantity"
+    t.string   "size"
+    t.string   "color"
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "order_number"
+    t.string   "payment_method"
+    t.decimal  "total_amount"
+    t.string   "status"
+    t.integer  "user_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.decimal  "vat"
+    t.integer  "shipping"
+    t.string   "transaction_id"
+    t.decimal  "sub_total",      default: "0.0"
+    t.decimal  "shipping_cost",  default: "0.0"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.string   "main_image"
@@ -90,6 +115,13 @@ ActiveRecord::Schema.define(version: 20161027124553) do
     t.boolean  "preview",          default: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+  end
+
+  create_table "taxes", force: :cascade do |t|
+    t.string   "country"
+    t.decimal  "vat_rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -119,6 +151,7 @@ ActiveRecord::Schema.define(version: 20161027124553) do
     t.string   "slug"
     t.string   "image_status"
     t.string   "avatar"
+    t.string   "location"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true
