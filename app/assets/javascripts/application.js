@@ -17,12 +17,18 @@
 // require cloudinary/processing // Optional - client side processing (resizing and validation)
 //= require_tree .
 
-
 $(document).ready(function(){
+	$('#new_address_form').hide();
+	
 	$('#new-form-display').click(function() {
 	  $('#small-description').hide();
 	  $('#hidden-design-form').show();
-	});	
+	});
+
+	$('#new-form').click(function() {
+	  $('#addresses').hide();
+	  $('#new_address_form').show();
+	});			
 
 	$(function() {
 	  return $('select#address_country').change(function(event) {

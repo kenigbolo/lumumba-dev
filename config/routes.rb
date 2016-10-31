@@ -6,9 +6,13 @@ Rails.application.routes.draw do
       put "like", to: "designs#upvote"
     end
   end
-  resources :products
+  resources :products do
+    resources :order_items, only: [:create, :destroy]
+  end
   resources :articles
   resources :addresses
+  resources :orders, only: [:index, :show]
+  
 
   root to: "home#index"
   get 'users/:id', to: 'users#show', as: :user
@@ -23,5 +27,9 @@ Rails.application.routes.draw do
 
   get '/themes', to: 'home#themes'
   get '/leaderboard', to: 'home#leaderboard'
+
+  post '/checkout', to: 'orders#checkout', as: :checkout
+  post '/orders/shipping/:id', to: 'orders#shipping', as: :shipping
+  get 'orders/payment/:id', to: 'orders#payment', as: :payment
 
 end

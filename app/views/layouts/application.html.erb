@@ -40,7 +40,7 @@
              <div class="header__personal">
                 <% if user_signed_in? %>
 
-                <a class="header__personal-link" href="javascript:;" target="_blank">
+                <a class="header__personal-link" href="/orders">
                    <div class="header__personal-icon">
                       <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
                          <title>Group 2</title>
@@ -176,13 +176,9 @@
        <!-- header finish -->
        <div class="layout__content">
           <!-- Dummy start -->
-
-
-             	<p class="notice"><%= notice %></p>
-       			  <p class="alert"><%= alert %></p>
-
-             	<%= yield %>
-
+           	<p class="notice"><%= notice %></p>
+     			  <p class="alert"><%= alert %></p>
+            <%= yield %>
           <!-- Dummy finish -->
        </div>
        <!-- footer start -->

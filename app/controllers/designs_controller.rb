@@ -59,7 +59,6 @@ class DesignsController < ApplicationController
 	end
 
 	def upvote
-		byebug
 	  design = Design.find(params[:id])
 	  unless current_user.voted_for?  design
 	  	design.upvote_by current_user
@@ -73,6 +72,7 @@ class DesignsController < ApplicationController
 	    params.require(:design).permit(:image, :image_desc, :first_garment_desc,:second_garment_desc,
 	    	:third_garment_desc,:first_garment_print_design,:second_garment_print_design,:third_garment_print_design,
 	    	:first_garment_design,:second_garment_design,:third_garment_design, :first_garment_model_design,
-	    	:second_garment_model_design,:third_garment_model_design,:compeition)
+	    	:second_garment_model_design,:third_garment_model_design,:competition, :first_garment_technical_design,
+	    	:second_garment_technical_design, :third_garment_technical_design)
 	  end
 end

@@ -6,7 +6,7 @@
               <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;">Lumumba</a></li>
               <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;">Shop</a></li>
               <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;">Dresses</a></li>
-              <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;">Maxi dress - true blue</a></li>
+              <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="javascript:;"><%= @product.name %></a></li>
           </ul>
       </div>
   </div>
@@ -69,6 +69,20 @@
       </div>
   </div>
   <!-- Product finish -->
+
+  <!-- Test form for payment integration -->
+  <%= simple_form_for @product.order_items.new, url: product_order_items_path(@product), html: {class: "form "} do |f| %>
+    <%= f.collection_radio_buttons :color, [['red', 'Red'] ,['blue', 'Blue']], :first, :last, label: 'select a color please'%>
+    <br>
+    <%= f.collection_radio_buttons :size, [['S', 'S'] ,['M', 'M'], ['L', 'L'], ['XL', 'XL']], :first, :last%>
+    <br>
+    <%= f.input :quantity, label: 'Select an amount' do %>
+      <%= f.select :quantity, (1..5).each{ |quant| [quant] }%>
+    <% end %><br>
+    <%= f.button :submit %>
+  <% end %>
+  <!-- Test form finish -->
+
   <!-- Recommended products start -->
   <hr>
   <h2>Customers also bought</h2>
@@ -85,39 +99,6 @@
                       </svg>
                   </div>
                   <a class="catalog__link" href="javascript:;"><img class="catalog__photo" src="static/uploads/catalog_1.jpg?v=1466944291438"> <span class="catalog__name">Maxi Dress - True Black</span> <span class="catalog__price">$49.95</span></a>
-              </li>
-              <li class="catalog__item">
-                  <div class="catalog__to-cart">
-                      <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
-                          <title>Group 2</title>
-                          <g stroke="currentColor" fill="none" fill-rule="evenodd">
-                              <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
-                          </g>
-                      </svg>
-                  </div>
-                  <a class="catalog__link" href="javascript:;"><img class="catalog__photo" src="static/uploads/catalog_2.jpg?v=1466944291438"> <span class="catalog__name">T-Shirt Print - True Black</span> <span class="catalog__price">$29.95</span></a>
-              </li>
-              <li class="catalog__item">
-                  <div class="catalog__to-cart">
-                      <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
-                          <title>Group 2</title>
-                          <g stroke="currentColor" fill="none" fill-rule="evenodd">
-                              <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
-                          </g>
-                      </svg>
-                  </div>
-                  <a class="catalog__link" href="javascript:;"><img class="catalog__photo" src="static/uploads/catalog_3.jpg?v=1466944291438"> <span class="catalog__name">T-Shirt Print - Grey Heather</span> <span class="catalog__price">$34.95</span></a>
-              </li>
-              <li class="catalog__item">
-                  <div class="catalog__to-cart">
-                      <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
-                          <title>Group 2</title>
-                          <g stroke="currentColor" fill="none" fill-rule="evenodd">
-                              <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
-                          </g>
-                      </svg>
-                  </div>
-                  <a class="catalog__link" href="javascript:;"><img class="catalog__photo" src="static/uploads/catalog_4.jpg?v=1466944291438"> <span class="catalog__name">T-Shirt Print - Grey</span> <span class="catalog__price">$25.00</span></a>
               </li>
           </ul>
       </div>

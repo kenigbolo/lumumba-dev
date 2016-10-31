@@ -50,6 +50,8 @@ gem 'carmen-rails', '~> 1.0.0'
 gem 'friendly_id', '~> 5.1.0'
 # Voteable Gem
 gem 'acts_as_votable', '~> 0.10.0'
+# Add Braintree gem for payment processing
+gem 'braintree'
 
 # Use rails_12factor gem for production environment
 gem 'rails_12factor', group: :production
