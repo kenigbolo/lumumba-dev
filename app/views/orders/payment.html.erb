@@ -5,24 +5,10 @@
 <% else %>
   <div class="wrapper">
     <div class="width-70">
-      <h1 class="title_h1_checkout">Delivery address</h1>
       <div style="margin-top:40px;"></div>
-      <% if @address.nil? %>
-        <p id="fontSize" > You have no shiping address for this order </p>
-      <% else %>
-        <div id="addresses">
-          <p id="fontSize" > Street: <%= @address.street_address %> </p>
-          <p id="fontSize" > City: <%= @address.city %> </p>
-          <p id="fontSize" > State: <%= @address.state %> </p>
-          <p id="fontSize" > Zip Code: <%= @address.zip_code %> </p>
-          <p id="fontSize" > Country: <%= @address.country %> </p>
-        </div>  
-          <div class="clearfix"></div>
-          <hr id="hrC">
-      <% end %>
       <div style="margin-top:60px;"></div>
 
-      <div class="width-30">
+      <div>
         <h1 class="title_h1_checkout">Shopping cart</h1>
         <div style="margin-top:20px;"></div>
         <p id="fontSize" >Your order overview</p>
@@ -70,10 +56,10 @@
         
         <% if @order.shipping != nil %>
           <div style="margin-top:60px;"></div><br>
-          <form id="checkout" method="post" action="orders/checkout">
+          <form id="checkout" method="post" action="/checkout">
             <div id="payment-form"></div>
-            <input id="order" name="order" type="tel" value="<%= @order.id %>">
-            <input type="submit" value="Pay € <%= @order.total_amount %>">
+            <input id="order" name="order" type="tel" value="<%= @order.id %>" hidden="true">
+            <input type="submit" value="Pay € <%= @order.total_amount %>" class="button button_orange button_principal">
           </form>          
         <% end %>
       </div>

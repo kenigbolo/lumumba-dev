@@ -6,8 +6,9 @@ class OrdersController < ApplicationController
 	Braintree::Configuration.merchant_id = ENV["BRAINTREE_MERCHANT_ID"]
 	Braintree::Configuration.public_key = ENV["BRAINTREE_PUBLIC_KEY"]
 	Braintree::Configuration.private_key = ENV["BRAINTREE_PRIVATE_KEY"]
-
+ 
 	before_action :authenticate_user!
+	skip_before_action :verify_authenticity_token
 
 	def index
 		@order = current_user.orders.where("status = ?", "open").first
@@ -40,13 +41,13 @@ class OrdersController < ApplicationController
     nonce = params["payment_method_nonce"]
     
     result = Braintree::Transaction.sale(
-      amount: order.total_amount,
+      amount: order.total_amount.round(2).to_s,
       payment_method_nonce: nonce,
       :options => {
         :submit_for_settlement => true
       }
     )
-
+    byebug
     if result.success? || result.transaction
       order.transaction_id = result.transaction.id
       order.save
