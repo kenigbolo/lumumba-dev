@@ -55,23 +55,24 @@
       <% if @articles.empty? %>
         <p> This user has no blogpost available </p>
       <% else %>
-      <ul>
-        <% @articles.each do |article| %>
-        <li>
-          <a href="">
-            <%= image_tag "article.image.url", class: "image" %>
-          </a>
-          <div class="blog-description">
-            <h4><%= article.title %></h4>
-            <span>By<a href=""><%= @user.last_name %> <%= @user.first_name %></a> · </span>  
-            <span><%= article.created_at.strftime("%dth-%B-%Y")%></span>
-            <p> <%= article.description[0,100]%>...   <a href="articles/<%= article.id %>" class="read-more">Continue reading »</a></p>
+        <ul>
+          <% @articles.each do |article| %>
+            <li>
+              <a href="">
+                <%= image_tag "article.image.url", class: "image" %>
+              </a>
+              <div class="blog-description">
+                <h4><%= article.title %></h4>
+                <span>By<a href=""><%= @user.last_name %> <%= @user.first_name %></a> · </span>  
+                <span><%= article.created_at.strftime("%dth-%B-%Y")%></span>
+                <p> <%= article.description[0,100]%>...   <a href="articles/<%= article.id %>" class="read-more">Continue reading »</a></p>
 
-          </div>
-        </li>
-        <% end %>
-      </ul>
+              </div>
+            </li>
+          <% end %>
+        </ul>
       <% end %>
+      <%= will_paginate @articles %>
     </section>
   </div>
 </div>
