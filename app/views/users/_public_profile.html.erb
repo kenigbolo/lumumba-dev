@@ -39,8 +39,8 @@
             <% @designs.each do |design| %>
               <li>
                 <a href="/user/designs">
-                  <%= image_tag "design.image.url", class: "design-image" %>
-                </a> 
+                   <div class="design-image" style="background-image: url(<%= design.image.url %>);"></div>
+                </a>
                 <a href="/designs/<%= design.id%>">#1</a>
               </li>
             <% end %>
@@ -59,11 +59,11 @@
           <% @articles.each do |article| %>
             <li>
               <a href="">
-                <%= image_tag "article.image.url", class: "image" %>
+                <div class="image" style="background-image: url(<%= article.image.url %>);"></div>
               </a>
               <div class="blog-description">
                 <h4><%= article.title %></h4>
-                <span>By<a href=""><%= @user.last_name %> <%= @user.first_name %></a> · </span>  
+                <span>By<a href=""><%= @user.last_name %> <%= @user.first_name %></a> · </span>
                 <span><%= article.created_at.strftime("%dth-%B-%Y")%></span>
                 <p> <%= article.description[0,100]%>...   <a href="articles/<%= article.id %>" class="read-more">Continue reading »</a></p>
 
