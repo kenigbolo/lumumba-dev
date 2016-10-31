@@ -93,11 +93,12 @@ ActiveRecord::Schema.define(version: 20161030124102) do
     t.decimal  "total_amount"
     t.string   "status"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.decimal  "vat"
-    t.integer  "address_id"
-    t.index ["address_id"], name: "index_orders_on_address_id"
+    t.integer  "shipping"
+    t.decimal  "sub_total",      default: "0.0"
+    t.decimal  "shipping_cost",  default: "0.0"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -117,7 +118,7 @@ ActiveRecord::Schema.define(version: 20161030124102) do
 
   create_table "taxes", force: :cascade do |t|
     t.string   "country"
-    t.integer  "vat_rate"
+    t.decimal  "vat_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

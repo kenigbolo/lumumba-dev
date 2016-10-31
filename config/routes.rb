@@ -7,11 +7,11 @@ Rails.application.routes.draw do
     end
   end
   resources :products do
-    resources :order_items, only: [:create]
+    resources :order_items, only: [:create, :destroy]
   end
   resources :articles
   resources :addresses
-  resources :orders, only: [:show]
+  resources :orders, only: [:index, :show]
   
 
   root to: "home#index"
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get '/themes', to: 'home#themes'
   get '/leaderboard', to: 'home#leaderboard'
 
-  post '/cart/checkout', to: 'order_items#checkout', as: :checkout
-  get '/cart', to: 'order_items#index', as: :cart
+  post '/orders/checkout', to: 'orders#checkout', as: :checkout
+  post '/orders/shipping/:id', to: 'orders#shipping', as: :shipping
 
 end
