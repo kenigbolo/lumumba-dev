@@ -1,16 +1,3 @@
-<!-- <div class="container">
-	<% if user_signed_in? %>
-		<p>Logged in as <strong><%= current_user.email %></strong></p>
-		<%= link_to "Edit Profile", edit_user_registration_path %> |
-		<%= link_to "Logout", destroy_user_session_path, method: :delete %>
-	<% else %>
-		<%= link_to "Sign up", new_user_registration_path %> |
-		<%= link_to "Login", new_user_session_path %>
-	<% end %>
-</div>
-
-<a class="header__personal-link header__personal-link_auth" href="<%= new_user_session_path %>" target="_blank">Sign in </a>
-<a class="header__personal-link header__personal-link_auth" href="<%= new_user_registration_path %>" target="_blank">Sign up</a> -->
 <%= render 'designs/countdown' %>
 <section id="sign-in">
 
@@ -27,7 +14,7 @@
         <p class="page-description_social">By signing up you agree to the <a href="#"> Terms of Services</a> and <a href="#">Privacy Policy</a> </p>
       <!-- End Section tittle -->
       <!-- START Botones sociales -->
-      <a href="/">
+      <a href="/users/auth/facebook">
         <div class="button-social facebook">
         <i class="fa fa-facebook" aria-hidden="true"></i> <spam class="social-text">Sign up using Facebook</spam>
       </div>
@@ -78,7 +65,7 @@
       <div class="call-to-action__wrapper">
           <div class="call-to-action__title">The Competition is Live Now.</div>
           <div class="call-to-action__text">Want to join the Lumumba tribe? Get inspired by the Banjara and create a street fashion outfit for the competition.</div>
-          <a href="" class="button ">
+          <a href="/designs" class="button ">
               <div class="button__text">Become a Designer</div>
           </a>
       </div>
