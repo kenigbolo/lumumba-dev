@@ -52,7 +52,6 @@ class OrdersController < ApplicationController
       order.transaction_id = result.transaction.id
       order.status = result.transaction.status
       order.save
-      flash[:notice] = "Thank you for your purchase. We will be shipping your order soon"
     else
       error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
       flash[:error] = error_messages

@@ -2642,7 +2642,9 @@ hr {
       margin-bottom: 20px; } }
 
 .top-designers__project {
-  display: block; }
+  display: block;  
+  width: 124px;
+  height: 179px; }
 
 .top-designers__photo-wrapper {
   margin-right: 20px; }
@@ -2652,7 +2654,10 @@ hr {
       margin-bottom: 20px; } }
 
 .top-designers__photo {
-  display: block; }
+  display: block; 
+  width: 52px;
+  height: 52px; 
+  border-radius: 50%;}
 
 .top-designers__name {
   letter-spacing: .05em;
