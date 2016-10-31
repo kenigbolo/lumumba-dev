@@ -8,17 +8,20 @@
 
 section#sign-in {
   padding: 30px 60px;
-  background: #A2DEF7 url('winner_bg.png') center center no-repeat;
-  color: white;
+  background: white url('home_bg.png') center center no-repeat;
+  color: #a2def7;
   font-size: 18px;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 80px;
   position: relative;
   overflow: hidden;
-  color:white;
+  .page-description{
+    color: white;
+  }
   h1 {
-    color:white;
+    margin-top: 0;
+    color:#a2def7;
   }
   .column {
     display: flex;
