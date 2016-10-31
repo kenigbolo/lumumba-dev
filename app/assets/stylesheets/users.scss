@@ -146,10 +146,14 @@ form:focus {
       height: 180px;
       overflow: hidden;
       margin: 30px auto 0;
-      img {
+      .user-image {
         width: 180px;
         height: 180px;
         border-radius: 0px;
+        background-image: url('default-user.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
       }
     }
   }
@@ -161,11 +165,22 @@ form:focus {
       flex-wrap: wrap;
       padding:0;
       li {
-        flex: 1 1 33%;
-        margin:30px 0;
-        .design-image {
-          width: 80%;
+        flex: 1 1 29%;
+        margin: 30px 15px;
+        a:first-child {
+          width: 200px;
+          height: 200px;
+          .design-image {
+            width: 80%;
+            height: 300px;
+            margin: 0 auto;
+            background-image: url('design.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+          }
         }
+
 
         a:nth-child(2) {
           display: block;
@@ -197,7 +212,13 @@ form:focus {
           flex: 1 1 25%;
           margin:30px 0;
           .image {
-            width: 50%;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            background-image: url('design.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
           }
           @media screen and (max-width: 762px) {
             flex: 1 1 100%;

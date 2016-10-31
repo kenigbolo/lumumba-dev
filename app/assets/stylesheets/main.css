@@ -482,13 +482,13 @@ textarea {
 
 @font-face {
   font-family: 'MF I Love Glitter';
-  src: url("../static/fonts/mf_i_love_glitter.woff2") format("woff2"), url("../static/fonts/mf_i_love_glitter.woff") format("woff");
+  src: url("fonts/mf_i_love_glitter.woff2") format("woff2"), url("fonts/mf_i_love_glitter.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Chalkboard';
-  src: url("../static/fonts/chalkboard.woff2") format("woff2"), url("../static/fonts/chalkboard.woff") format("woff");
+  src: url("fonts/chalkboard.woff2") format("woff2"), url("fonts/chalkboard.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -1047,8 +1047,11 @@ hr {
 
 .latest {
   position: relative;
-  background: #E3762B url("../static/images/latest_bg.png") center top no-repeat;
-  overflow: hidden; }
+  background: #E3762B url("latest_bg.png") center top no-repeat;
+  overflow: hidden;
+  padding: 30px 60px;
+  padding-bottom:100px;
+}
 
 .latest__title {
   margin: 60px 0 40px;
@@ -1061,7 +1064,7 @@ hr {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 762px) {
     .latest__tile-list {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
@@ -1069,23 +1072,47 @@ hr {
               flex-direction: column; } }
 
 .latest__tile {
+
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
   margin: 0; }
 
 .latest__tile:nth-child(2) {
   margin-left: 40px; }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 762px) {
     .latest__tile:nth-child(2) {
       margin-left: 0; } }
 
 .latest__video {
   width: 100%; }
 
-.latest__image {
-  display: block;
-  width: 100%; }
+  .wrapper__image {
+    width:100%;
+    height: 560px;
+  }
+
+  @media screen and (max-width: 762px) {
+    .wrapper__image {
+    width: 100%;
+    height: 430px;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .wrapper__image {
+    width: 100%;
+    height: 330px;
+    }
+  }
+
+  .latest__image {
+    height: 100%;
+    width: 100%;
+    background-image: url('latest_1.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
 
 .latest__caption {
   margin: 40px 0;
@@ -1110,7 +1137,7 @@ hr {
 .winner {
   position: relative;
   margin-bottom: 80px;
-  background: #F5B21B url("../static/images/winner_bg.png") center bottom no-repeat;
+  background: #F5B21B url("winner_bg.png") center bottom no-repeat;
   overflow: hidden; }
 
 .winner__wrapper {
@@ -1200,7 +1227,7 @@ hr {
   color: #A2DEF7; }
 
 .filter__droprown-select + .select-target b {
-  background: url("../static/icons/filter-arrow.svg") center center no-repeat;
+  background: url("filter-arrow.svg") center center no-repeat;
   -webkit-transition: -webkit-transform 0.15s;
   transition: -webkit-transform 0.15s;
   transition: transform 0.15s;
@@ -1230,12 +1257,12 @@ hr {
 
 .select.select-type-filter .select-options .select-option.select-option-selected:before {
   content: '';
-  background: url("../static/icons/filter-selected.svg") center center no-repeat; }
+  background: url("filter-selected.svg") center center no-repeat; }
 
 .select.select-type-filter .select-options .select-option:hover.select-option-selected:before,
 .select.select-type-filter .select-options .select-option.select-option-highlight.select-option-selected:before {
   content: '';
-  background: url("../static/icons/filter-selected-hover.svg") center center no-repeat; }
+  background: url("filter-selected-hover.svg") center center no-repeat; }
 
 .filter__summary {
   -webkit-box-flex: 1;
@@ -1558,7 +1585,7 @@ hr {
   min-height: 120px;
   padding-top: 30px;
   padding-bottom: 30px;
-  background: url("../static/images/countdown_bg.png") 75% 0 no-repeat;
+  background: url("countdown_bg.png") 75% 0 no-repeat;
   text-align: center;
   overflow: hidden; }
 
@@ -1591,7 +1618,7 @@ hr {
   position: relative;
   margin-top: 40px;
   margin-bottom: 60px;
-  background: #A2DEF7 url("../static/images/call-to-action_bg.png") center center no-repeat;
+  background: #A2DEF7 url("call-to-action_bg.png") center center no-repeat;
   overflow: hidden; }
 
 .call-to-action__wrapper {
@@ -1879,7 +1906,7 @@ hr {
   display: block;
   max-width: 100%;
   font-family: "MF I Love Glitter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 50px;
+  font-size: 36px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2054,7 +2081,7 @@ hr {
 .top-post {
   position: relative;
   margin-bottom: 80px;
-  background: #F5B21B url("../static/images/top-post_bg.png") center top no-repeat;
+  background: #F5B21B url("top-post_bg.png") center top no-repeat;
   overflow: hidden; }
 
 .top-post__wrapper {
