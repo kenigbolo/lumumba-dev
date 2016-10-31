@@ -84,7 +84,7 @@
     
     <% if @order.shipping != nil %>
     <div style="margin-top:60px;"></div><br>
-    <a href="#" class="button button_orange button_principal">
+    <a href="orders/payment/<%= @order.id %>" class="button button_orange button_principal">
       <div class="button__text">Checkout</div> 
     </a>
     <% end %>

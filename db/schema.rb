@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20161030124102) do
     t.datetime "updated_at",                     null: false
     t.decimal  "vat"
     t.integer  "shipping"
+    t.string   "transaction_id"
     t.decimal  "sub_total",      default: "0.0"
     t.decimal  "shipping_cost",  default: "0.0"
     t.index ["user_id"], name: "index_orders_on_user_id"
