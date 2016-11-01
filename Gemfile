@@ -23,6 +23,8 @@ gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application fast
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'uglifier', '~> 3' # Use Uglifier as compressor for JavaScript assets
 gem 'kaminari', '~> 0.17' # Gem for Rails 3+, Sinatra, and Merb Pagination
+gem 'rollbar'
+gem 'oj', '~> 2.12'
 
 group :production do
   gem 'pg', '0.18.1', group: :production # Use pg as the database for Active Record [Production Environment]
