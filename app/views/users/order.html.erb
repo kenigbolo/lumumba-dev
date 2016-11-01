@@ -17,7 +17,7 @@
         <% else %>
           <div  class="columns__content">
             <div class="page_info">
-              <%= page_entries_info @orders %>
+              <%= paginate @orders %>
             </div>
             <h3 class="title_h3">My Orders</h3>
             <!-- My orders start -->
@@ -71,7 +71,7 @@
             <!-- My orders finish -->
           </div><br>
         <%end%>
-        <%= will_paginate @orders %>
+        <%= paginate @orders %>
       </div>
       <!-- Render orders div end -->
     </div>

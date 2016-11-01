@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 	before_action :authenticate_user!, :except => [:index, :show]
 	def index
-		@articles = Article.all.paginate(:page => params[:page], :per_page => 5)
+		@articles = Article.all.page(params[:page]).per(5)
 	end
 
 	def new

@@ -3,27 +3,27 @@ class UsersController < ApplicationController
 
   def index
     if params[:search]
-      @users = User.where("first_name LIKE ?", "%#{params[:search]}%").paginate(:page => params[:page], :per_page => 20)
+      @users = User.where("first_name LIKE ?", "%#{params[:search]}%").page(params[:page]).per(20)
     else
-      @users = User.all.paginate(:page => params[:page], :per_page => 20)
+      @users = User.all.page(params[:page]).per(20)
     end
   end
 
   def show
   	@user = User.friendly.find(params[:id])
-    @designs = Design.where("user_id = ?", @user.id).paginate(:page => params[:page], :per_page => 6)
-    @articles = Article.where("user_id = ?", @user.id).paginate(:page => params[:page], :per_page => 3)
+    @designs = Design.where("user_id = ?", @user.id).page(params[:page]).per(6)
+    @articles = Article.where("user_id = ?", @user.id).page(params[:page]).per(3)
   end
 
   def design
-    @designs = Design.where("user_id = ?", current_user.id).paginate(:page => params[:page], :per_page => 2)
+    @designs = Design.where("user_id = ?", current_user.id).page(params[:page]).per(2)
   end
 
   def order
-    @orders = current_user.orders.paginate(:page => params[:page], :per_page => 5)
+    @orders = current_user.orders.page(params[:page]).per(5)
   end
 
   def content
-    @articles = Article.where("user_id = ?", current_user.id).paginate(:page => params[:page], :per_page => 5)
+    @articles = Article.where("user_id = ?", current_user.id).page(params[:page]).per(5)
   end
 end
