@@ -19,15 +19,25 @@
 
 $(document).ready(function(){
 	$('#new_address_form').hide();
-	
+	$('#upload-image').hide();
+  $('#model-design-view').hide();
+
+  $('#hideshow').on('click', function(event) {
+    $('#model-design-view').toggle('show');
+  });
+
+  $('#edit-image').on('click', function(event) {
+    $('#upload-image').toggle('show');
+  });  
+
+  $('#new-form').on('click', function(event) {
+    $('#new_address_form').toggle('show');
+  });  
+
 	$('#new-form-display').click(function() {
 	  $('#small-description').hide();
 	  $('#hidden-design-form').show();
-	});
-
-	$('#new-form').click(function() {
-	  $('#addresses').hide();
-	  $('#new_address_form').show();
-	});			
+	});		
 
 });
+
