@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   get '/competition', to: 'home#competition'
   get '/guide', to: 'home#guide'
   get '/about', to: 'home#about'
-  get '/contact', to: 'home#contact'
+  get '/contact', to: 'home#contact', as: :contact_us
+  post '/contact', to: 'home#contact_us', as: :message
   get '/qa', to: 'home#qa'
 
   post '/checkout', to: 'orders#checkout', as: :checkout
