@@ -264,3 +264,14 @@ form:focus {
   }
 
 }
+
+//edit public_profile
+#my_profile {
+  .my-designs__image-wrapper {
+    .blog__image{
+      background-repeat: no-repeat;
+      background-size: contain;
+
+    }
+  }
+}
