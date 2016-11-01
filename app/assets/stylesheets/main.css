@@ -2792,7 +2792,7 @@ hr {
   background-image: url('default-user.png');
   margin: auto;
   width: 100%;
-  background-size: cover;
+  background-size: contain;
   height: 100%;
   background-repeat: no-repeat;
   background-position: center center;}
