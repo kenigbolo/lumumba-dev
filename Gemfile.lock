@@ -367,7 +367,7 @@ DEPENDENCIES
   sqlite3
   turbolinks (~> 5)
   tzinfo-data
-  uglifier (>= 1.3.0)
+  uglifier (~> 3)
   web-console
 
 BUNDLED WITH
