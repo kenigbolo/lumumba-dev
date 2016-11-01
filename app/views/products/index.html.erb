@@ -66,7 +66,7 @@
             <div class="filter__summary">
                 <span class="filter__summary-highlight">
                     <div class="page_info">
-                      <%= page_entries_info @products %>
+                      <%= paginate @products %>
                     </div>
                 </span> 
             </div>
@@ -93,7 +93,7 @@
                 </li>
                 <% end %>
             </ul>
-             <%= will_paginate @products, :page_links => false %>
+             <%= paginate @products %>
         </div>
     </div>
     <!-- Catalog finish -->

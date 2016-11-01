@@ -9,6 +9,6 @@ class HomeController < ApplicationController
   end
 
 	def competition
-		@designs = Design.where("for_competition = ?", true).paginate(:page => params[:page], :per_page => 20)
+		@designs = Design.where("for_competition = ?", true).page(params[:page]).per(20)
 	end
 end
