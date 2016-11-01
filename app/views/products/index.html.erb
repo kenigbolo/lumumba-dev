@@ -63,7 +63,13 @@
                     <option value="t-shirts">T-Shirts</option>
                 </select>
             </div>
-            <div class="filter__summary">Showing <span class="filter__summary-highlight">1-12</span> of 253 products</div>
+            <div class="filter__summary">
+                <span class="filter__summary-highlight">
+                    <div class="page_info">
+                      <%= page_entries_info @products %>
+                    </div>
+                </span> 
+            </div>
         </div>
     </div>
     <!-- Filter finish -->
@@ -87,6 +93,7 @@
                 </li>
                 <% end %>
             </ul>
+             <%= will_paginate @products, :page_links => false %>
         </div>
     </div>
     <!-- Catalog finish -->

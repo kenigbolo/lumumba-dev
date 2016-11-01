@@ -15,28 +15,28 @@
   <% end %>
 
   <p class="form__group">
-    <%= f.label :street_address, "Enter your Street Address" %><br>
+    <%= f.label :street_address, "Street Address" %><br>
     <%= f.text_field :street_address, class: "form__input",placeholder: "Enter your Street Address" %>
   </p><br>
 
   <p class="form__group">
-    <%= f.label :city, "Enter your City/Surburb" %><br>
+    <%= f.label :city, "City/Surburb" %><br>
     <%= f.text_field :city, class: "form__input",placeholder: "Enter a City or Surburb" %>
   </p><br>
 
   <p class="form__group">
-    <%= f.label :country, "Select a Country" %><br />
-    <%= f.country_select :country, priority: %w(ES US CA), prompt: 'Please select a country' %>
-  </p> <br>
-
-  <p class="form__group">
     <%= f.label :state, "State/Province/County" %><br />
-    <%= render partial: 'subregion_select', locals: {parent_region: f.object.country} %>
-  </p> 
+    <%= f.text_field :state, class: "form__input",placeholder: "Enter a State/Province/County" %>
+  </p> <br>
+  
+  <p class="form__group">
+    <%= f.label :country, "Country" %><br />
+    <%= f.country_select :country, priority: %w(ES US CA), prompt: 'Please select a Country' %>
+  </p> <br> 
 
   <p class="form__group">
-    <%= f.label :zip_code, "Enter your zip_code " %><br>
-    <%= f.text_field :zip_code, class: "form__input", placeholder: "Enter a zip_code"%>
+    <%= f.label :zip_code, "Zip/Postal code " %><br>
+    <%= f.text_field :zip_code, class: "form__input", placeholder: "Enter a Zip/Postal code"%>
   </p><br>
   
   <p class="form__group">
