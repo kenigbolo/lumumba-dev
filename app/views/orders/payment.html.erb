@@ -18,7 +18,10 @@
             <p class="cart_p"><b><%= item.get_product.name %></b><br>Color: <%= item.color %></p>
           </div>
           <div class="cart_item_rc" >
-            <p class="cart_pr floatright"><b><%= item.get_product.price %></b><br>Size: <%= item.size %></p>
+            <p class="cart_pr floatright"><b>€ <%= item.get_product.price %></b><br>Size: <%= item.size %></p>
+          </div>
+          <div class="cart_item_lc">
+            <p class="cart_p"><b>Quantity: <%= item.quantity %></b><br></p>
           </div>
 
           <div class="clearfix"></div>
@@ -58,7 +61,7 @@
           <div style="margin-top:60px;"></div><br>
           <form id="checkout" method="post" action="/checkout">
             <div id="payment-form"></div>
-            <input id="order" name="order" type="tel" value="<%= @order.id %>" hidden="true">
+            <input id="order" name="order" type="tel" value="<%= @order.slug %>" hidden="true">
             <input type="submit" value="Pay € <%= @order.total_amount %>" class="button button_orange button_principal">
           </form>          
         <% end %>

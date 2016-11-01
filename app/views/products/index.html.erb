@@ -79,7 +79,7 @@
             <ul class="catalog__list">
                 <% @products.each do |product| %>
                 <li class="catalog__item" style="background-image: url(<%=  product.main_image_url %>);">
-                  <a class="catalog__link" href="/products/<%= product.id %>">
+                  <a class="catalog__link" href="/products/<%= product.slug %>">
                     <div class="catalog__to-cart">
                         <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
                             <title>Group 2</title>
@@ -89,7 +89,7 @@
                         </svg>
                     </div>
                   </a>
-                  <div class="product__description">  <a class="catalog__link" href="/products/<%= product.id %>"> <span class="catalog__name"><%= product.name %></span> <span class="catalog__price">€ <%= product.price %></span></a></div>
+                  <div class="product__description">  <a class="catalog__link" href="/products/<%= product.slug %>"> <span class="catalog__name"><%= product.name %></span> <span class="catalog__price">€ <%= product.price %></span></a></div>
                 </li>
                 <% end %>
             </ul>

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show', as: :user
   get 'users/:id/designs/', to: 'users#design', as: :user_designs
   get 'users/:id/orders/', to: 'users#order', as: :user_orders
+  get 'users/:id/content/', to: 'users#content', as: :user_content
   get 'users/:id/address/', to: 'addresses#index', as: :user_address
 
   get '/users', to: 'users#index', as: :users_default
