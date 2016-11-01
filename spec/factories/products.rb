@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :product do
     name "MyString"
-    main_image "MyString"
-    first_thumbnail "MyString"
-    second_thumbnail "MyString"
-    third_thumbnail "MyString"
+    main_image { any_image }
+    first_thumbnail { any_image }
+    second_thumbnail { any_image }
+    third_thumbnail { any_image }
     price "9.99"
     description "MyString"
     designer "MyString"

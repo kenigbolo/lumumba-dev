@@ -17,15 +17,15 @@ RSpec.describe User, type: :model do
 			expect(User.all).should_not be_nil
 		end
 	end
-  
+
   context "When a new User is initialized" do
     it "is a new user" do
       expect(user).to be_a_new(User)
     end
-    
+
     it "should be a valid User object" do
       expect(user).to be_valid
-    end      
+    end
   end
 
   context "When a User details are saved" do
@@ -47,15 +47,3 @@ RSpec.describe User, type: :model do
     end
   end
 end
-
-  # describe "Spec for Sign Up" do     
-  #   it "should create new user account" do     
-	 #  visit new_user_registration_path    
-	 #  email = "abcd@example.com"    
-	 #  fill_in 'user_email', :with => email    
-	 #  fill_in 'user_password', :with => "password"    
-	 #  fill_in 'user_password_confirmation', :with => "password"    
-	 #  click_button 'Sign up'    
-	 #  expect(page).to have_content "Welcome! You have signed up successfully."    
-  #   end    
-  # end

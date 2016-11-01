@@ -3,7 +3,7 @@ FactoryGirl.define do
     quantity 1
     size "MyString"
     color "MyString"
-    product ""
+    product
     order nil
   end
 end

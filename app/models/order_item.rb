@@ -1,6 +1,6 @@
 class OrderItem < ApplicationRecord
   belongs_to :order
-  has_one :product
+  belongs_to :product
 
   validates :color, :quantity, :size, presence: true
 
