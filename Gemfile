@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 ## Gem for Rails 3+, Sinatra, and Merb Pagination
-gem 'will_paginate', '~> 3.1.0'
+gem 'kaminari'
 # Add carriewave gem to upload pictures to user profile
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem 'cloudinary'
@@ -52,6 +52,9 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'acts_as_votable', '~> 0.10.0'
 # Add Braintree gem for payment processing
 gem 'braintree'
+# gem for administration
+gem 'rails_admin', '~> 1.0'
+
 
 # Use rails_12factor gem for production environment
 gem 'rails_12factor', group: :production

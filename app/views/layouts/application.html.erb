@@ -6,12 +6,16 @@
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+  	<meta name="viewport" content="width=device-width,initial-scale=1">
 
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-	<%= favicon_link_tag 'favicon.ico' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+  	<%= favicon_link_tag 'favicon.ico' %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'main.css' %>
@@ -31,11 +35,11 @@
        <header class="header" role="banner">
           <div class="header__stripe">
              <div class="header__social">
-             	<a class="header__social-link" href="https://www.facebook.com/XXX" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> </a>
-             	<a class="header__social-link" href="https://twitter.com/XXX" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> </a>
+             	<a class="header__social-link" href="https://www.facebook.com/lumumbafashion" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> </a>
+             	<a class="header__social-link" href="https://twitter.com/LumumbaFashion" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> </a>
              	<a class="header__social-link" href="https://plus.google.com/XXX" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> </a>
              	<a class="header__social-link" href="https://pinterest.com/XXX" target="_blank"><i class="fa fa-pinterest-p" aria-hidden="true"></i> </a>
-             	<a class="header__social-link" href="https://www.instagram.com/XXX" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+             	<a class="header__social-link" href="https://www.instagram.com/lumumbafashion" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
              </div>
              <div class="header__personal">
                 <% if user_signed_in? %>
@@ -67,7 +71,6 @@
                 <% else %>
                   <%= link_to "Sign in", new_user_session_path, class: "header__personal-link header__personal-link_auth" %>
                   <%= link_to "Sign up", new_user_registration_path, class: "header__personal-link header__personal-link_auth" %>
-                  <%= link_to '   Sign in with Facebook', user_facebook_omniauth_authorize_path, class: "btn btn-social btn-facebook navbar-btn fa fa-facebook"%>
                 <% end %>
              </div>
           </div>
@@ -158,7 +161,7 @@
                       </a>
                    </li>
                    <li class="nav__item">
-                      <a class="nav__link" href="/products/">
+                      <a class="nav__link" href="/products">
                          <div class="nav__link-icon">
                             <svg width="41" height="41" viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg">
                                <title>Page 1</title>

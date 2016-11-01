@@ -1,0 +1,79 @@
+<% if current_user %>
+  <div class="container" id="my_profile">
+    <h1 class="title_h1">My dashboard</h1>
+    <p class="page-description">Welcome to your dashboard. You can set up your account, check your orders and manage your designs here.</p>
+
+    <div class="columns">
+      <!-- Left menu start -->
+      <div class="columns__left-menu">
+          <%= render "left_menu" %>
+      </div>
+      <!-- Left menu finish --> 
+
+      <!-- Render orders div start-->
+      <div id="design-info">
+        <% if @orders.empty? %>
+          <p class="button__text"> You have no orders </p>
+        <% else %>
+          <div  class="columns__content">
+            <div class="page_info">
+              <%= paginate @orders %>
+            </div>
+            <h3 class="title_h3">My Orders</h3>
+            <!-- My orders start -->
+              <% @orders.each do |order| %>             
+                <div class="container">
+                  <p>Order Number: <%= order.order_number %> </p>
+                  <p>Order Status: <%= order.status.gsub('_',' ').capitalize %> </p>
+                </div>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-<%= order.id %>">
+                  View order items
+                </button><br><br>
+                <!-- End Button trigger modal -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal-<%= order.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Order list</h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container">
+                          <p>Order Number: <%= order.order_number %> </p>
+                          <p>Order Status: <%= order.status %> </p>
+                          <p>Transaction Number: <%= order.transaction_id %> </p>
+                        </div><br>
+                        <div class="container">
+                          <% order.order_items.each do |item| %>
+                            <p>Item Name: <%= item.get_product.name %></p>
+                            <p>Quantity: <%= item.quantity %></p>
+                            <p>Color: <%= item.color %></p>
+                            <p>Price: € <%= item.get_product.price %></p>
+                          <% end %>
+                        </div><br>
+                        <div class="container">
+                          <p>Sub Total: <%= order.sub_total %></p>                        
+                          <p>Shipping Costs: € <%= order.shipping_cost %></p>
+                          <p>Tax: € <%= order.vat %></p>
+                          <p>Total: € <%= order.total_amount %></p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Modal -->
+              <% end %>
+            <!-- My orders finish -->
+          </div><br>
+        <%end%>
+        <%= paginate @orders %>
+      </div>
+      <!-- Render orders div end -->
+    </div>
+  </div>
+<% end %>

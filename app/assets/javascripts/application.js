@@ -37,7 +37,7 @@ $(document).ready(function(){
 	$('#new-form-display').click(function() {
 	  $('#small-description').hide();
 	  $('#hidden-design-form').show();
-	});		
+	});	
 
 });
 

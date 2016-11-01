@@ -31,6 +31,7 @@
             <p>Nothing to show</p>
         <% else %>
         <ul class="blog__list">
+            <%= paginate @articles %>
             <% @articles.each do |blog|%>
             <li class="blog__item">
                 <div class="blog__image-wrapper" style="background-image: url(<%=  blog.image.url.to_s %>);"></div>
@@ -83,4 +84,4 @@
 <!-- Blog finish -->
 </div>
 <br><br>
-<%= will_paginate @articles %>
+<%= paginate @articles %>

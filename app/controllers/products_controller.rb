@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   http_basic_authenticate_with name:  ENV["ADMIN_USERNAME"], password:  ENV["ADMIN_PASSWORD"], except: [:index, :show]
   def index
-		@products = Product.all.paginate(:page => params[:page], :per_page => 5)
+		@products = Product.all.page(params[:page]).per(5)
 	end
 
 	def new
@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
 	end
 
 	def show
-		@product = Product.find(params[:id])
+		@product = Product.friendly.find(params[:id])
 	end
 
 	def update

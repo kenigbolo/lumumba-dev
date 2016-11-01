@@ -35,7 +35,7 @@
       <h3>Designs</h3>
       <div class="digg_pagination">
         <div class="page_info">
-          <%= page_entries_info @designs %>
+          <%= paginate @designs %>
         </div>
       </div>      
       <% if @designs.empty? %>
@@ -51,7 +51,7 @@
           <% end %>
         </ul>
       <% end %>
-      <%= will_paginate @designs, :page_links => false %>
+      <%= paginate @designs, :page_links => false %>
     </section>
 
 
@@ -59,7 +59,7 @@
       <h3>blog posts</h3> 
       <div class="digg_pagination">
         <div class="page_info">
-          <%= page_entries_info @articles %>
+          <%= paginate @articles %>
         </div>
       </div>
 
@@ -74,7 +74,7 @@
               </a>
               <div class="blog-description">
                 <h4><%= article.title %></h4>
-                <span>By<a href=""><%= @user.last_name %> <%= @user.first_name %></a> · </span>  
+                <span>By <a href="/users/<%= article.user.slug %>"><%= @user.last_name %> <%= @user.first_name %></a> · </span>  
                 <span><%= article.created_at.strftime("%d-%B-%Y")%></span>
                 <p> <%= article.description[0,300]%>...   
                 <br><br>
@@ -84,7 +84,7 @@
           <% end %>
         </ul>
       <% end %>
-      <%= will_paginate @articles, :page_links => false %>
+      <%= paginate @articles, :page_links => false %>
     </section>
   </div>
 </div>

@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
 	end
 
 	def show
-		@order = current_user.orders.find(params[:id])
+		@order = current_user.orders.friendly.find(params[:id])
 		@addresses = current_user.addresses
 		@address = Address.new
 	end
@@ -31,13 +31,13 @@ class OrdersController < ApplicationController
 	end
 
 	def payment
-		@order = current_user.orders.find(params[:id])
+		@order = current_user.orders.friendly.find(params[:id])
 		@address = Address.find(@order.shipping)
 		@token = Braintree::ClientToken.generate
 	end
 
 	def checkout
-		order = Order.find(params["order"])
+		order = Order.friendly.find(params["order"])
     nonce = params["payment_method_nonce"]
     
     result = Braintree::Transaction.sale(
