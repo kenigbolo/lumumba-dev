@@ -2,6 +2,8 @@ class User < ApplicationRecord
   # Relationships with other models
   has_many :designs
   has_many :articles
+  has_many :addresses
+  has_many :orders
   # Use friendly_id to generate user friendly urls
   extend FriendlyId
   friendly_id :first_name, use: [:slugged, :finders, :history]
@@ -22,6 +24,8 @@ class User < ApplicationRecord
       user.image = auth.info.image
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
+      user.location = auth.info.location
+      user.description = auth.info.about
       user.gender = auth.extra.raw_info.gender
       user.save
     end

@@ -17,22 +17,27 @@
 // require cloudinary/processing // Optional - client side processing (resizing and validation)
 //= require_tree .
 
-
 $(document).ready(function(){
+	$('#new_address_form').hide();
+	$('#upload-image').hide();
+  $('#model-design-view').hide();
+
+  $('#hideshow').on('click', function(event) {
+    $('#model-design-view').toggle('show');
+  });
+
+  $('#edit-image').on('click', function(event) {
+    $('#upload-image').toggle('show');
+  });  
+
+  $('#new-form').on('click', function(event) {
+    $('#new_address_form').toggle('show');
+  });  
+
 	$('#new-form-display').click(function() {
 	  $('#small-description').hide();
 	  $('#hidden-design-form').show();
 	});	
 
-	$(function() {
-	  return $('select#address_country').change(function(event) {
-	    var country, select_wrapper, url;
-	    select_wrapper = $('#address_state_wrapper');
-	    $('select', select_wrapper).attr('disabled', true);
-	    country = $(this).val();
-	    url = "/address/subregion_options?parent_region=" + country;
-	    return select_wrapper.load(url);
-	  });
-	});
-	   
 });
+

@@ -1,0 +1,83 @@
+<%= render 'designs/countdown' %>
+
+<% if @order.nil? %>
+  <p id="fontSize" > You have no existing items for this order </p>
+<% else %>
+  <div class="wrapper">
+    <div class="width-70">
+      <div style="margin-top:40px;"></div>
+      <div style="margin-top:60px;"></div>
+
+      <div>
+        <h1 class="title_h1_checkout">Shopping cart</h1>
+        <div style="margin-top:20px;"></div>
+        <p id="fontSize" >Your order overview</p>
+        
+        <% @order.order_items.each do |item| %>
+          <div class="cart_item_lc">
+            <p class="cart_p"><b><%= item.get_product.name %></b><br>Color: <%= item.color %></p>
+          </div>
+          <div class="cart_item_rc" >
+            <p class="cart_pr floatright"><b>€ <%= item.get_product.price %></b><br>Size: <%= item.size %></p>
+          </div>
+          <div class="cart_item_lc">
+            <p class="cart_p"><b>Quantity: <%= item.quantity %></b><br></p>
+          </div>
+
+          <div class="clearfix"></div>
+          <hr id="hrC">
+        <% end %>
+
+        <div class="cart_item_lc">
+          <p class="cart_p"><b>Subtotal:</b></p>
+        </div>
+        <div class="cart_item_rc" >
+          <p class="cart_pr floatright"><b>€ <%= @order.sub_total %></b></p>
+        </div>
+
+        <div class="clearfix"></div>
+        <hr id="hrC">
+
+        <div class="cart_item_lc">
+          <p class="cart_p">Shipping Costs:</p>
+        </div>
+        <div class="cart_item_rc" >
+          <p class="cart_pr floatright"><b>€ <%= @order.shipping_cost %></b></p>
+        </div>
+
+        <div class="clearfix"></div>
+        <hr id="hrC">
+
+        <div class="cart_item_lc">
+          <p class="cart_p"><b>Including VAT</b><br>Total:</p>
+        </div>
+        <div class="cart_item_rc" >
+          <p class="cart_pr floatright">
+            <b>€ <%= @order.vat %> </b><br>€ <%= number_with_precision(@order.total_amount, precision: 2) %>
+          </p>
+        </div>
+        
+        <% if @order.shipping != nil %>
+          <div style="margin-top:60px;"></div><br>
+          <form id="checkout" method="post" action="/checkout">
+            <div id="payment-form"></div>
+            <input id="order" name="order" type="tel" value="<%= @order.slug %>" hidden="true">
+            <input type="submit" value="Pay € <%= @order.total_amount %>" class="button button_orange button_principal">
+          </form>          
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<script src="https://js.braintreegateway.com/js/braintree-2.27.0.min.js"></script>
+<script>
+    var client_token = "<%= @token %>";
+    braintree.setup(client_token, "dropin", {
+      container: "payment-form"
+    });
+</script>
+
+
+

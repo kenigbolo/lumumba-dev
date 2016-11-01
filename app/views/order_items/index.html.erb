@@ -1,0 +1,113 @@
+<% if @order.nil? %>
+  <p id="fontSize" >You have no items in your cart </p>
+<% else %>
+<div class="wrapper">
+  <div class="width-70">
+    <h1 class="title_h1_checkout">delivery address</h1>
+    <p id="fontSize" >To make your sign up complete we need a bit more information</p>
+        <div style="margin-top:40px;"></div>
+        <!-- Delivery information start -->
+        <form class="form"  action="#" method="post" accept-charset="utf-8">
+            <div class="input-w">
+              <label for="#email">Email address</label>
+              <input type="email" name="" value="" placeholder="E.g. email@example.com" required id="email" />
+            </div>
+
+            <div class="input-w">
+              <label for="#name">Name</label>
+              <input type="text"  name="" value="" placeholder="E.g John Steward" required id="name" />
+            </div>
+
+            <div class="input-w">
+              <label for="#surname">Surname</label>
+              <input type="text"  name="" value="" placeholder="E.g John Steward" required id="surname" />
+            </div>
+
+            <div class="input-w">
+              <label for="#adress">Street, housenumber</label>
+              <input type="text" name="" value="" placeholder="E.g. Long, Lane 81" required id="adress" />
+            </div>
+
+            <div class="input-w">
+              <label for="#country">Country</label>
+              <input type="text" name="" value="" placeholder="United States" required id="country" />
+            </div>
+
+            <div class="input-w">
+              <label for="#zip">ZIP</label>
+              <input type="text" name="" value="" placeholder="E.g. 723819" required id="zip" />
+            </div>
+
+            <div class="input-w">
+              <label for="#city">City</label>
+              <input type="text" name="" value="" placeholder="E.g. New York City" required id="city" />
+            </div>
+
+            <div class="input-w">
+              <label for="#phone">Telephone Number</label>
+              <input type="text" name="" value="" placeholder="E.g. 06 123 456 78" required id="phone" />
+            </div>
+        </form>
+
+        <h1 class="title_h1_checkout">billing address</h1>
+
+        <h4> Coming Soon </h4>
+
+        <h1 class="title_h1_checkout">Shipping method</h1>
+
+        <h4> Coming Soon </h4>
+        <div style="margin-top:60px;"></div>
+        <a href="checkout_step4.html" class="button button_orange button_principal"><div class="button__text">Order</div> </a>
+  </div>
+
+  <div class="width-30">
+    <h1 class="title_h1_checkout">shopping cart</h1>
+    <div style="margin-top:20px;"></div>
+    <p id="fontSize" >Your order overview</p>
+    <% @order.order_items.each do |item| %>
+    <div class="cart_item_lc">
+      <p class="cart_p"><b><%= item.get_product.name %></b><br>Color: <%= item.color %></p>
+    </div>
+    <div class="cart_item_rc" >
+      <p class="cart_pr floatright"><b><%= item.get_product.price %></b><br>Size: <%= item.size %></p>
+    </div>
+
+    <div class="clearfix"></div>
+    <hr id="hrC">
+
+    <div class="cart_item_lc">
+      <p class="cart_p"><b>Subtotal:</b></p>
+    </div>
+    <div class="cart_item_rc" >
+      <p class="cart_pr floatright"><b><%= @order.total_amount %></b></p>
+    </div>
+
+    <div class="clearfix"></div>
+    <hr id="hrC">
+
+    <div class="cart_item_lc">
+      <p class="cart_p">Shipping Costs:</p>
+    </div>
+    <div class="cart_item_rc" >
+      <p class="cart_pr floatright"><b>$9.99</b></p>
+    </div>
+
+    <div class="clearfix"></div>
+    <hr id="hrC">
+
+    <div class="cart_item_lc">
+      <p class="cart_p"><b>Total:</b><br>Including VAT</p>
+    </div>
+    <div class="cart_item_rc" >
+      <p class="cart_pr floatright"><b>$69.79</b><br>$14.66</p>
+    </div>
+    <% end %>
+
+
+    <div style="margin-top:60px;"></div>
+    <a href="#" class="button button_orange button_secundario"><div class="button__text">Order</div> </a>
+
+  </div>
+
+</div>
+<% end %>

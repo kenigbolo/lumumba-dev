@@ -1,4 +1,4 @@
-<div class="layout__content">
+<div class="layout__content" id="products_index">
     <!-- Winner start -->
     <div class="winner">
         <div class="winner__wrapper">
@@ -25,17 +25,23 @@
     <!-- Winner finish -->
     <!-- Latest start -->
     <div class="latest">
-        <div class="latest__wrapper">
-            <div class="latest__title">Masaba x Lumumba</div>
-            <div class="latest__tile-list">
-                <figure class="latest__tile"><img class="latest__image" src="static/uploads/latest_1.jpg?v=1466944291589">
-                    <figcaption class="latest__caption"><a class="latest__link" href="product.html">Shana M. - Olive blouse shirt</a></figcaption>
-                </figure>
-                <figure class="latest__tile"><img class="latest__image" src="static/uploads/latest_2.jpg?v=1466944291589">
-                    <figcaption class="latest__caption"><a class="latest__link" href="product.html">Carolyn J. - Cashmere sweater</a></figcaption>
-                </figure>
+      <div class="latest__wrapper">
+      <div class="latest__title">Masaba x Lumumba</div>
+        <div class="latest__tile-list">
+          <figure class="latest__tile">
+            <div class="wrapper__image">
+              <div class="latest__image" style="background-image: "></div>
+              <figcaption class="latest__caption"><a class="latest__link" href="product.html">Shana M. - Olive blouse shirt</a></figcaption>
             </div>
+          </figure>
+          <figure class="latest__tile">
+            <div class="wrapper__image">
+              <div class="latest__image" style="background-image: "></div>
+              <figcaption class="latest__caption"><a class="latest__link" href="product.html">Carolyn J. - Cashmere sweater</a></figcaption>
+            </div>
+          </figure>
         </div>
+      </div>
     </div>
     <!-- Latest finish -->
     <hr>
@@ -57,7 +63,13 @@
                     <option value="t-shirts">T-Shirts</option>
                 </select>
             </div>
-            <div class="filter__summary">Showing <span class="filter__summary-highlight">1-12</span> of 253 products</div>
+            <div class="filter__summary">
+                <span class="filter__summary-highlight">
+                    <div class="page_info">
+                      <%= paginate @products %>
+                    </div>
+                </span> 
+            </div>
         </div>
     </div>
     <!-- Filter finish -->
@@ -66,7 +78,8 @@
         <div class="catalog__wrapper">
             <ul class="catalog__list">
                 <% @products.each do |product| %>
-                <li class="catalog__item">
+                <li class="catalog__item" style="background-image: url(<%=  product.main_image_url %>);">
+                  <a class="catalog__link" href="/products/<%= product.slug %>">
                     <div class="catalog__to-cart">
                         <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
                             <title>Group 2</title>
@@ -75,10 +88,12 @@
                             </g>
                         </svg>
                     </div>
-                    <a class="catalog__link" href="/products/<%= product.id %>"><%= image_tag product.main_image_url, class: "account__avatar-photo" %> <span class="catalog__name"><%= product.name %></span> <span class="catalog__price">€ <%= product.price %></span></a>
+                  </a>
+                  <div class="product__description">  <a class="catalog__link" href="/products/<%= product.slug %>"> <span class="catalog__name"><%= product.name %></span> <span class="catalog__price">€ <%= product.price %></span></a></div>
                 </li>
                 <% end %>
             </ul>
+             <%= paginate @products %>
         </div>
     </div>
     <!-- Catalog finish -->

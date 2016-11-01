@@ -1,8 +1,8 @@
-<div class="layout__content">
+<div class="" id="post-list">
     <!-- Top post start -->
     <div class="top-post">
         <div class="top-post__wrapper">
-            <div class="top-post__image-wrapper"><img class="top-post__image" src="static/uploads/top-post_1.jpg?v=1466944291199"></div>
+            <div class="top-post__image-wrapper" style="background-image: url(<%=  %>);"></div>
             <div class="top-post__info">
                 <div class="top-post__heading">Top post</div>
                 <div class="top-post__title">Fashion trends changing technology</div>
@@ -25,15 +25,16 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Post contents start -->
         <% if @articles.empty? %>
             <p>Nothing to show</p>
         <% else %>
         <ul class="blog__list">
+            <%= paginate @articles %>
             <% @articles.each do |blog|%>
             <li class="blog__item">
-                <div class="blog__image-wrapper"><%= image_tag blog.image.url.to_s, class: "blog__image"%></div>
+                <div class="blog__image-wrapper" style="background-image: url(<%=  blog.image.url.to_s %>);"></div>
                 <div class="blog__info">
                     <div class="blog__title"><%= blog.title%>                           </div>
                     <div class="blog__author"><%= blog.user.last_name%>  <%= blog.user.first_name%></div>
@@ -83,4 +84,4 @@
 <!-- Blog finish -->
 </div>
 <br><br>
-<%= will_paginate @articles %>
+<%= paginate @articles %>

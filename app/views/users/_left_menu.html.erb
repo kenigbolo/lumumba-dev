@@ -1,7 +1,7 @@
 <!-- Left menu start -->
 <ul class="left-menu">
    <li class="left-menu__item">
-      <a class="left-menu__link" >
+      <a class="left-menu__link" href="">
          <div class="left-menu__link-text">My feed</div>
          <div class="left-menu__link-arrow">
             <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -12,7 +12,7 @@
       </a>
    </li>
    <li class="left-menu__item">
-      <a class="left-menu__link" href="my-orders.html">
+      <a class="left-menu__link" href="/users/<%= current_user.slug %>/orders/">
          <div class="left-menu__link-text">My orders</div>
          <div class="left-menu__link-arrow">
             <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@
       </a>
    </li>
    <li class="left-menu__item">
-      <a class="left-menu__link" href="/user/designs/">
+      <a class="left-menu__link" href="/users/<%= current_user.slug %>/designs/">
          <div class="left-menu__link-text">My designs</div>
          <div class="left-menu__link-arrow">
             <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +34,7 @@
       </a>
    </li>
    <li class="left-menu__item">
-      <a class="left-menu__link" href="my-content.html">
+      <a class="left-menu__link" href="/users/<%= current_user.slug %>/content/">
          <div class="left-menu__link-text">My content</div>
          <div class="left-menu__link-arrow">
             <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@
       </a>
    </li>
    <li class="left-menu__item">
-      <a class="left-menu__link" href="/addresses/">
+      <a class="left-menu__link" href="/users/<%= current_user.slug %>/address/">
          <div class="left-menu__link-text">Shipping address</div>
          <div class="left-menu__link-arrow">
             <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">

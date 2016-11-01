@@ -23,9 +23,6 @@ FactoryGirl.define do
     third_garment_desc { SecureRandom.hex }
 
     for_competition false
-    for_sale false
-    price "9.99"
-    add_to { SecureRandom.hex }
     competition false
     user nil
 

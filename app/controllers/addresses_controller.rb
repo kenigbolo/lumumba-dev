@@ -20,7 +20,11 @@ class AddressesController < ApplicationController
 
 		if @address.persisted?
 			flash["notice"] = "Address successfully created"
-			redirect_to addresses_path
+			if request.referer == new_address_path
+				redirect_to addresses_path
+			else
+				redirect_to request.referer
+			end
 		else
 			render 'new'
 		end
@@ -37,8 +41,15 @@ class AddressesController < ApplicationController
 		end
 	end
 
-	def subregion_options
-	  render partial: 'subregion_select'
+	def destroy
+	  address = Address.find(params[:id])
+	  if current_user.id == address.user.id
+	  	address.destroy
+	  	flash["notice"] = "successfully deleted this post"
+	  else
+	  	flash["notice"] = "You do not hae the permission to delete this post"	 
+	  end
+	  redirect_to addresses_path
 	end
 	
 	private

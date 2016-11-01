@@ -1,0 +1,45 @@
+<% if current_user %>
+  <div class="container" id="my_profile">
+    <h1 class="title_h1">My dashboard</h1>
+    <p class="page-description">Welcome to your dashboard. You can set up your account, check your orders and manage your designs here.</p>
+
+    <div class="columns">
+      <!-- Left menu start -->
+      <div class="columns__left-menu">
+          <%= render "left_menu" %>
+      </div>
+      <!-- Left menu finish --> 
+
+      <!-- Render orders div start-->
+      <!-- <div class="dummy"> -->
+        <div class="dummy__wrapper">
+          <section class="blog-posts">
+            <div class="page_info">
+              <%= paginate @articles %>
+            </div><br>
+            
+            <h3>blog posts</h3><br> 
+            <% if @articles.empty? %>
+              <p> This user has no blogpost available </p>
+            <% else %>
+              <ul>
+                <% @articles.each do |article| %>                
+                    <div class="">
+                      <h4>TITLE: <%= article.title %></h4><br>
+                      <span>By <a href="/users/<%= article.user.slug %>"><%= current_user.last_name %> <%= current_user.first_name %></a> · </span>  
+                      <span><%= article.created_at.strftime("%d-%B-%Y")%></span><br><br>
+                      <p> <%= article.description[0,300]%>...   
+                      
+                      <a href="articles/<%= article.id %>" class="read-more">Continue reading »</a></p>
+                    </div>
+                <% end %>
+              </ul>
+            <% end %>
+            <%= paginate @articles %>
+          </section>
+        </div>
+      <!-- </div> -->
+      <!-- Render orders div end -->
+    </div>
+  </div>
+<% end %>
