@@ -41,8 +41,15 @@ class AddressesController < ApplicationController
 		end
 	end
 
-	def subregion_options
-	  render partial: 'subregion_select'
+	def destroy
+	  address = Address.find(params[:id])
+	  if current_user.id == address.user.id
+	  	address.destroy
+	  	flash["notice"] = "successfully deleted this post"
+	  else
+	  	flash["notice"] = "You do not hae the permission to delete this post"	 
+	  end
+	  redirect_to addresses_path
 	end
 	
 	private
