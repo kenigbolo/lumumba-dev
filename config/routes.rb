@@ -16,14 +16,14 @@ Rails.application.routes.draw do
 
   root to: "home#index"
   get 'users/:id', to: 'users#show', as: :user
-  get 'user/designs/', to: 'users#design', as: :user_designs
-  get 'user/shipping-address/', to: 'users#address', as: :user_address
-  get '/address/subregion_options', to: 'addresses#subregion_options'
-  get '/competition', to: 'designs#competition'
+  get 'users/:id/designs/', to: 'users#design', as: :user_designs
+  get 'users/:id/orders/', to: 'users#order', as: :user_orders
+  get 'users/:id/address/', to: 'addresses#index', as: :user_address
 
   get '/users', to: 'users#index', as: :users_default
   get '/themes', to: 'home#themes'
   get '/leaderboard', to: 'home#leaderboard'
+  get '/competition', to: 'home#competition'
 
   post '/checkout', to: 'orders#checkout', as: :checkout
   post 'orders/shipping/:id', to: 'orders#shipping', as: :shipping

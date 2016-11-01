@@ -54,10 +54,6 @@ class DesignsController < ApplicationController
 	  redirect_to designs_path
 	end
 
-	def competition
-		@designs = Design.where("for_competition = ?", true).paginate(:page => params[:page], :per_page => 20)
-	end
-
 	def upvote
 	  design = Design.find(params[:id])
 	  unless current_user.voted_for?  design
