@@ -19,13 +19,7 @@ class UsersController < ApplicationController
     @designs = Design.where("user_id = ?", current_user.id).paginate(:page => params[:page], :per_page => 2)
   end
 
-  def address
-  	@address = Address.where("user_id = ?", current_user.id)
-  	if @address.empty?
-  		render 'shipping_address'
-  	else
-  		# redirect_to address controller / edit action
-      redirect_to edit_address_path(@address.first)
-  	end
+  def order
+    @orders = current_user.orders.paginate(:page => params[:page], :per_page => 5)
   end
 end
