@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :message do
-    name "MyString"
-    email "MyString"
-    message "MyText"
+    name { SecureRandom.hex }
+    email { "#{SecureRandom.hex}@#{SecureRandom.hex}.com" }
+    message { SecureRandom.hex }
   end
 end

@@ -1,17 +1,18 @@
 require "rails_helper"
 
-RSpec.describe UserMailerMailer, type: :mailer do
+RSpec.describe UserMailer, type: :mailer do
   describe "contact_us" do
-    let(:mail) { UserMailerMailer.contact_us }
+    let(:message) { FactoryGirl.build :message }
+    let(:mail) { UserMailer.contact_us(message) }
 
     it "renders the headers" do
-      expect(mail.subject).to eq("Contact us")
-      expect(mail.to).to eq(["to@example.org"])
-      expect(mail.from).to eq(["from@example.com"])
+      expect(mail.subject).to eq("Message from Contact Us form")
+      expect(mail.to).to eq(["tribe@lumumba.com"])
+      expect(mail.from).to eq([message.email])
     end
 
     it "renders the body" do
-      expect(mail.body.encoded).to match("Hi")
+      expect(mail.body.encoded).to match(message.message)
     end
   end
 
