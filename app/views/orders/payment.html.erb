@@ -18,7 +18,10 @@
             <p class="cart_p"><b><%= item.get_product.name %></b><br>Color: <%= item.color %></p>
           </div>
           <div class="cart_item_rc" >
-            <p class="cart_pr floatright"><b><%= item.get_product.price %></b><br>Size: <%= item.size %></p>
+            <p class="cart_pr floatright"><b>€ <%= item.get_product.price %></b><br>Size: <%= item.size %></p>
+          </div>
+          <div class="cart_item_lc">
+            <p class="cart_p"><b>Quantity: <%= item.quantity %></b><br></p>
           </div>
 
           <div class="clearfix"></div>
