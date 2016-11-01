@@ -1,10 +1,10 @@
 <div id="public_profile">
   <section class="user-info">
       <div class="dummy dummy__wrapper">
-        <h3><%= @design %></h3>
+        <h3><%= @design.id %></h3>
         <div class="image-wrapper">
 
-        <div class="" style="background-image: url(<%=  @design.image_url %>);"></div>
+        <div class="" style="background-image: url();"></div>
 
         </div>
         <div class="user-info-text">
@@ -27,7 +27,7 @@
               <li>
                 <a href="/user/designs">
                 </a>
-                <a href="/designs/<%= design.id%>">#1</a>
+                <a href="/designs/:id">#1</a>
               </li>
 
           </ul>
