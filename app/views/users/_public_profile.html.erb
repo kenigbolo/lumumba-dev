@@ -6,7 +6,7 @@
           <% if @user.image_status == "upload" %>
              <div class="account__avatar-photo" style="background-image: url(<%=  @user.avatar_url %>);"></div>
           <% elsif @user.image != nil%>
-             <div class="account__avatar-photo" ></div>
+             <div class="account__avatar-photo" style="background-image: url(<%=  @user.avatar_url %>);"></div>
           <% else %>
             <div class="account__avatar-photo" ></div>
           <% end %>
@@ -30,14 +30,14 @@
   </section>
 <div class="dummy">
   <div class="dummy__wrapper">
-    
+
     <section class="blog-posts">
       <h3>Designs</h3>
       <div class="digg_pagination">
         <div class="page_info">
           <%= paginate @designs %>
         </div>
-      </div>      
+      </div>
       <% if @designs.empty? %>
         <p> This user has no designs available </p>
       <% else %>
@@ -46,7 +46,7 @@
             <li>
               <a href="/designs/<%= design.id %>">
                 <%= image_tag design.image.url, class: "top-designers__project" %>
-              </a> 
+              </a>
             </li>
           <% end %>
         </ul>
@@ -56,7 +56,7 @@
 
 
     <section class="blog-posts">
-      <h3>blog posts</h3> 
+      <h3>blog posts</h3>
       <div class="digg_pagination">
         <div class="page_info">
           <%= paginate @articles %>
@@ -74,9 +74,9 @@
               </a>
               <div class="blog-description">
                 <h4><%= article.title %></h4>
-                <span>By <a href="/users/<%= article.user.slug %>"><%= @user.last_name %> <%= @user.first_name %></a> · </span>  
+                <span>By <a href="/users/<%= article.user.slug %>"><%= @user.last_name %> <%= @user.first_name %></a> · </span>
                 <span><%= article.created_at.strftime("%d-%B-%Y")%></span>
-                <p> <%= article.description[0,300]%>...   
+                <p> <%= article.description[0,300]%>...
                 <br><br>
                 <a href="articles/<%= article.id %>" class="read-more">Continue reading »</a></p>
               </div>

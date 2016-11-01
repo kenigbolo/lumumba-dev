@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .tether-element, .tether-element *, .tether-element :after, .tether-element :before, .tether-element:after, .tether-element:before {
   box-sizing: border-box; }
 
@@ -2642,7 +2643,7 @@ hr {
       margin-bottom: 20px; } }
 
 .top-designers__project {
-  display: block;  
+  display: block;
   width: 124px;
   height: 179px; }
 
@@ -2654,9 +2655,9 @@ hr {
       margin-bottom: 20px; } }
 
 .top-designers__photo {
-  display: block; 
+  display: block;
   width: 52px;
-  height: 52px; 
+  height: 52px;
   border-radius: 50%;}
 
 .top-designers__name {
@@ -2791,7 +2792,7 @@ hr {
   background-image: url('default-user.png');
   margin: auto;
   width: 100%;
-  background-size: cover;
+  background-size: contain;
   height: 100%;
   background-repeat: no-repeat;
   background-position: center center;}

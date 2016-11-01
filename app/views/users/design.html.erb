@@ -8,7 +8,7 @@
       <div class="columns__left-menu">
           <%= render "left_menu" %>
       </div>
-      <!-- Left menu finish --> 
+      <!-- Left menu finish -->
 
       <!-- Render designs div start-->
       <div id="design-info">
@@ -24,7 +24,8 @@
               <% @designs.each do |design| %>
                 <li class="my-designs__item">
                   <div class="my-designs__image-wrapper">
-                    <%= image_tag design.image.url.to_s, class: "blog__image"%>
+                    <div class=" blog__image" style="background-image: url('<%= design.image.url.to_s %>')"></div>
+
                   </div>
 
                   <div class="my-designs__info">

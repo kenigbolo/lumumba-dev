@@ -77,15 +77,15 @@ form:focus {
         background-image: url('default-user.png');
         margin: auto;
         width: 100%;
-        background-size: cover;
+        background-size: contain;
         height: 100%;
         background-repeat: no-repeat;
         background-position: center center;
 
       }
     }
+    
     a {
-
       font-size: 18px;
       font-weight: 600;
       text-transform: uppercase;
@@ -263,4 +263,15 @@ form:focus {
     }
   }
 
+}
+
+//edit public_profile
+#my_profile {
+  .my-designs__image-wrapper {
+    .blog__image{
+      background-repeat: no-repeat;
+      background-size: contain;
+
+    }
+  }
 }
