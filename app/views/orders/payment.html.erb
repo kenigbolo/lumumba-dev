@@ -61,7 +61,7 @@
           <div style="margin-top:60px;"></div><br>
           <form id="checkout" method="post" action="/checkout">
             <div id="payment-form"></div>
-            <input id="order" name="order" type="tel" value="<%= @order.id %>" hidden="true">
+            <input id="order" name="order" type="tel" value="<%= @order.slug %>" hidden="true">
             <input type="submit" value="Pay € <%= @order.total_amount %>" class="button button_orange button_principal">
           </form>          
         <% end %>
