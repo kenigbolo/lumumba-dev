@@ -13,18 +13,18 @@ gem 'devise', '~> 4.2' # Use devise gem for user authentication
 gem 'figaro', '~> 1.1' # Use figaro gem for environment variables
 gem 'friendly_id', '~> 5.1' # Use friendly_id for user profile urls
 gem 'jquery-rails', '~> 4.2' # Use jquery as the JavaScript library
+gem 'kaminari', '~> 0.17' # Gem for Rails 3+, Sinatra, and Merb Pagination
+gem 'oj', '~> 2.12'
 gem 'omniauth-facebook', '~> 4'
 gem 'omniauth', '~> 1.3' # Use omniauth for oauth
 gem 'puma', '~> 3.6' # Use Puma as the app server
 gem 'rails_admin', '~> 1.1' # gem for administration
+gem 'rollbar', '~> 2.13'
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'simple_form', '~> 3.3' # Use simple form as default for forms
 gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'uglifier', '~> 3' # Use Uglifier as compressor for JavaScript assets
-gem 'kaminari', '~> 0.17' # Gem for Rails 3+, Sinatra, and Merb Pagination
-gem 'rollbar'
-gem 'oj', '~> 2.12'
 
 group :production do
   gem 'pg', '0.18.1', group: :production # Use pg as the database for Active Record [Production Environment]
@@ -50,7 +50,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara'
   gem "database_cleaner"
-  gem 'rspec-core'
   gem "shoulda-matchers", "3.1.1"
-  gem "coveralls", require: false
+  gem 'simplecov'
 end
