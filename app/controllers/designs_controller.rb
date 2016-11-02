@@ -48,7 +48,8 @@ class DesignsController < ApplicationController
 		design = Design.where("id = ?", params[:id]).first
 		design.for_competition = true
 		design.save
-		redirect_to :back, notice: "Your design has been submitted for competition review"
+		flash[:notice] = "Your design has been submitted for competition review"
+		redirect_to :back
 	end
 
 	def destroy
@@ -65,7 +66,7 @@ class DesignsController < ApplicationController
 	  design = Design.find(params[:id])
 	  unless current_user.voted_for?  design
 	  	design.upvote_by current_user
-	  	notice: "You have successfully voted"
+	  	flash[:notice] = "You have successfully voted"
 	  end
 	  redirect_to :back
 	end 
