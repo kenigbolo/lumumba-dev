@@ -4,6 +4,60 @@ Lumumba is a digital clothing platform, we produce urban clothing based on tradi
 
 We crowdsource designs through culture-themed competitions. Sustainable and transparent sourcing and production.
 
+# DEVELOPERS GUIDE
+
+##Getting Started
+
++ Clone the application with `git clone https://github.com/kenigbolo/lumumba-prod.git` or use ssh  `git clone git@github.com:kenigbolo/lumumba-prod.git`.
+
+##Dependencies
+
+* Ruby version 2.2.1 and above
+* rails 5.0.0
+
+Once you have those two, you can then run your command line and navigate into the project's folder and then run:
+
+* Run `bundle install` to install all other dependencies
+ 
+
+    ***Note*** some gems might cause issues while installing, so for unix/linux users try `sudo gem install <gem_name>`
+* Run `rails db:migrate` or `rake db:migrate`
+* Run `rails db:seed`  or `rake db:seed` to seed the `db` if ne cessary.
+
+(*the `rake` command was used for rails version prior rails 5. But it is no logner required*)
+
+## Running The Server
+
+Due to the use of the `figaro gem` for environment variables used in omniauth the following should be performed when running locally
+
+* Contact the administrator to download the application.yml file [here](www.facebook.com/kenigbolo.meyastephen)
+* Put the downloaded `application.yml` file into the `config` folder
+
+You can then run `rails s` or `rails server` and visit the page on the browser by typing `localhost:3000`. (*you can add the flag `-p <port_number>` to specify a different port number, e.i. `rails s -p 8000`*) 
+
+##Running The Specs
+After all the setting up as mentioned above, you can run the tests. The tests are driven by rspec, capybara and selenium. You can get them fired up by running the following command from the terminal.
+
+  `rspec spec`
+
+or
+
+  `bundle exec rspec`
+
+##Application Main Features
+
+* Authentication (Log in using OAuth)
+* E-commerce (Payment integration with Braintree)
+* Competitions
+* Design showcase
+* Blog
+
+##Database
+* Development Environment
+    Uses Sqlite
+* Production && Staging environment
+    Uses Postgres
+
 ##License
 
 The Lumumba License (Adopted from Simple Machines License (SMF 1.0 and 1.1))
