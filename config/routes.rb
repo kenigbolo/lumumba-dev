@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get '/competition', to: 'home#competition'
   get '/contact', to: 'home#contact', as: :contact_us
   post '/contact', to: 'home#contact_us', as: :message
+  get '/add-to-competition/:id', to: 'designs#add_to_competition'
 
   # These are static pages, not necessarily having a controller method for each:
   get '/themes', to: 'home#themes'

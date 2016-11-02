@@ -83,6 +83,30 @@
         <div class="catalog__wrapper">
             <ul class="catalog__list">
                 <% @products.each do |product| %>
+                    <li class="catalog__item">
+                        <div class="catalog__to-cart">
+                            <svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
+                                <title>Group 2</title>
+                                <g stroke="currentColor" fill="none" fill-rule="evenodd">
+                                    <path d="M1 5h15.994L13.94 15.747H4.054zM12.632 4.816C12.632 2.708 10.922 1 8.816 1 6.708 1 5 2.708 5 4.816" />
+                                </g>
+                            </svg>
+                        </div>
+                        <a class="catalog__link" href="/products/<%= product.id %>"><%= image_tag product.main_image_url, class: "catalog__photo"%> <span class="catalog__name"><%= product.name %></span> <span class="catalog__price">€ <%= product.price %></span></a>
+                    </li>
+                <% end %>
+            </ul>
+             <%= paginate @products %>
+        </div>
+    </div>
+    <!-- Catalog finish -->
+</div>
+
+
+
+
+
+<!--                 <% @products.each do |product| %>
                 <li class="catalog__item" style="background-image: url(<%=  product.main_image_url %>);">
                   <a class="catalog__link" href="/products/<%= product.slug %>">
                     <div class="catalog__to-cart">
@@ -96,10 +120,4 @@
                   </a>
                   <div class="product__description">  <a class="catalog__link" href="/products/<%= product.slug %>"> <span class="catalog__name"><%= product.name %></span> <span class="catalog__price">€ <%= product.price %></span></a></div>
                 </li>
-                <% end %>
-            </ul>
-             <%= paginate @products %>
-        </div>
-    </div>
-    <!-- Catalog finish -->
-</div>
+                <% end %> -->
