@@ -22,9 +22,9 @@ FactoryGirl.define do
     third_garment_technical_design { any_image }
     third_garment_desc { SecureRandom.hex }
 
-    for_competition false
+    for_competition true
     competition false
-    user nil
+    user
 
   end
 end

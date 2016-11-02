@@ -1,7 +1,7 @@
 class Design < ApplicationRecord
   belongs_to :user
   acts_as_votable
-  
+
   mount_uploader :image, ImageUploader
   mount_uploader :first_garment_design, ImageUploader
   mount_uploader :second_garment_design, ImageUploader
@@ -27,4 +27,9 @@ class Design < ApplicationRecord
   validates :first_garment_design, presence: true
   validates :second_garment_design, presence: true
   validates :third_garment_design, presence: true
+
+  def self.for_competition
+    where("for_competition = ?", true)
+  end
+
 end

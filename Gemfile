@@ -51,5 +51,5 @@ group :test do
   gem 'capybara'
   gem "database_cleaner"
   gem "shoulda-matchers", "3.1.1"
-  gem "coveralls", require: false
+  gem 'simplecov'
 end
