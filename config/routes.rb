@@ -36,6 +36,12 @@ Rails.application.routes.draw do
   get '/contact', to: 'home#contact', as: :contact_us
   post '/contact', to: 'home#contact_us', as: :message
 
+  # These are static pages, not necessarily having a controller method for each:
+  get '/themes', to: 'home#themes'
+  get '/guide', to: 'home#guide'
+  get '/about', to: 'home#about'
+  get '/qa', to: 'home#qa'
+
   post '/checkout', to: 'orders#checkout', as: :checkout
   post 'orders/shipping/:id', to: 'orders#shipping', as: :shipping
   get 'orders/payment/:id', to: 'orders#payment', as: :payment
