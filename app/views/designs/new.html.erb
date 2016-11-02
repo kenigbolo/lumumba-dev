@@ -8,7 +8,6 @@
 </script>
 
 
-<%= render 'countdown' %>
 <%= form_for :design, url: designs_path, html: {class: "form ", multipart: true } do |f| %>
 
   <% if @design.errors.any? %>
