@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get '/themes', to: 'home#themes'
   get '/guide', to: 'home#guide'
   get '/about', to: 'home#about'
-  get '/qa', to: 'home#qa'
+  get '/faq', to: 'home#faq'
 
   post '/checkout', to: 'orders#checkout', as: :checkout
   post 'orders/shipping/:id', to: 'orders#shipping', as: :shipping
