@@ -51,7 +51,16 @@ section#collection {
   padding: 30px 60px;
   position: relative;
   overflow: hidden;
-
+  .left{
+    float: left;
+    width: 100px;
+    margin-top: -14px;
+  }
+  .right{
+    float: right;
+    width: 140px;
+    margin-top: -10px;
+  }
   @media screen and (max-width: 762px) {
     margin-bottom: 40px;
     .latest__caption {

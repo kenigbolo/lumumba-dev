@@ -1337,7 +1337,8 @@ hr {
 
 .catalog__photo {
   display: block;
-  width: 100%; }
+  width: 260px;
+  height: 100%;}
 
 .catalog__name {
   display: block;
