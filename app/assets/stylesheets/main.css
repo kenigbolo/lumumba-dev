@@ -1719,6 +1719,7 @@ hr {
  }
 
 .contestants__author {
+  max-width: 195px;
   display: inline-block;
   font-size: 15px;
   line-height: 30px;
@@ -1735,8 +1736,8 @@ hr {
 .contestants__action {
   margin-top:-20px;
   display: inline-block;
-  width:30px;
-  margin-left: 20px;
+  width:7%;
+  margin-left: 10px;
   vertical-align: middle;
   cursor: pointer; }
   .contestants__action:hover {
