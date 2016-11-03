@@ -72,7 +72,7 @@ section#collection {
     .latest__image {
       background-image: url('_MG_6406.jpg');
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       background-position-x: 30%;
       &.second {
           background-image: url('_MG_6465.jpg');
