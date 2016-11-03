@@ -25,6 +25,15 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 	end
 
+	def upvote
+	  article = Article.find(params[:id])
+	  unless current_user.voted_for?  article
+	  	article.upvote_by current_user
+	  	flash[:notice] = "You have successfully voted"
+	  end
+	  redirect_to :back
+	end
+
 	def update
 		article = Article.find(params[:id])
 
