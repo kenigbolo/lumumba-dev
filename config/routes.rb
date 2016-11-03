@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     resources :order_items, only: [:create, :destroy]
   end
 
-  resources :articles
+  resources :articles do
+    member do
+      put "like", to: "articles#upvote"
+    end
+  end
 
   resources :addresses
 
