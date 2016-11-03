@@ -10,8 +10,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/designs-show', to: 'designs#show'
-
   resources :products do
     resources :order_items, only: [:create, :destroy]
   end
@@ -23,7 +21,6 @@ Rails.application.routes.draw do
   end
 
   resources :addresses
-
   resources :orders, only: [:index, :show]
 
   root to: "home#index"

@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
     user_path(resource.slug)
   end
 
-  def authenticate_admin
-    http_basic_authenticate_with name:  ENV["ADMIN_USERNAME"], password:  ENV["ADMIN_PASSWORD"]
+  def authenticate_admin!
+  	if current_user != nil
+      unless current_user.is_admin?
+        flash[:error] = "Access denied"
+        redirect_to root_path
+      end
+    end
   end
 end
