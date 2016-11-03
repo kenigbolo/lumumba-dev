@@ -1132,7 +1132,7 @@ hr {
 
 .latest__description {
   margin-top: 40px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .winner {
@@ -1907,11 +1907,22 @@ hr {
   display: block;
   max-width: 100%;
   font-family: "MF I Love Glitter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 36px;
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top:15px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   color: #A2DEF7; }
+
+.theme-desc__text {
+  margin-bottom:30px;
+}
+
+.img_theme_principal {
+  margin-bottom:30px;
+}
+
 
 .returns {
   position: relative;

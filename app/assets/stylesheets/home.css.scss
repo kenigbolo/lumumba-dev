@@ -5,7 +5,10 @@
    background: asset-data-url("logo.png") center center no-repeat;
  }
 
-
+a:hover{
+  color:currentColor;
+  text-decoration: none !important;
+}
 section#sign-in {
   padding: 30px 60px;
   background: white url('home_bg.png') center center no-repeat;
@@ -43,7 +46,7 @@ section#sign-in {
 }
 
 section#collection {
-  background: #E3762B url('latest_bg.png') center top no-repeat;
+  background: rgba(227, 118, 43, 0.85) url('latest_bg.png') center top no-repeat;
   margin-bottom: 80px;
   padding: 30px 60px;
   position: relative;
@@ -117,11 +120,12 @@ section#collection {
 section#competition {
   display: flex;
   flex-wrap: wrap;
-  background: #f5b21b url('countdown_bg.png') center top no-repeat;
+  background: rgba(245, 178, 27, 0.85);
+  background-repeat: no-repeat;
   .flex_item {
     display: flex;
     .img-bg {
-      background-image: url('winner_1.jpg');
+      background-image: url('winner_1.png');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center center;
@@ -132,7 +136,7 @@ section#competition {
   .call-to-action {
     margin-top:0;
     margin-bottom:0;
-    background: #f5b21b url('countdown_bg.png') center top no-repeat;
+    background: transparent;
 
     .button {
       background-color: white;
