@@ -32,3 +32,35 @@
   }
 
 }
+
+//designs
+#designs {
+  .input-fake-form {
+    display: inline-block;
+    background-color: #E3762B;
+    color: #fff;
+    vertical-align: top;
+    width: 20%;
+    margin-top:-12px;
+    input.input_orange_form {
+
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0);
+
+    }
+  }
+
+  .text-right {
+    text-align: right;
+    .form__input {
+      display: inline-block;
+      text-align: right;
+      margin: 0 auto;
+      position: relative;
+      width: 2%;
+    }
+  }
+}

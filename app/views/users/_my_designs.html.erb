@@ -4,9 +4,8 @@
     <% @designs.each do |design| %>
     <li class="my-designs__item">
         <div class="my-designs__image-wrapper">
-          <img class="my-designs__image" style="background-image: url('<%= design.image.url.to_s %>')">
+          <div class="my-designs__image" style="background-image: url('<%= asset_path design.image.url.to_s %>')"></div>
         </div>
-
         <div class="my-designs__info">
             <div class="my-designs__title">Description</div>
             <div class="my-designs__description"><%= design.image_desc %></div>
@@ -17,35 +16,6 @@
               </a>
             </div>
     </li>
+    <% end %>
 </ul>
 <!-- My designs finish -->
-
-<div  class="columns__content">
-  <%= render 'add_design_button' %>
-  <h3 class="title_h3">My designs</h3>
-  <!-- My designs start -->
-  <ul class="my-designs">
-    <% @designs.each do |design| %>
-      <li class="my-designs__item">
-        <div class="my-designs__image-wrapper">
-          <div class=" blog__image" </div>
-
-        </div>
-
-        <div class="my-designs__info">
-          <div class="my-designs__title">Description</div>
-          <div class="my-designs__description"><%= design.image_desc %></div>
-          <div class="my-designs__date">
-            Submitted <%= design.created_at.strftime("%d %B %Y")%>
-          </div>
-          <div class="buttons_one_design">
-            <a href="#" class="button_small button_blue button_design_right">
-              <div class="button__text">Add to Competition</div>
-            </a>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-  <!-- My designs finish -->
-</div><br>
