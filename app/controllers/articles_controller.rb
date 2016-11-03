@@ -15,6 +15,8 @@ class ArticlesController < ApplicationController
 
 		if article.persisted?
 			flash["notice"] = "Post successfully created"
+			Notification.create(notice: "You created a blogpost. View it [here](articles/#{article.slug})",
+				user_id: current_user.id)
 			redirect_to article
 		else
 			render 'new'
@@ -30,6 +32,8 @@ class ArticlesController < ApplicationController
 	  unless current_user.voted_for?  article
 	  	article.upvote_by current_user
 	  	flash[:notice] = "Thanks for liking the blog post"
+	  	Notification.create(notice: "Your blogpost was liked by #{current_user.first_name}. View it [here](articles/#{article.slug})",
+				user_id: current_user.id)
 	  end
 	  redirect_to :back
 	end
