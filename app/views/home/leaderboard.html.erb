@@ -128,7 +128,7 @@
                           <% elsif design.user.image != nil%>
                             <div class="top-designers__photo" style="background-image: url(<%= asset_path design.user.avatar_url %>);"></div>
                           <% else  %>
-                            <div class="top-designers__photo" style="background-image: url(<%= asset_path default-user.png %>);"></div>
+                            <div class="top-designers__photo" style="background-image: url(<%= asset_path 'default-user.png' %>);"></div>
                           <% end %>
                         </div>
 
