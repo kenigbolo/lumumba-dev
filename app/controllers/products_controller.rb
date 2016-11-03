@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
-  http_basic_authenticate_with name:  ENV["ADMIN_USERNAME"], password:  ENV["ADMIN_PASSWORD"], except: [:index, :show]
+  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :authenticate_admin!, :except => [:index, :show]
+
   def index
 		@products = Product.all.page(params[:page]).per(5)
 	end
@@ -16,7 +18,7 @@ class ProductsController < ApplicationController
 			flash["notice"] = "Product successfully created"
 			redirect_to @product
 		else
-			render 'new'
+			flash["notice"] = "Product could not be added"
 		end
 	end
 
