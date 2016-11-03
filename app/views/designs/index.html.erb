@@ -1,38 +1,40 @@
-<div class="layout__content">
-	<div class="container" id="small-description">
-  <!-- Section tittle -->
-    <h1 class="title_h1_description">become a lumumba designner</h1>
-    <p class="page-description">The october competition is about culture in india. Let´s get inspired by the <a href="./themes.html">Themes pages</a></p>
-    <!-- End Section tittle -->
+<!-- Section tittle -->
+<h1 class="title_h1_description">Become a Lumumba Designer</h1>
+<p class="page-description">Become a Lumumba Designer Applying for the competition is easy and fun. Create and design a great outfit that people will love. You can get inspiration from the Theme page. The guidelines are found in the <a href="/guide">Design Guide</a></p>
+<!-- End Section tittle -->
 
-  <!-- Section Icon and small description become -->
-   <div class="wrapper" id="small-description">
-      <center>
-         <ul class="become__list">
-            <li class="become__item_3">
-               <div class="columns__content">
-                    <%= image_tag "design.svg", id: "svg_img" %>
-                    <p class="p_become">Design 1 outfit following our instructions<p>
-               </div>
-            </li>
-             <li class="become__item_3">
-               <div class="columns__content">
-                   <%= image_tag "upload.svg", id: "svg_img" %>
-                   <p class="p_become">Upload the files and fill the forms<p>
-               </div>
-            </li>
-             <li class="become__item_3">
-               <div class="columns__content">
-                   <%= image_tag "welcome.svg", id: "svg_img" %>
-                   <p class="p_become">Welcome, Lumumba designer!<p>
-               </div>
-            </li>
-         </ul>
-            <div class="button__text button button_orange" id="new-form-display">
-             <%= link_to "Get Started", new_design_path %>
-            </div>
-       </center>
-     </div>
-  <!-- End Section Icon and small description become -->
-	</div>
-</div>
+<!-- Section Icon and small description become -->
+<div class="wrapper">
+  <center>
+     <ul class="become__list">
+        <li class="become__item_3">
+           <div class="columns__content">
+                <%= image_tag "design.svg", id: "svg_img" %>
+                <p class="p_become">Design 1 outfit after reading the competition  <a href="./designer_guide.html">Designer Guide</a><p>
+           </div>
+        </li>
+         <li class="become__item_3">
+           <div class="columns__content">
+               <%= image_tag "upload.svg", id: "svg_img" %>
+               <p class="p_become">Upload the files and fill the form<p>
+           </div>
+        </li>
+         <li class="become__item_3">
+           <div class="columns__content">
+               <%= image_tag "welcome.svg", id: "svg_img" %>
+               <p class="p_become">Welcome, Lumumba designer!<p>
+           </div>
+        </li>
+     </ul>
+   </center>
+
+   <div class="buttons_become">
+     <a  href="/guide" class="button button_orange button_become_left">
+         <div class="button__text">Design Guide</div>
+     </a>
+     <a href="/designs/new" class="button button_orange button_become_right">
+         <div class="button__text">Get Started</div>
+     </a>
+   </div>
+ </div>
+<!-- End Section Icon and small description become -->
