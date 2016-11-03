@@ -46,7 +46,7 @@
             <li>
               <a href="/designs/<%= design.id %>">
 
-                <div class="top-designers__project" style="background-image: url(<%= asset_path article.image.url %>);"></div>
+                <div class="top-designers__project" style="background-image: url(<%= asset_path design.image.url %>);"></div>
 
               </a>
             </li>
@@ -72,7 +72,7 @@
           <% @articles.each do |article| %>
             <li>
               <a href="">
-              <div class="image" style="background-image: url(<%= asset_path 'article.image' %>);"></div>
+              <div class="image" style="background-image: url(<%= asset_path article.image.url %>);"></div>
 
               </a>
               <div class="blog-description">
