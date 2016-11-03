@@ -10,7 +10,7 @@
   	  <li>
   	    <div class="user-image-wrapper">
   	    	<% if user.image_status == "upload" %>
-            <div class="user-image" style="background-image: url(<%=  user.avatar_url %>);"></div>
+            <div class="user-image" style="background-image: url(<%=  asset_path user.avatar_url %>);"></div>
   	    	<% elsif user.image != nil%>
             <div class="user-image" ></div>
   	    	<% else %>

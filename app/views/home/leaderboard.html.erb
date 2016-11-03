@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" id="leaderboard">
     <h1 class="title_h1">Leaderboard</h1>
     <p class="page-description">Discover who is who in the Lumumba community. Are you part of the competition? You can check here how many votes you have and how well you are doing.</p>
     <div class="columns">
@@ -6,7 +6,7 @@
             <!-- Left menu start -->
             <ul class="left-menu">
               <li class="left-menu__item">
-                  <a class="left-menu__link left-menu__link_selected"  href="" >
+                  <a class="left-menu__link left-menu__link_selected"  data-tab="trending" >
                       <div class="left-menu__link-text">Trending This Week</div>
                       <div class="left-menu__link-arrow">
                           <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -17,7 +17,7 @@
                   </a>
               </li>
               <li class="left-menu__item">
-                  <a class="left-menu__link" href="">
+                  <a class="left-menu__link" data-tab="competition_lead">
                       <div class="left-menu__link-text">Current Competition Leaders</div>
                       <div class="left-menu__link-arrow">
                           <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +28,7 @@
                   </a>
               </li>
               <li class="left-menu__item">
-                  <a class="left-menu__link" href="">
+                  <a class="left-menu__link" data-tab="winners">
                       <div class="left-menu__link-text">Past Winners</div>
                       <div class="left-menu__link-arrow">
                           <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@
                   </a>
               </li>
               <li class="left-menu__item">
-                  <a class="left-menu__link" href="">
+                  <a class="left-menu__link" data-tab="top_contributors">
                       <div class="left-menu__link-text">Top Lumumba Contributors</div>
                       <div class="left-menu__link-arrow">
                           <svg width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,66 @@
             </ul>
             <!-- Left menu finish -->
         </div>
-        <div class="columns__content">
+
+
+        <div class="columns__content active" id="trending">
+            <h3 class="title_h3">TRENDING THIS WEEK</h3>
+            <!-- Past winners start -->
+            <ol class="past-winners">
+                <li class="past-winners__item">
+                    <div class="past-winners__project-wrapper"><img class="past-winners__project" src="static/uploads/top-designers_1.jpg"></div>
+                    <div class="past-winners__photo-wrapper"><img class="past-winners__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                    <div class="past-winners__info">
+                        <div class="past-winners__name">Beyonce Knowles</div>
+                        <div class="past-winners__location">Houston, TX</div>
+                    </div>
+                    <div class="past-winners__wins">532 Competition Wins</div>
+                    <div class="past-winners__earned">$ 192,383 total earned</div>
+                </li>
+                <li class="past-winners__item">
+                    <div class="past-winners__project-wrapper"><img class="past-winners__project" src="static/uploads/top-designers_1.jpg"></div>
+                    <div class="past-winners__photo-wrapper"><img class="past-winners__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                    <div class="past-winners__info">
+                        <div class="past-winners__name">Beyonce Knowles</div>
+                        <div class="past-winners__location">Houston, TX</div>
+                    </div>
+                    <div class="past-winners__wins">342 Competition Wins</div>
+                    <div class="past-winners__earned">$ 143,291 total earned</div>
+                </li>
+                <li class="past-winners__item">
+                    <div class="past-winners__project-wrapper"><img class="past-winners__project" src="static/uploads/top-designers_1.jpg"></div>
+                    <div class="past-winners__photo-wrapper"><img class="past-winners__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                    <div class="past-winners__info">
+                        <div class="past-winners__name">Beyonce Knowles</div>
+                        <div class="past-winners__location">Houston, TX</div>
+                    </div>
+                    <div class="past-winners__wins">231 Competition Wins</div>
+                    <div class="past-winners__earned">$ 58,304 total earned</div>
+                </li>
+                <li class="past-winners__item">
+                    <div class="past-winners__project-wrapper"><img class="past-winners__project" src="static/uploads/top-designers_1.jpg"></div>
+                    <div class="past-winners__photo-wrapper"><img class="past-winners__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                    <div class="past-winners__info">
+                        <div class="past-winners__name">Beyonce Knowles</div>
+                        <div class="past-winners__location">Houston, TX</div>
+                    </div>
+                    <div class="past-winners__wins">122 Competition Wins</div>
+                    <div class="past-winners__earned">$ 21,284 total earned</div>
+                </li>
+                <li class="past-winners__item">
+                    <div class="past-winners__project-wrapper"><img class="past-winners__project" src="static/uploads/top-designers_1.jpg"></div>
+                    <div class="past-winners__photo-wrapper"><img class="past-winners__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                    <div class="past-winners__info">
+                        <div class="past-winners__name">Beyonce Knowles</div>
+                        <div class="past-winners__location">Houston, TX</div>
+                    </div>
+                    <div class="past-winners__wins">38 Competition Wins</div>
+                    <div class="past-winners__earned">$ 12,394 total earned</div>
+                </li>
+            </ol>
+            <!-- Past winners finish -->
+          </div>
+        <div class="columns__content" id="competition_lead">
             <h3 class="title_h3">Current Competition Leaders</h3>
             <!-- Top designers start -->
             <ol class="top-designers">
@@ -60,16 +119,16 @@
                 <li class="top-designers__item">
                     <a class="top-designers__link" href="/users/<%= design.user.slug %>">
                         <div class="top-designers__project-wrapper">
-                          <%= image_tag design.image_url, class: "top-designers__project" %>
+                          <div class="top-designers__project" style="background-image: url(<%= asset_path design.image_url %>);"></div>
                         </div>
 
                         <div class="top-designers__photo-wrapper">
                           <% if design.user.image_status == "upload" %>
-                            <%= image_tag design.user.avatar_url, class: "top-designers__photo" %>
+                            <div class="top-designers__photo" style="background-image: url(<%= asset_path design.user.avatar_url %>);"></div>
                           <% elsif design.user.image != nil%>
-                            <%= image_tag design.user.image, class: "top-designers__photo" %>
+                            <div class="top-designers__photo" style="background-image: url(<%= asset_path design.user.avatar_url %>);"></div>
                           <% else  %>
-                            <%= image_tag "default-user.png", class: "top-designers__photo" %>
+                            <div class="top-designers__photo" style="background-image: url(<%= asset_path default-user.png %>);"></div>
                           <% end %>
                         </div>
 
@@ -82,7 +141,144 @@
                 </li>
               <% end %>
             </ol>
-            <!-- Top designers finish -->
+          </div>
+
+          <div class="columns__content" id="winners">
+              <h3 class="title_h3">Past winners</h3>
+              <!-- Past winners start -->
+              <ol class="past-winners">
+                  <li class="past-winners__item">
+                      <div class="past-winners__project-wrapper"><img class="past-winners__project" src="static/uploads/top-designers_1.jpg"></div>
+                      <div class="past-winners__photo-wrapper"><img class="past-winners__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="past-winners__info">
+                          <div class="past-winners__name">Beyonce Knowles</div>
+                          <div class="past-winners__location">Houston, TX</div>
+                      </div>
+                      <div class="past-winners__wins">532 Competition Wins</div>
+                      <div class="past-winners__earned">$ 192,383 total earned</div>
+                  </li>
+                  <li class="past-winners__item">
+                      <div class="past-winners__project-wrapper"><img class="past-winners__project" src="static/uploads/top-designers_1.jpg"></div>
+                      <div class="past-winners__photo-wrapper"><img class="past-winners__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="past-winners__info">
+                          <div class="past-winners__name">Beyonce Knowles</div>
+                          <div class="past-winners__location">Houston, TX</div>
+                      </div>
+                      <div class="past-winners__wins">342 Competition Wins</div>
+                      <div class="past-winners__earned">$ 143,291 total earned</div>
+                  </li>
+                  <li class="past-winners__item">
+                      <div class="past-winners__project-wrapper"><img class="past-winners__project" src="static/uploads/top-designers_1.jpg"></div>
+                      <div class="past-winners__photo-wrapper"><img class="past-winners__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="past-winners__info">
+                          <div class="past-winners__name">Beyonce Knowles</div>
+                          <div class="past-winners__location">Houston, TX</div>
+                      </div>
+                      <div class="past-winners__wins">231 Competition Wins</div>
+                      <div class="past-winners__earned">$ 58,304 total earned</div>
+                  </li>
+                  <li class="past-winners__item">
+                      <div class="past-winners__project-wrapper"><img class="past-winners__project" src="static/uploads/top-designers_1.jpg"></div>
+                      <div class="past-winners__photo-wrapper"><img class="past-winners__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="past-winners__info">
+                          <div class="past-winners__name">Beyonce Knowles</div>
+                          <div class="past-winners__location">Houston, TX</div>
+                      </div>
+                      <div class="past-winners__wins">122 Competition Wins</div>
+                      <div class="past-winners__earned">$ 21,284 total earned</div>
+                  </li>
+                  <li class="past-winners__item">
+                      <div class="past-winners__project-wrapper"><img class="past-winners__project" src="static/uploads/top-designers_1.jpg"></div>
+                      <div class="past-winners__photo-wrapper"><img class="past-winners__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="past-winners__info">
+                          <div class="past-winners__name">Beyonce Knowles</div>
+                          <div class="past-winners__location">Houston, TX</div>
+                      </div>
+                      <div class="past-winners__wins">38 Competition Wins</div>
+                      <div class="past-winners__earned">$ 12,394 total earned</div>
+                  </li>
+              </ol>
+              <!-- Past winners finish -->
+          </div>
+          <div class="columns__content" id="top_contributors">
+              <h3 class="title_h3">Top Lumumba contributors</h3>
+              <!-- Top buyers start -->
+              <ol class="top-buyers">
+                  <li class="top-buyers__item">
+                      <div class="top-buyers__photo-wrapper"><img class="top-buyers__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="top-buyers__info">
+                          <div class="top-buyers__name">Beyonce Knowles</div>
+                          <div class="top-buyers__location">Houston, TX</div>
+                      </div>
+                  </li>
+                  <li class="top-buyers__item">
+                      <div class="top-buyers__photo-wrapper"><img class="top-buyers__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="top-buyers__info">
+                          <div class="top-buyers__name">Beyonce Knowles</div>
+                          <div class="top-buyers__location">Houston, TX</div>
+                      </div>
+                  </li>
+                  <li class="top-buyers__item">
+                      <div class="top-buyers__photo-wrapper"><img class="top-buyers__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="top-buyers__info">
+                          <div class="top-buyers__name">Beyonce Knowles</div>
+                          <div class="top-buyers__location">Houston, TX</div>
+                      </div>
+                  </li>
+                  <li class="top-buyers__item">
+                      <div class="top-buyers__photo-wrapper"><img class="top-buyers__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="top-buyers__info">
+                          <div class="top-buyers__name">Beyonce Knowles</div>
+                          <div class="top-buyers__location">Houston, TX</div>
+                      </div>
+                  </li>
+                  <li class="top-buyers__item">
+                      <div class="top-buyers__photo-wrapper"><img class="top-buyers__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="top-buyers__info">
+                          <div class="top-buyers__name">Beyonce Knowles</div>
+                          <div class="top-buyers__location">Houston, TX</div>
+                      </div>
+                  </li>
+                  <li class="top-buyers__item">
+                      <div class="top-buyers__photo-wrapper"><img class="top-buyers__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="top-buyers__info">
+                          <div class="top-buyers__name">Beyonce Knowles</div>
+                          <div class="top-buyers__location">Houston, TX</div>
+                      </div>
+                  </li>
+                  <li class="top-buyers__item">
+                      <div class="top-buyers__photo-wrapper"><img class="top-buyers__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="top-buyers__info">
+                          <div class="top-buyers__name">Beyonce Knowles</div>
+                          <div class="top-buyers__location">Houston, TX</div>
+                      </div>
+                  </li>
+                  <li class="top-buyers__item">
+                      <div class="top-buyers__photo-wrapper"><img class="top-buyers__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="top-buyers__info">
+                          <div class="top-buyers__name">Beyonce Knowles</div>
+                          <div class="top-buyers__location">Houston, TX</div>
+                      </div>
+                  </li>
+                  <li class="top-buyers__item">
+                      <div class="top-buyers__photo-wrapper"><img class="top-buyers__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="top-buyers__info">
+                          <div class="top-buyers__name">Beyonce Knowles</div>
+                          <div class="top-buyers__location">Houston, TX</div>
+                      </div>
+                  </li>
+                  <li class="top-buyers__item">
+                      <div class="top-buyers__photo-wrapper"><img class="top-buyers__photo" src="static/uploads/top-buyers_1.jpg"></div>
+                      <div class="top-buyers__info">
+                          <div class="top-buyers__name">Beyonce Knowles</div>
+                          <div class="top-buyers__location">Houston, TX</div>
+                      </div>
+                  </li>
+              </ol>
+              <!-- Top buyers finish -->
+          </div>
+
+
         </div>
-    </div>
+
 </div>

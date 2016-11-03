@@ -160,3 +160,16 @@ section#competition {
   }
 
 }
+
+#leaderboard {
+  .columns__left-menu {
+    cursor: pointer;
+  }
+  .columns__content {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+
+}

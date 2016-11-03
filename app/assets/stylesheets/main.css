@@ -2668,7 +2668,9 @@ hr {
 .top-designers__project {
   display: block;
   width: 124px;
-  height: 179px; }
+  height: 179px;
+  background-repeat: no-repeat;
+  background-size: cover;}
 
 .top-designers__photo-wrapper {
   margin-right: 20px; }
@@ -2681,7 +2683,11 @@ hr {
   display: block;
   width: 52px;
   height: 52px;
-  border-radius: 50%;}
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
 
 .top-designers__name {
   letter-spacing: .05em;
