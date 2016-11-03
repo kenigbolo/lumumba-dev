@@ -1578,7 +1578,7 @@ hr {
 
 .countdown {
   position: relative;
-  margin-bottom: 80px;
+
   background-color: #F5B21B;
   overflow: hidden; }
 
@@ -1672,7 +1672,7 @@ hr {
   position: relative;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 32%;
-          flex: 0 0 32%);
+          flex: 0 0 32%;
   width:260px;
   margin-right: 40px;
   margin-bottom: 80px; }
