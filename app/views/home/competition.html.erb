@@ -5,15 +5,15 @@
   <div class="latest__tile-list">
       <figure class="latest__tile">
         <div class="wrapper__image">
-          <%= image_tag "_MG_6406.jpg", class: "latest__image" %>
-          <!-- <div class="latest__image" style="background-image:) "></div> -->
+          <!-- <%= image_tag "_MG_6406.jpg", class: "latest__image" %> -->
+          <div class="latest__image"  style="background-image: url(<%= asset_path '_MG_6406.jpg' %>) "></div>
           <figcaption class="latest__caption"><a class="latest__link" href="">Shana M. - Olive blouse shirt</a></figcaption>
         </div>
       </figure>
       <figure class="latest__tile">
         <div class="wrapper__image">
-          <%= image_tag "_MG_6465.jpg", class: "latest__image second" %>
-          <!-- <div class="latest__image second" style="background-image: "></div> -->
+          <!-- <%= image_tag "_MG_6465.jpg", class: "latest__image second" %> -->
+          <div class="latest__image second" style="background-image: url(<%= asset_path '_MG_6465.jpg' %>)" ></div>
           <figcaption class="latest__caption"><a class="latest__link" href="">Carolyn J. - Cashmere sweater</a></figcaption>
         </div>
       </figure>
@@ -61,7 +61,9 @@
         <ul class="contestants__list">
             <% @designs.each do |design| %>
             <li class="contestants__item">
-                <a class="contestants__link" href="/designs/<%= design.id %>"><%= image_tag design.image_url.to_s, class: "contestants__photo"%></a>
+                <a class="contestants__link" href="/designs/<%= design.id %>">
+                  <div class="contestants__photo" style="background-image: url(<%= asset_path design.image_url.to_s %>)" ></div>
+                </a>
                 <div class="contestants__info">
                     <div class="contestants__author">By <a class="contestants__author-link" href="/users/<%= design.user.slug %>"><%= design.user.first_name%></a></div>
                     <div class="contestants__action">
@@ -81,11 +83,11 @@
                     <div class="contestants__action">
                         <div class="container">
                           <%= design.get_upvotes.size %>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </li>
             <% end %>
         </ul>
-    </div>            
+    </div>
 </div>

@@ -120,7 +120,8 @@ section#collection {
 section#competition {
   display: flex;
   flex-wrap: wrap;
-  background: rgba(245, 178, 27, 0.85) url('countdown_bg.png') center top no-repeat;
+  background: rgba(245, 178, 27, 0.85);
+  background-repeat: no-repeat;
   .flex_item {
     display: flex;
     .img-bg {
