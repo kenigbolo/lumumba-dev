@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :order_item do
     quantity 1
-    size { SecureRandom.hex }
-    color { SecureRandom.hex }
+    size "MyString"
+    color "MyString"
     product
-    order 
+    order nil
   end
 end
