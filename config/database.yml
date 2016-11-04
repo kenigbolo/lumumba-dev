@@ -1,21 +1,21 @@
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
   pool: 5
   timeout: 5000
+  encoding: unicode
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: lumumba_development
 
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: lumumba_test
 
 production:
   <<: *default
-  adapter: postgresql
-  database: db/production.sqlite3
+  database: lumumba_production
 
 staging:
   <<: *default
-  database: db/production.sqlite3
+  database: lumumba_staging
