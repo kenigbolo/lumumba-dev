@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_admin!
-  	if current_user != nil
+    unless current_user.nil?
       unless current_user.is_admin?
-        flash[:error] = "Access denied"
+        flash[:error] = 'Access denied'
         redirect_to root_path
       end
     end

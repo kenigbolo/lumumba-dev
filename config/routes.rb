@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: 'registrations', confirmations: "confirmations"}
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations', confirmations: 'confirmations' }
 
   resources :designs do
     member do
-      put "like", to: "designs#upvote"
+      put 'like', to: 'designs#upvote'
     end
   end
 
@@ -16,14 +15,14 @@ Rails.application.routes.draw do
 
   resources :articles do
     member do
-      put "like", to: "articles#upvote"
+      put 'like', to: 'articles#upvote'
     end
   end
 
   resources :addresses
   resources :orders, only: [:index, :show]
 
-  root to: "home#index"
+  root to: 'home#index'
 
   get 'users/:id', to: 'users#show', as: :user
   get 'users/:id/designs/', to: 'users#design', as: :user_designs
@@ -48,5 +47,4 @@ Rails.application.routes.draw do
   post '/checkout', to: 'orders#checkout', as: :checkout
   post 'orders/shipping/:id', to: 'orders#shipping', as: :shipping
   get 'orders/payment/:id', to: 'orders#payment', as: :payment
-
 end

@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :order_item do
     quantity 1
-    size "M"
-    color "blue"
+    size 'M'
+    color 'blue'
     product
-    order 
+    order
   end
 end

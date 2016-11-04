@@ -9,7 +9,6 @@ end
 require 'capybara/rspec'
 
 RSpec.configure do |config|
-
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation) # leave it clean for FactoryGirl
     FactoryGirl.lint
@@ -25,14 +24,13 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
-
 end
 
 def any_image
   Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'blank.png'))
 end
 
-def controller_ok status=200
+def controller_ok(status = 200)
   expect(response.status).to be status
   expect(response.body).to be_present
 end

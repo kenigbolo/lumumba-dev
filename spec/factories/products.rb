@@ -5,7 +5,7 @@ FactoryGirl.define do
     first_thumbnail { any_image }
     second_thumbnail { any_image }
     third_thumbnail { any_image }
-    price "9.99"
+    price '9.99'
     description { SecureRandom.hex }
     designer { SecureRandom.hex }
     preview false

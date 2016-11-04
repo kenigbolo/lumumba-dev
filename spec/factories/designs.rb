@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :design do
-
     image { any_image }
     image_desc { SecureRandom.hex }
 
@@ -25,6 +24,5 @@ FactoryGirl.define do
     for_competition true
     competition false
     user
-
   end
 end
