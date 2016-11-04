@@ -6,4 +6,8 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.contact_us SecureRandom.hex
   end
 
+  def first_vote_notification
+    UserMailer.first_vote_notification SecureRandom.hex
+  end
+
 end

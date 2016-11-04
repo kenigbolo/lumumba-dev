@@ -54,5 +54,9 @@ class User < ApplicationRecord
   def is_admin?
     self.admin == true
   end
+ 
+  def after_confirmation
+    WelcomeMailer.signup_confirmation(self).deliver
+  end
 
 end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :tax do
-    country "MyString"
-    vat_rate 1
+    country "ES"
+    vat_rate 0.21
   end
 end

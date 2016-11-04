@@ -15,7 +15,8 @@ class ArticlesController < ApplicationController
 
 		if @article.persisted?
 			flash["notice"] = "Post successfully created"
-			redirect_to @article
+			article_notification(article)
+			redirect_to article
 		else
 			render 'new'
 		end
@@ -30,6 +31,7 @@ class ArticlesController < ApplicationController
 	  unless current_user.voted_for?  article
 	  	article.upvote_by current_user
 	  	flash[:notice] = "Thanks for liking the blog post"
+	  	vote_notification
 	  end
 	  redirect_to :back
 	end
@@ -57,7 +59,7 @@ class ArticlesController < ApplicationController
 	  	article.destroy
 	  	flash["notice"] = "successfully deleted this post"
 	  else
-	  	flash["notice"] = "You do not hae the permission to delete this post"	 
+	  	flash["notice"] = "You do not hae the permission to delete this post"
 	  end
 	  redirect_to articles_path
 	end
@@ -66,4 +68,20 @@ class ArticlesController < ApplicationController
 	  def article_params
 	    params.require(:article).permit(:title, :description, :image)
 	  end
+	  def vote_notification
+	  	notice = Notification.new(notice: "Your blogpost was liked by #{current_user.first_name}. View it [here](#{article_path(article.slug)})", user_id: current_user.id)
+			save_notice(notice)
+	  end
+		def article_notification(article)
+			notice = Notification.new(notice: "You created a blogpost. View it [here](#{article_path(article.slug)})", user_id: current_user.id)
+			save_notice(notice)
+		end
+    def save_notice(notice)
+			notice.save
+			unless notice.persisted?
+				msg = "Notification failed: #{notification.error.messages}"
+				Rollbar.warn msg
+				Rails.logger.warn msg
+			end
+		end
 end

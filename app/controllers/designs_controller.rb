@@ -1,6 +1,6 @@
 class DesignsController < ApplicationController
 	before_action :authenticate_user!, :except => [:index, :competition]
-	
+
 	def index
 	end
 
@@ -49,9 +49,9 @@ class DesignsController < ApplicationController
 
 	def add_to_competition
 		design = Design.where("id = ?", params[:id]).first
-		design.for_competition = true
+		design.competition = true
 		design.save
-		flash[:notice] = "Your design has been submitted for competition review"
+		flash[:notice] = "Your design has been submitted for review"
 		redirect_to :back
 	end
 
@@ -60,7 +60,7 @@ class DesignsController < ApplicationController
 	  if current_user.id == @design.user.id
 	  	@design.destroy
 	  else
-	  	flash["notice"] = "You do not hae the permission to delete this post"	 
+	  	flash["notice"] = "You do not hae the permission to delete this post"
 	  end
 	  redirect_to designs_path
 	end
@@ -71,8 +71,9 @@ class DesignsController < ApplicationController
 	  	design.upvote_by current_user
 	  	flash[:notice] = "You have successfully voted"
 	  end
+	  first_vote(design)
 	  redirect_to :back
-	end 
+	end
 
 	private
 	  def design_params
@@ -81,5 +82,11 @@ class DesignsController < ApplicationController
 	    	:first_garment_design,:second_garment_design,:third_garment_design, :first_garment_model_design,
 	    	:second_garment_model_design,:third_garment_model_design,:competition, :first_garment_technical_design,
 	    	:second_garment_technical_design, :third_garment_technical_design)
+	  end
+
+	  def first_vote(design)
+      if design.get_upvotes.size == 1
+	      UserMailer.first_vote_notification(design).deliver
+	    end
 	  end
 end
