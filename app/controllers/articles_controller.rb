@@ -69,11 +69,11 @@ class ArticlesController < ApplicationController
 	    params.require(:article).permit(:title, :description, :image)
 	  end
 	  def vote_notification
-	  	notice = Notification.new(notice: "Your blogpost was liked by #{current_user.first_name}. View it [here](articles/#{article.slug})", user_id: current_user.id)
+	  	notice = Notification.new(notice: "Your blogpost was liked by #{current_user.first_name}. View it [here](#{article_path(article.slug)})", user_id: current_user.id)
 			save_notice(notice)
 	  end
 		def article_notification(article)
-			notice = Notification.new(notice: "You created a blogpost. View it [here](articles/#{article.slug})", user_id: current_user.id)
+			notice = Notification.new(notice: "You created a blogpost. View it [here](#{article_path(article.slug)})", user_id: current_user.id)
 			save_notice(notice)
 		end
     def save_notice(notice)
