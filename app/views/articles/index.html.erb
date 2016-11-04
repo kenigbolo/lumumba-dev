@@ -2,7 +2,7 @@
     <!-- Top post start -->
     <div class="top-post">
         <div class="top-post__wrapper">
-            <div class="top-post__image-wrapper" style="background-image: url(<%=  %>);"></div>
+            <div class="top-post__image-wrapper" style="background-image: url(<%= asset_path '_MG_6404.jpg' %>);"></div>
             <div class="top-post__info">
                 <div class="top-post__heading">Top post</div>
                 <div class="top-post__title">Fashion trends changing technology</div>
@@ -40,7 +40,7 @@
                         <div class="blog__author"><%= blog.user.last_name%>  <%= blog.user.first_name%></div>
                         <div class="blog__preview"><%= blog.description%></div>
                         <div class="blog__date"><%= blog.created_at%></div>
-                        
+
                         <div class="blog__actions">
 
                             <td><%= link_to 'Continue Reading', article_path(blog), class: "button button_blue blog__button button__text" %></td>
@@ -65,10 +65,10 @@
                                 <% end %>
                             </div>
 
-                            <div class="contestants__action">
-                                <div class="container">
+                            <div class="contestants__action blog">
+
                                   <%= blog.get_upvotes.size %>
-                                </div>
+
                             </div>
 
                         </div>

@@ -31,7 +31,7 @@
 <div class="dummy">
   <div class="dummy__wrapper">
 
-    <section class="blog-posts">
+    <section class="designs">
       <h3>Designs</h3>
       <div class="digg_pagination">
         <div class="page_info">
@@ -43,10 +43,10 @@
       <% else %>
         <ul class="designs-wrapper">
           <% @designs.each do |design| %>
-            <li>
+            <li class="designs">
               <a href="/designs/<%= design.id %>">
 
-                <div class="top-designers__project" style="background-image: url(<%= asset_path design.image.url %>);"></div>
+                <div class="design-image" style="background-image: url(<%= asset_path design.image.url %>);"></div>
 
               </a>
             </li>
