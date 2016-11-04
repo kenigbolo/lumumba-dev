@@ -265,10 +265,30 @@
                   <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <h1>Hello <br><b><%= @user.email %></b>!</h1>
-                        <p>We're contacting you to notify you that your password has been changed.</p>
-                      
+                        <h1>Hi<br><b><%= @resource.email %></b>, congratulations! !</h1>
+                         <p>
+                        You're one step closer to win! You received your first vote in the competition. Is it a friend? Mom and pop? Discover here: </p>
+
+                        <hr>
+                          <!-- TODO: link needs to be changed -->
+                        <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                          <tbody>
+                            <tr>
+                              <td align="left">
+                                <table border="0" cellpadding="0" cellspacing="0">
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <a><%= link_to 'Change my password', edit_password_url(@resource, reset_password_token: @token) %></a></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
                         </table>
+                        <p>If you didn't request this, please ignore this email.</p>
+                        <p>Your password won't change until you access the link above and create a new one.</p>
                       </td>
                     </tr>
                   </table>
