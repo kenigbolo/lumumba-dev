@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   get '/guide', to: 'home#guide'
   get '/about', to: 'home#about'
   get '/faq', to: 'home#faq'
+  get '/privacy', to: 'home#privacy'
 
   post '/checkout', to: 'orders#checkout', as: :checkout
   post 'orders/shipping/:id', to: 'orders#shipping', as: :shipping
