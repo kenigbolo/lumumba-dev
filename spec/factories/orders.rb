@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :order do
-    order_number "MyString"
-    payment_method "MyString"
-    total_amount "9.99"
-    status "MyString"
-    address nil
-    user nil
+    order_number { SecureRandom.hex }
+    payment_method { SecureRandom.hex }
+    total_amount { SecureRandom.hex }
+    status { SecureRandom.hex }
+    address
+    user
   end
 end
