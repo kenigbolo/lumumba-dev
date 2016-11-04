@@ -5,6 +5,6 @@ class OrderItem < ApplicationRecord
   validates :color, :quantity, :size, presence: true
 
   def get_product
-  	Product.find(self.product_id)
+    Product.find(product_id)
   end
 end

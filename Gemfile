@@ -25,9 +25,9 @@ gem 'simple_form', '~> 3.3' # Use simple form as default for forms
 gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'uglifier', '~> 3' # Use Uglifier as compressor for JavaScript assets
+gem 'pg', '0.18.1', group: :production # Use pg as the database for Active Record [Production Environment]
 
 group :production do
-  gem 'pg', '0.18.1', group: :production # Use pg as the database for Active Record [Production Environment]
   gem 'rails_12factor', group: :production # NOTE: not needed in Rails 5, apparently
 end
 
@@ -41,6 +41,7 @@ group :development do
   gem 'sqlite3' # Use sqlite3 as the database for Active Record [Development Environment]
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
+  gem 'rubocop'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
