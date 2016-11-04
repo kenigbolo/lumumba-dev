@@ -1009,6 +1009,7 @@ hr {
   color: #CCCCCC;
   border-bottom: 1px solid #CCCCCC; }
   .left-menu__link:hover {
+    cursor: pointer;
     color: #A2DEF7; }
   @media screen and (max-width: 762px) {
     .left-menu__link {

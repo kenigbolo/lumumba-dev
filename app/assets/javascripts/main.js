@@ -49,6 +49,7 @@ onDOMready(function(){
 
 $(document).ready(function(){
 
+
 	$('.left-menu__link').click(function(){
 		var tab_id = $(this).attr('data-tab');
 

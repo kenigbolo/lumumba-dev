@@ -182,3 +182,58 @@ section#competition {
   }
 
 }
+
+
+//about-us
+
+.about {
+
+  .columns__content {
+    margin-top:40px;
+    margin-bottom:60px;
+  }
+  .columns__left-menu {
+    cursor: pointer;
+  }
+  .columns__content {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+  .wrapper__image {
+    height: 100%;
+  }
+  .column__content {
+    margin: 15px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 0;
+            flex: 1 0 0;
+
+
+  }
+  .team {
+    display: flex;
+    list-style: none;
+    li {
+      flex: 0 1 20%;
+      p {
+        text-align: center;
+        &.team__position {
+          color:#A2DEF7;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .wrapper.center{
+    text-align: center;
+    .img_responsive {
+      width: 25%;
+      display: inline-block;
+      padding: 0 30px;
+    }
+  }
+
+}
