@@ -15,15 +15,4 @@ RSpec.describe UserMailer, type: :mailer do
       expect(mail.body.encoded).to match(message.message)
     end
   end
-  describe "first_vote_notification" do
-    let(:design) {FactoryGirl.build :design}
-    let(:mail) {UserMailer.first_vote_notification(design)}
-
-    it "renders the headers" do
-      expect(mail.subject).to eq("You just got your first vote!")
-      expect(mail.to).to eq(["notifications@lumumba.com"])
-      expect(mail.from).to eq([design.user.email])
-    end
-  end
-
 end

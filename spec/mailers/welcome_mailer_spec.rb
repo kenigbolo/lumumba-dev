@@ -7,8 +7,8 @@ RSpec.describe WelcomeMailer, type: :mailer do
 
     it "renders the headers" do
       expect(mail.subject).to eq("Welcome to Lumumba")
-      expect(mail.to).to eq(["welcome@lumumba.com"])
-      expect(mail.from).to eq([user.email])
+      expect(mail.to).to eq([user.email])
+      expect(mail.from).to eq(["welcome@lumumba.com"])
     end
   end
 end
