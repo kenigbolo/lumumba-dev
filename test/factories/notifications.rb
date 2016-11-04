@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :notification do
     notice "MyString"
-    user nil
+    user User
   end
 end

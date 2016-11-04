@@ -33,7 +33,7 @@ class Design < ApplicationRecord
   end
 
   def in_competition?
-    self.competition == true
+    self.competition
   end  
 
 end

@@ -32,8 +32,7 @@ class ArticlesController < ApplicationController
 	  unless current_user.voted_for?  article
 	  	article.upvote_by current_user
 	  	flash[:notice] = "Thanks for liking the blog post"
-	  	Notification.create(notice: "Your blogpost was liked by #{current_user.first_name}. View it [here](articles/#{article.slug})",
-				user_id: current_user.id)
+	  	create_notification
 	  end
 	  redirect_to :back
 	end
@@ -69,5 +68,14 @@ class ArticlesController < ApplicationController
 	private
 	  def article_params
 	    params.require(:article).permit(:title, :description, :image)
+	  end
+
+	  def create_notification
+	  	notice = Notification.new(notice: "Your blogpost was liked by #{current_user.first_name}. View it [here](articles/#{article.slug})",
+				user_id: current_user.id)
+	  	unless notice.persisted?
+	  		msg = "Notification failed: #{notification.error.messages}"
+	  		Rollbar.warn msg
+	  		Rails.logger.warn msg
 	  end
 end
