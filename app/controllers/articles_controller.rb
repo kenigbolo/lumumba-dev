@@ -77,5 +77,6 @@ class ArticlesController < ApplicationController
 	  		msg = "Notification failed: #{notification.error.messages}"
 	  		Rollbar.warn msg
 	  		Rails.logger.warn msg
+	  	end
 	  end
 end
