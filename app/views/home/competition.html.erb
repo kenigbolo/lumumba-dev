@@ -1,5 +1,5 @@
 <!-- Latest start -->
-<section id="collection">
+<section class="latest">
 <div class="latest__wrapper">
   <div class="latest__title">Latest Competition Designs</div>
   <div class="latest__tile-list">
@@ -18,9 +18,7 @@
         </div>
       </figure>
   </div>
-  <div class="bottom">
-    <a class="latest__link button" href="/products">See more products</a>
-  </div>
+
 </div>
 </section>
 <!-- Latest finish -->
@@ -65,7 +63,7 @@
                   <div class="contestants__photo" style="background-image: url(<%= asset_path design.image_url.to_s %>)" ></div>
                 </a>
                 <div class="contestants__info">
-                    <div class="contestants__author">By <a class="contestants__author-link" href="/users/<%= design.user.slug %>"><%= design.user.first_name%></a></div>
+                    <div class="contestants__author">By <a class="contestants__author-link" href="/users/<%= design.user.slug %>"><%= design.user.first_name%> <%= design.user.last_name%></a></div>
                     <div class="contestants__action">
                         <%= link_to like_design_path(design), method: :put do %>
                            <svg width="22" height="20" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
@@ -81,7 +79,7 @@
                         <% end %>
                     </div>
                     <div class="contestants__action">
-                        <div class="container">
+                        <div class="">
                           <%= design.get_upvotes.size %>
                         </div>
                     </div>

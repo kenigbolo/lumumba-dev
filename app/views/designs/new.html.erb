@@ -23,12 +23,12 @@
       </ul>
     </div>
   <% end %>
-<div class="dummy__wrapper">
+<div class="dummy__wrapper" id="designs">
     <!-- Section tittle -->
     <div class="blog">
         <div class="blog__wrapper">
             <div class="blog__intro">
-                <div class="blog__heading">Total look</div>
+                <div class="title_h1_cart">Total Look</div>
             </div>
             <p id="fontSize" >Upload your total look sketch below</p>
         </div>
@@ -53,7 +53,7 @@
       <div class="blog">
           <div class="blog__wrapper">
               <div class="blog__intro">
-                  <div class="blog__heading">flat pattern drawing garment 1</div>
+                  <div class="title_h1_cart">Flat Pattern Drawing Garment 1</div>
               </div>
               <p id="fontSize" >Upload your flat pattern drawing garment 1 below</p>
           </div>
@@ -88,7 +88,7 @@
       <div class="blog">
           <div class="blog__wrapper">
               <div class="blog__intro">
-                  <div class="blog__heading">flat pattern drawing garment 2</div>
+                  <div class="title_h1_cart">Flat Pattern Drawing Garment 2</div>
               </div>
               <p id="fontSize" >Upload your flat pattern drawing garment 2 below</p>
           </div>
@@ -123,7 +123,7 @@
      <div class="blog">
          <div class="blog__wrapper">
              <div class="blog__intro">
-                 <div class="blog__heading">flat pattern drawing garment 3</div>
+                 <div class="title_h1_cart">Flat Pattern Drawing Garment 3</div>
              </div>
              <p id="fontSize" >Upload your flat pattern drawing garment 3 below</p>
          </div>
@@ -144,7 +144,9 @@
 
       <div class="input-wb">
         <%= f.label :third_garment_technical_design, 'Optional "Technical Sheet" File' %>
+
         <%= f.file_field :third_garment_technical_design, class: "form__input" %>
+
       </div>
 
       <div class="input-w">
@@ -155,7 +157,7 @@
 
     <!-- Button to toggle model-design upload view-->
     <div class="wrapper">
-      <input type='button' id='hideshow' value='Add Model Design' class="button button_blue">
+      <input type='button' id='hideshow' value='Add Model Design' class="button button_orange">
     </div>
     <!-- End of Button to toggle model-design upload view -->
 
@@ -165,7 +167,7 @@
       <div class="blog">
           <div class="blog__wrapper">
               <div class="blog__intro">
-                  <div class="blog__heading">Model Design look</div>
+                  <div class="title_h1_cart">Model Design look</div>
               </div>
               <p id="fontSize" >Upload your model design pictures below</p>
           </div>
@@ -188,19 +190,21 @@
       </div>
     </div><br>
     <!-- End of Model design upload view -->
-    <div>
+    <div class="text-right">
       <%= f.label :competition, 'Include Design in ongoing competition' %>
       <%= f.check_box :competition, class: "form__input" %>
-    </div><br>
+    </div>
+    <br>
     <!-- Button -->
     <div class="wrapper">
-      <%= f.submit "Save & Continue", class: "button button_blue"%>
+      <%= f.submit "Save & Continue", class: "button button_orange big button_become_right"%>
+      <%= link_to 'Back', designs_path, class: "button button_orange button_become_left" %>
     </div>
 
     <!-- End Form additional information start -->
   <% end %>
 
   <br>
-  <%= link_to 'Back', designs_path, class: "button-orange" %>
+
 
 </div>

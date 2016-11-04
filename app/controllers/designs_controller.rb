@@ -25,6 +25,9 @@ class DesignsController < ApplicationController
 
 	def show
 		@design = Design.find(params[:id])
+		other_designs = Design.where("user_id = ?", @design.user_id)
+		@other_designs = other_designs.where("id != ?", @design.id).page(params[:page]).per(4)
+
 	end
 
 	def update

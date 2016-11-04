@@ -16,11 +16,11 @@
       <div class="product__wrapper">
           <div class="product__gallery">
               <ul class="product__preview-list">
-                  <li class="product__preview-item" style="background-image: url(<%=  @product.first_thumbnail_url %>);"></li>
-                  <li class="product__preview-item" style="background-image: url(<%=  @product.second_thumbnail_url %>);"></li>
-                  <li class="product__preview-item" style="background-image: url(<%=  @product.third_thumbnail_url %>);"></li>
+                  <li class="product__preview-item" style="background-image: url(<%= asset_path  @product.first_thumbnail_url %>);"></li>
+                  <li class="product__preview-item" style="background-image: url(<%= asset_path @product.second_thumbnail_url %>);"></li>
+                  <li class="product__preview-item" style="background-image: url(<%=  asset_path @product.third_thumbnail_url %>);"></li>
               </ul>
-              <div class="product__photo-wrapper" style="background-image: url(<%=  @product.main_image_url %>);"></div>
+              <div class="product__photo-wrapper" style="background-image: url(<%= asset_path @product.main_image_url %>);"></div>
           </div>
           <div class="product__info">
               <div class="product__title"><%= @product.name %></div>

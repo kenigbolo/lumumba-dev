@@ -10,16 +10,25 @@
     background-position: center center;
   }
 }
-
+.top-post__image-wrapper {
+      height: 360px;
+}
+.contestants__action.blog {
+  margin-top:11px;
+}
 #articles {
+  .blog__details {
+    width:50%;
+    display: inline-block;
+
+  }
   .blog__image-wrapper {
-    display: block;
+    display: inline-block;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100%;
-    height:300px;
-    height:70vh;
-    background-position: center center;
+    width: 50%;
+    height:450px;
+    background-position: top center;
   }
   .blog__item {
     display: block;
@@ -31,4 +40,36 @@
     }
   }
 
+}
+
+//designs
+#designs {
+  .input-fake-form {
+    display: inline-block;
+    background-color: #E3762B;
+    color: #fff;
+    vertical-align: top;
+    width: 20%;
+    margin-top:-12px;
+    input.input_orange_form {
+
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0);
+
+    }
+  }
+
+  .text-right {
+    text-align: right;
+    .form__input {
+      display: inline-block;
+      text-align: right;
+      margin: 0 auto;
+      position: relative;
+      width: 2%;
+    }
+  }
 }

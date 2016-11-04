@@ -51,7 +51,16 @@ section#collection {
   padding: 30px 60px;
   position: relative;
   overflow: hidden;
-
+  .left{
+    float: left;
+    width: 100px;
+    margin-top: -14px;
+  }
+  .right{
+    float: right;
+    width: 140px;
+    margin-top: -10px;
+  }
   @media screen and (max-width: 762px) {
     margin-bottom: 40px;
     .latest__caption {
@@ -72,7 +81,7 @@ section#collection {
     .latest__image {
       background-image: url('_MG_6406.jpg');
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       background-position-x: 30%;
       &.second {
           background-image: url('_MG_6465.jpg');
@@ -156,6 +165,19 @@ section#competition {
     flex-wrap: wrap;
     &:last-child {
       flex: 1 1 30%;
+    }
+  }
+
+}
+
+#leaderboard {
+  .columns__left-menu {
+    cursor: pointer;
+  }
+  .columns__content {
+    display: none;
+    &.active {
+      display: block;
     }
   }
 

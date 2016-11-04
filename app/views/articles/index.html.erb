@@ -2,12 +2,12 @@
     <!-- Top post start -->
     <div class="top-post">
         <div class="top-post__wrapper">
-            <div class="top-post__image-wrapper" style="background-image: url(<%=  %>);"></div>
+            <div class="top-post__image-wrapper" style="background-image: url(<%= asset_path @articles.first.image.url.to_s %>);"></div>
             <div class="top-post__info">
                 <div class="top-post__heading">Top post</div>
-                <div class="top-post__title">Fashion trends changing technology</div>
-                <div class="top-post__author">by Amanda Kohar</div>
-                <div class="top-post__preview">Ut mi eros, elementum id nulla vitae, fermentum faucibus magna. Nunc egestas ultrices nibh et luctus. Vivamus mattis, arcu viverra tincidunt interdum, maur arcu, vel magna magna quis augue. Aenean congue eget quam eu auctor. Donec finibus sodal Intege vel facilisis tortor…</div>
+                <div class="top-post__title"><%= @articles.first.title%></div>
+                <div class="top-post__author">by </div>
+                <div class="top-post__preview"><%= @articles.first.description%></div>
 
             </div>
         </div>
@@ -40,7 +40,7 @@
                         <div class="blog__author"><%= blog.user.last_name%>  <%= blog.user.first_name%></div>
                         <div class="blog__preview"><%= blog.description%></div>
                         <div class="blog__date"><%= blog.created_at%></div>
-                        
+
                         <div class="blog__actions">
 
                             <td><%= link_to 'Continue Reading', article_path(blog), class: "button button_blue blog__button button__text" %></td>
@@ -65,10 +65,10 @@
                                 <% end %>
                             </div>
 
-                            <div class="contestants__action">
-                                <div class="container">
+                            <div class="contestants__action blog">
+
                                   <%= blog.get_upvotes.size %>
-                                </div>
+
                             </div>
 
                         </div>
