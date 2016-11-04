@@ -44,14 +44,6 @@ class DesignsController < ApplicationController
 		end
 	end
 
-	def add_to_competition
-		design = Design.where("id = ?", params[:id]).first
-		design.for_competition = true
-		design.save
-		flash[:notice] = "Your design has been submitted for competition review"
-		redirect_to :back
-	end
-
 	def destroy
 	  @design = Design.find(params[:id])
 	  if current_user.id == @design.user.id
