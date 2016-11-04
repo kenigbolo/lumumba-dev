@@ -29,11 +29,10 @@ class Design < ApplicationRecord
   validates :third_garment_design, presence: true
 
   def self.for_competition
-    where("for_competition = ?", true)
+    where('for_competition = ?', true)
   end
 
   def in_competition?
-    self.competition
-  end  
-
+    competition
+  end
 end

@@ -1,13 +1,12 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
   def all
-    user = User.from_omniauth(request.env["omniauth.auth"])
+    user = User.from_omniauth(request.env['omniauth.auth'])
     if user.persisted?
-      flash["notice"] = "Authenticated via facebook"
+      flash['notice'] = 'Authenticated via facebook'
       sign_in user
-      redirect_to :controller=>"users", :action=>"show", id: user.slug
+      redirect_to controller: 'users', action: 'show', id: user.slug
     else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
+      session['devise.facebook_data'] = request.env['omniauth.auth']
       redirect_to new_user_registration_url
     end
   end
@@ -16,5 +15,5 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     redirect_to root_path
   end
 
-  alias_method :facebook, :all
+  alias facebook all
 end
