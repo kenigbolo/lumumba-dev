@@ -4,9 +4,9 @@
         <h3><%= @user.last_name %> <%= @user.first_name %></h3>
         <div class="image-wrapper">
           <% if @user.image_status == "upload" %>
-             <div class="account__avatar-photo" style="background-image: url(<%=  @user.avatar_url %>);"></div>
+             <div class="account__avatar-photo" style="background-image: url(<%= asset_path @user.avatar_url %>);"></div>
           <% elsif @user.image != nil%>
-             <div class="account__avatar-photo" style="background-image: url(<%=  @user.avatar_url %>);"></div>
+             <div class="account__avatar-photo" style="background-image: url(<%=  asset_path @user.avatar_url %>);"></div>
           <% else %>
             <div class="account__avatar-photo" ></div>
           <% end %>
@@ -31,7 +31,7 @@
 <div class="dummy">
   <div class="dummy__wrapper">
 
-    <section class="blog-posts">
+    <section class="designs">
       <h3>Designs</h3>
       <div class="digg_pagination">
         <div class="page_info">
@@ -43,9 +43,11 @@
       <% else %>
         <ul class="designs-wrapper">
           <% @designs.each do |design| %>
-            <li>
+            <li class="designs">
               <a href="/designs/<%= design.id %>">
-                <%= image_tag design.image.url, class: "top-designers__project" %>
+
+                <div class="design-image" style="background-image: url(<%= asset_path design.image.url %>);"></div>
+
               </a>
             </li>
           <% end %>
@@ -70,7 +72,8 @@
           <% @articles.each do |article| %>
             <li>
               <a href="">
-                <%= image_tag article.image.url, class: "image" %>
+              <div class="image" style="background-image: url(<%= asset_path article.image.url %>);"></div>
+
               </a>
               <div class="blog-description">
                 <h4><%= article.title %></h4>

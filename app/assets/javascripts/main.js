@@ -47,4 +47,18 @@ onDOMready(function(){
 
 });
 
+$(document).ready(function(){
+
+	$('.left-menu__link').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('.left-menu__link').removeClass('left-menu__link_selected');
+		$('.columns__content').removeClass('active');
+
+		$(this).addClass('left-menu__link_selected');
+		$("#"+tab_id).addClass('active');
+	})
+
+})
+
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlcyI6WyJtYWluLmpzIl0sImZpbGUiOiJtYWluLmpzIiwic291cmNlUm9vdCI6Ii9zcmMvanMifQ==

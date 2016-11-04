@@ -84,7 +84,7 @@ form:focus {
 
       }
     }
-    
+
     a {
       font-size: 18px;
       font-weight: 600;
@@ -164,31 +164,20 @@ form:focus {
       display: flex;
       flex-wrap: wrap;
       padding:0;
-      li {
-        flex: 1 1 29%;
+      li.designs {
+        flex: 0 1 29% !important;
         margin: 30px 15px;
-        a:first-child {
-          width: 200px;
-          height: 200px;
           .design-image {
-            width: 80%;
-            height: 300px;
+            width: 100%;
+            height:230px;
             margin: 0 auto;
             background-image: url('design.png');
             background-repeat: no-repeat;
-            background-size: contain;
+            background-size: cover;
             background-position: center center;
-          }
+
         }
 
-
-        a:nth-child(2) {
-          display: block;
-          font-size: 18px;
-          &:hover {
-            color:#A2DEF7;
-          }
-        }
       }
     }
   }

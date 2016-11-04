@@ -42,10 +42,11 @@
         z-index: 1;
         &:checked + label[for="order_item_color_red"],&:checked + label[for="order_item_color_blue"] {
           border-color: #000;
-          text-decoration: underline;
+          color:#A2DEF7;
         }
       }
       label[for="order_item_color_red"], label[for="order_item_color_blue"] {
+        font-weight: 300;
         position: relative;
         display: inline-block;
         margin-right: 30px;
@@ -121,6 +122,7 @@
         }
 
         label.collection_radio_buttons {
+          font-weight: 300;
           position: relative;
           display: inline-block;
           margin-right: 30px;
