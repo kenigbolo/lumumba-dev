@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 20161103185245) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "street_address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip_code"
-    t.string   "country"
+    t.string   "street_address", null: false
+    t.string   "city",           null: false
+    t.string   "state",          null: false
+    t.string   "zip_code",       null: false
+    t.string   "country",        null: false
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20161103185245) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title"
-    t.string   "image"
-    t.text     "description"
-    t.string   "author"
+    t.string   "title",       null: false
+    t.string   "image",       null: false
+    t.text     "description", null: false
+    t.string   "author",      null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.boolean  "top_post"
@@ -38,21 +38,21 @@ ActiveRecord::Schema.define(version: 20161103185245) do
   end
 
   create_table "designs", force: :cascade do |t|
-    t.string   "image"
-    t.string   "image_desc"
-    t.string   "first_garment_model_design"
-    t.string   "first_garment_print_design"
-    t.string   "first_garment_technical_design"
-    t.string   "first_garment_desc"
-    t.string   "second_garment_model_design"
-    t.string   "second_garment_print_design"
-    t.string   "second_garment_technical_design"
-    t.string   "second_garment_desc"
-    t.string   "third_garment_model_design"
-    t.string   "third_garment_print_design"
-    t.string   "third_garment_technical_design"
-    t.boolean  "for_competition"
-    t.boolean  "competition"
+    t.string   "image",                           null: false
+    t.string   "image_desc",                      null: false
+    t.string   "first_garment_model_design",      null: false
+    t.string   "first_garment_print_design",      null: false
+    t.string   "first_garment_technical_design",  null: false
+    t.string   "first_garment_desc",              null: false
+    t.string   "second_garment_model_design",     null: false
+    t.string   "second_garment_print_design",     null: false
+    t.string   "second_garment_technical_design", null: false
+    t.string   "second_garment_desc",             null: false
+    t.string   "third_garment_model_design",      null: false
+    t.string   "third_garment_print_design",      null: false
+    t.string   "third_garment_technical_design",  null: false
+    t.boolean  "for_competition",                 null: false
+    t.boolean  "competition",                     null: false
     t.integer  "user_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
@@ -76,15 +76,15 @@ ActiveRecord::Schema.define(version: 20161103185245) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.text     "message"
+    t.string   "name",       null: false
+    t.string   "email",      null: false
+    t.text     "message",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.string   "notice"
+    t.string   "notice",     null: false
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -92,9 +92,9 @@ ActiveRecord::Schema.define(version: 20161103185245) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.integer  "quantity"
-    t.string   "size"
-    t.string   "color"
+    t.integer  "quantity",   null: false
+    t.string   "size",       null: false
+    t.string   "color",      null: false
     t.integer  "product_id"
     t.integer  "order_id"
     t.datetime "created_at", null: false
@@ -104,10 +104,10 @@ ActiveRecord::Schema.define(version: 20161103185245) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "order_number"
-    t.string   "payment_method"
-    t.decimal  "total_amount"
-    t.string   "status"
+    t.string   "order_number",                   null: false
+    t.string   "payment_method",                 null: false
+    t.decimal  "total_amount",                   null: false
+    t.string   "status",                         null: false
     t.integer  "user_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
@@ -122,14 +122,14 @@ ActiveRecord::Schema.define(version: 20161103185245) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name"
-    t.string   "main_image"
-    t.string   "first_thumbnail"
-    t.string   "second_thumbnail"
-    t.string   "third_thumbnail"
-    t.decimal  "price"
-    t.string   "description"
-    t.string   "designer"
+    t.string   "name",                             null: false
+    t.string   "main_image",                       null: false
+    t.string   "first_thumbnail",                  null: false
+    t.string   "second_thumbnail",                 null: false
+    t.string   "third_thumbnail",                  null: false
+    t.decimal  "price",                            null: false
+    t.string   "description",                      null: false
+    t.string   "designer",                         null: false
     t.boolean  "preview",          default: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
@@ -138,8 +138,8 @@ ActiveRecord::Schema.define(version: 20161103185245) do
   end
 
   create_table "taxes", force: :cascade do |t|
-    t.string   "country"
-    t.decimal  "vat_rate"
+    t.string   "country",    null: false
+    t.decimal  "vat_rate",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
