@@ -2,12 +2,12 @@
     <!-- Top post start -->
     <div class="top-post">
         <div class="top-post__wrapper">
-            <div class="top-post__image-wrapper" style="background-image: url(<%= asset_path '_MG_6404.jpg' %>);"></div>
+            <div class="top-post__image-wrapper" style="background-image: url(<%= asset_path @articles.first.image.url.to_s %>);"></div>
             <div class="top-post__info">
                 <div class="top-post__heading">Top post</div>
-                <div class="top-post__title">Fashion trends changing technology</div>
-                <div class="top-post__author">by Amanda Kohar</div>
-                <div class="top-post__preview">Ut mi eros, elementum id nulla vitae, fermentum faucibus magna. Nunc egestas ultrices nibh et luctus. Vivamus mattis, arcu viverra tincidunt interdum, maur arcu, vel magna magna quis augue. Aenean congue eget quam eu auctor. Donec finibus sodal Intege vel facilisis tortor…</div>
+                <div class="top-post__title"><%= @articles.first.title%></div>
+                <div class="top-post__author">by </div>
+                <div class="top-post__preview"><%= @articles.first.description%></div>
 
             </div>
         </div>
