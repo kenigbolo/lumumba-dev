@@ -32,4 +32,8 @@ class Design < ApplicationRecord
     where("for_competition = ?", true)
   end
 
+  def in_competition?
+    self.competition == true
+  end  
+
 end
