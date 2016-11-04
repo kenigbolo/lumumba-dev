@@ -48,7 +48,7 @@ class DesignsController < ApplicationController
 		design = Design.where("id = ?", params[:id]).first
 		design.competition = true
 		design.save
-		flash[:notice] = "Your design has been submitted for competition review"
+		flash[:notice] = "Your design has been submitted for review"
 		redirect_to :back
 	end
 
