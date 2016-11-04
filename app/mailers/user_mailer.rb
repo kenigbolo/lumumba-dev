@@ -10,4 +10,10 @@ class UserMailer < ApplicationMailer
 
     mail to: "tribe@lumumba.com", from: message.email, subject: "Message from Contact Us form"
   end
+
+  def first_vote_notitfication(design)
+  	@design = design
+
+  	mail to: @design.user.email, from: "notifications@lumumba.com", subject: "You just got your first vote"
+  end
 end

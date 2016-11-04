@@ -68,6 +68,7 @@ class DesignsController < ApplicationController
 	  	design.upvote_by current_user
 	  	flash[:notice] = "You have successfully voted"
 	  end
+	  first_vote(design)
 	  redirect_to :back
 	end 
 
@@ -78,5 +79,11 @@ class DesignsController < ApplicationController
 	    	:first_garment_design,:second_garment_design,:third_garment_design, :first_garment_model_design,
 	    	:second_garment_model_design,:third_garment_model_design,:competition, :first_garment_technical_design,
 	    	:second_garment_technical_design, :third_garment_technical_design)
+	  end
+
+	  def first_vote(design)
+	  	if design.get_upvotes.size == 1
+	  		UserMailer.first_vote_notification(design).deliver
+	  	end
 	  end
 end

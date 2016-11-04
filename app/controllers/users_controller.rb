@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.friendly.find(params[:id])
+    @notifications = Notifications.where("user_id = ?", @user.id).page(params[:page]).per(10)
     @designs = Design.where("user_id = ?", @user.id).page(params[:page]).per(6)
     @articles = Article.where("user_id = ?", @user.id).page(params[:page]).per(3)
   end
