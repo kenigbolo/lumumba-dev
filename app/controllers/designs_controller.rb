@@ -1,6 +1,6 @@
 class DesignsController < ApplicationController
 	before_action :authenticate_user!, :except => [:index, :competition]
-	
+
 	def index
 	end
 
@@ -60,7 +60,7 @@ class DesignsController < ApplicationController
 	  if current_user.id == @design.user.id
 	  	@design.destroy
 	  else
-	  	flash["notice"] = "You do not hae the permission to delete this post"	 
+	  	flash["notice"] = "You do not hae the permission to delete this post"
 	  end
 	  redirect_to designs_path
 	end
@@ -73,7 +73,7 @@ class DesignsController < ApplicationController
 	  end
 	  first_vote(design)
 	  redirect_to :back
-	end 
+	end
 
 	private
 	  def design_params
@@ -85,8 +85,8 @@ class DesignsController < ApplicationController
 	  end
 
 	  def first_vote(design)
-	  	if design.get_upvotes.size == 1
-	  		UserMailer.first_vote_notification(design).deliver
-	  	end
+      if design.get_upvotes.size == 1
+	      UserMailer.first_vote_notification(design).deliver
+	    end
 	  end
 end
