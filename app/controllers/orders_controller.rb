@@ -76,7 +76,7 @@ class OrdersController < ApplicationController
 
   def calculate_shipping(address)
     shipping_cost = 15.00
-    if tax = Tax.find_by country: address.country
+    if tax = Tax.find_by(country: address.country)
       shipping_cost = if tax.country == Tax::ES
                         5.0
                       else

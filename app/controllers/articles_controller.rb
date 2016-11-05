@@ -88,7 +88,7 @@ class ArticlesController < ApplicationController
   def save_notification(notification)
     notification.save
     unless notification.persisted?
-      message = "Notification failed: #{notification.error.messages}"
+      message = "Notification failed: #{notification.errors.messages}"
       Rollbar.warn message
       Rails.logger.warn message
     end
