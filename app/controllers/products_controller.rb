@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   before_action :authenticate_user!, except: [:index, :show]
   before_action :authenticate_admin!, except: [:index, :show]
 
@@ -12,9 +13,8 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save
 
-    if @product.persisted?
+    if @product.save
       flash['notice'] = 'Product successfully created'
       redirect_to @product
     else
@@ -51,5 +51,6 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :main_image, :price, :first_thumbnail,
                                     :second_thumbnail, :third_thumbnail)
-   end
+  end
+
 end

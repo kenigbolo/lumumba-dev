@@ -1,4 +1,11 @@
 module ApplicationHelper
+
+  def first_article_image_url
+    if image = @articles.first.try(:image).presence
+      image.url.to_s
+    end
+  end
+
   class ActionView::Helpers::Tags::Base
     include ActionView::Helpers::TagHelper
     include ActionView::Helpers::FormTagHelper
@@ -28,5 +35,6 @@ module ApplicationHelper
     def select_not_required?(html_options)
       !html_options['required'] || html_options['multiple'] || html_options['size'].to_i > 1
     end
+
   end
 end

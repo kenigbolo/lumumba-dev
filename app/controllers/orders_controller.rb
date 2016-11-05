@@ -1,6 +1,7 @@
+require 'rubygems'
+require 'braintree'
+
 class OrdersController < ApplicationController
-  require 'rubygems'
-  require 'braintree'
 
   Braintree::Configuration.environment = :sandbox
   Braintree::Configuration.merchant_id = ENV['BRAINTREE_MERCHANT_ID']
@@ -11,7 +12,7 @@ class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @order = current_user.orders.where('status = ?', 'open').first
+    @order = current_user.orders.open.first
   end
 
   def show
@@ -22,11 +23,10 @@ class OrdersController < ApplicationController
 
   def shipping
     address = Address.find(params[:id])
-    order = current_user.orders.where('status = ?', 'open').first
+    order = current_user.orders.open.first
     tax = calculate_tax(address, order)
     shipping_cost = calculate_shipping(address)
     save_order(order, tax, shipping_cost, address)
-
     redirect_to request.referer
   end
 
@@ -37,8 +37,8 @@ class OrdersController < ApplicationController
   end
 
   def checkout
-    order = Order.friendly.find(params['order'])
-    nonce = params['payment_method_nonce']
+    order = Order.friendly.find(params[:order])
+    nonce = params[:payment_method_nonce]
 
     result = Braintree::Transaction.sale(
       amount: order.total_amount.round(2).to_s,
@@ -51,10 +51,13 @@ class OrdersController < ApplicationController
     if result.success? || result.transaction
       order.transaction_id = result.transaction.id
       order.status = result.transaction.status
-      order.save
+      order.save!
     else
-      error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
-      flash[:error] = error_messages
+      user_error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
+      internal_error_message = user_error_messages.join('; ')
+      Rollbar.warn internal_error_message
+      Rails.logger.warn internal_error_message
+      flash[:error] = user_error_messages
       redirect_to payment_path(params['order'])
     end
   end
@@ -69,26 +72,26 @@ class OrdersController < ApplicationController
       tax_rate = rate * order.sub_total
     end
     tax_rate
-    end
+  end
 
   def calculate_shipping(address)
-    shipping_address_rate = Tax.find_by country: address.country
     shipping_cost = 15.00
-    unless shipping_address_rate.nil?
-      shipping_cost = if shipping_address_rate.country == 'ES'
+    if tax = Tax.find_by country: address.country
+      shipping_cost = if tax.country == Tax::ES
                         5.0
                       else
                         10.0
                       end
     end
     shipping_cost
-    end
+  end
 
   def save_order(order, tax, shipping_cost, address)
     order.vat = tax
     order.shipping_cost = shipping_cost
     order.shipping = address.id.to_i
     order.total_amount = order.sub_total + order.shipping_cost + order.vat
-    order.save
-    end
+    order.save!
+  end
+
 end
