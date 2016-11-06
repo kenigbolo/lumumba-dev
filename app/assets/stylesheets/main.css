@@ -1144,9 +1144,7 @@ hr {
   overflow: hidden; }
 
 .winner__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  text-align:center;
   height: 375px;
   padding: 0 40px;
   overflow: hidden; }
@@ -1588,7 +1586,6 @@ hr {
 .countdown__wrapper {
   min-height: 120px;
   padding-top: 30px;
-  padding-bottom: 30px;
   background: url("countdown_bg.png") 75% 0 no-repeat;
   text-align: center;
   overflow: hidden; }
