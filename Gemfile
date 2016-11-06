@@ -17,6 +17,7 @@ gem 'kaminari', '~> 0.17' # Gem for Rails 3+, Sinatra, and Merb Pagination
 gem 'oj', '~> 2.12'
 gem 'omniauth-facebook', '~> 4'
 gem 'omniauth', '~> 1.3' # Use omniauth for oauth
+gem 'pg', '0.18.1' # Use pg as the database for Active Record [Production Environment]
 gem 'puma', '~> 3.6' # Use Puma as the app server
 gem 'rails_admin', '~> 1.1' # gem for administration
 gem 'rollbar', '~> 2.13'
@@ -25,10 +26,9 @@ gem 'simple_form', '~> 3.3' # Use simple form as default for forms
 gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'uglifier', '~> 3' # Use Uglifier as compressor for JavaScript assets
-gem 'pg', '0.18.1', group: :production # Use pg as the database for Active Record [Production Environment]
 
 group :production do
-  gem 'rails_12factor', group: :production # NOTE: not needed in Rails 5, apparently
+  gem 'rails_12factor' # NOTE: not needed in Rails 5, apparently
 end
 
 group :development, :test do
@@ -48,10 +48,11 @@ group :development do
 end
 
 group :test do
+  gem 'capybara', '~> 2.1'
   gem 'rspec-rails', '~> 3.5'
-  gem 'selenium-webdriver'
-  gem 'capybara'
-  gem "database_cleaner"
-  gem "shoulda-matchers", "3.1.1"
-  gem 'simplecov'
+  gem 'selenium-webdriver', '~> 3'
+  gem 'simplecov', '~> 0.12'
+  gem 'webmock', '~> 2.1'
+  gem "database_cleaner", '~> 1.5'
+  gem "shoulda-matchers", "~> 3.1"
 end

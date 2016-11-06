@@ -84,6 +84,8 @@ GEM
     country_select (2.5.2)
       countries (~> 1.2.0)
       sort_alphabetical (~> 1.0)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     currencies (0.4.2)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
@@ -117,6 +119,7 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
+    hashdiff (0.3.0)
     hashie (3.4.6)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -271,6 +274,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     rubyzip (1.2.0)
+    safe_yaml (1.0.4)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -282,7 +286,7 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    shoulda-matchers (3.1.1)
+    shoulda-matchers (3.1.0)
       activesupport (>= 4.0.0)
     simple_form (3.3.1)
       actionpack (> 4, < 5.1)
@@ -330,6 +334,10 @@ GEM
       activemodel (>= 5.0)
       debug_inspector
       railties (>= 5.0)
+    webmock (2.1.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
     websocket (1.2.3)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
@@ -344,13 +352,13 @@ DEPENDENCIES
   acts_as_votable (~> 0.10.0)
   braintree (~> 2.68)
   byebug
-  capybara
+  capybara (~> 2.1)
   carmen-rails (~> 1.0)
   carrierwave (>= 1.0.0.rc, < 2.0)
   cloudinary (~> 1.2)
   coffee-rails (~> 4.2)
   country_select (~> 2.5)
-  database_cleaner
+  database_cleaner (~> 1.5)
   devise (~> 4.2)
   factory_girl_rails
   figaro (~> 1.1)
@@ -372,10 +380,10 @@ DEPENDENCIES
   rspec-rails (~> 3.5)
   rubocop
   sass-rails (~> 5.0)
-  selenium-webdriver
-  shoulda-matchers (= 3.1.1)
+  selenium-webdriver (~> 3)
+  shoulda-matchers (~> 3.1)
   simple_form (~> 3.3)
-  simplecov
+  simplecov (~> 0.12)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
@@ -383,6 +391,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (~> 3)
   web-console
+  webmock (~> 2.1)
 
 BUNDLED WITH
    1.13.6
