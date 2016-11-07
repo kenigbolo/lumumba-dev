@@ -1,10 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+10.times { FactoryGirl.create :article }
+10.times { FactoryGirl.create :product }
+
+FactoryGirl.create :user, email: 'vemv@vemv.net', password: 'p', password_confirmation: 'p'
 
 countries = [['BE',	0.21],
              ['BG', 0.20],
@@ -38,6 +35,3 @@ countries = [['BE',	0.21],
 countries.each do |country|
   country = Tax.create(country: country[0], vat_rate: country[1])
 end
-
-10.times { FactoryGirl.create :article }
-10.times { FactoryGirl.create :product }
