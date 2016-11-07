@@ -1,4 +1,7 @@
 class Order < ApplicationRecord
+
+  OPEN = 'open'
+
   belongs_to :user
   has_many :order_items
   has_one :address
@@ -12,4 +15,9 @@ class Order < ApplicationRecord
     # Only set if total_amount and/or order_number IS NOT set
     self.order_number ||= SecureRandom.base58(24)
   end
+
+  def self.open
+    where(status: OPEN)
+  end
+
 end

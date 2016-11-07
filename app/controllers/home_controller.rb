@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+
   DESIGNS_PER_COMPETITION_PAGE = 5
 
   def index
@@ -23,7 +24,7 @@ class HomeController < ApplicationController
       UserMailer.contact_us(@message).deliver
       redirect_to contact_us_path, notice: 'Message sent successfully'
     else
-      render :contact, notice: 'Your message could not be sent, please try again'
+      render :contact, notice: 'Sorry, your message could not be sent. please try again'
     end
   end
 
@@ -36,4 +37,5 @@ class HomeController < ApplicationController
   def new_message
     Message.new(message_params)
   end
+  
 end

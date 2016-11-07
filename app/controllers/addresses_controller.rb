@@ -1,11 +1,13 @@
 class AddressesController < ApplicationController
+
   before_action :authenticate_user!
+
   def index
-    @address = Address.where('user_id = ?', current_user.id).first
-    if @address.nil?
-      render 'index'
-    else
+    @address = Address.find_by(user: current_user)
+    if @address
       render 'edit'
+    else
+      render 'index'
     end
   end
 
@@ -15,15 +17,14 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-    @address.user_id = current_user.id
-    @address.save
+    @address.user = current_user
 
-    if @address.persisted?
+    if @address.save
       flash['notice'] = 'Address successfully created'
       if request.referer == new_address_path
         redirect_to addresses_path
       else
-        redirect_to request.referer
+        redirect_to(request.referer.presence || addresses_path)
       end
     else
       render 'new'
@@ -31,7 +32,7 @@ class AddressesController < ApplicationController
   end
 
   def update
-    @address = Address.where('user_id = ?', current_user.id)
+    @address = Address.where(user: current_user)
 
     if @address.update(address_params)
       flash['notice'] = 'Address successfully updated'
@@ -56,5 +57,6 @@ class AddressesController < ApplicationController
 
   def address_params
     params.require(:address).permit(:street_address, :city, :state, :country, :zip_code)
-    end
+  end
+
 end

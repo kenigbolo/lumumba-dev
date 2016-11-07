@@ -1,4 +1,5 @@
 class DesignsController < ApplicationController
+
   before_action :authenticate_user!, except: [:index, :competition]
 
   def index
@@ -10,10 +11,9 @@ class DesignsController < ApplicationController
 
   def create
     @design = Design.new(design_params)
-    @design.user_id = current_user.id
-    @design.save
+    @design.user = current_user
 
-    if @design.persisted?
+    if @design.save
       render 'success'
     else
       render 'new'
@@ -25,8 +25,7 @@ class DesignsController < ApplicationController
 
   def show
     @design = Design.find(params[:id])
-    other_designs = Design.where('user_id = ?', @design.user_id)
-    @other_designs = other_designs.where('id != ?', @design.id).page(params[:page]).per(4)
+    @other_designs = other_designs.where.not(id: @design.id).page(params[:page]).per(4)
   end
 
   def update
@@ -41,23 +40,29 @@ class DesignsController < ApplicationController
 
   def edit
     @design = Design.find(params[:id])
-    redirect_to @design if current_user.id != @design.user.id
+    unless @design.user == current_user
+      redirect_to @design
+    end
   end
 
   def add_to_competition
-    design = Design.where('id = ?', params[:id]).first
+    design = Design.find(params[:id])
     design.competition = true
-    design.save
-    flash[:notice] = 'Your design has been submitted for review'
+    if design.save
+      flash[:notice] = 'Your design has been submitted for review!'
+    else
+      flash[:notice] = 'Sorry, there has been a problem when processing your design.'
+    end
     redirect_to :back
   end
 
   def destroy
     @design = Design.find(params[:id])
-    if current_user.id == @design.user.id
+    if current_user == @design.user
       @design.destroy
+      flash['notice'] = 'Successfully deleted.'
     else
-      flash['notice'] = 'You do not hae the permission to delete this post'
+      flash['notice'] = 'You do not have the permission to delete this post'
     end
     redirect_to designs_path
   end
@@ -66,7 +71,7 @@ class DesignsController < ApplicationController
     design = Design.find(params[:id])
     unless current_user.voted_for? design
       design.upvote_by current_user
-      flash[:notice] = 'You have successfully voted'
+      flash[:notice] = 'You have successfully voted!'
     end
     first_vote(design)
     redirect_to :back
@@ -80,11 +85,12 @@ class DesignsController < ApplicationController
                                    :first_garment_design, :second_garment_design, :third_garment_design, :first_garment_model_design,
                                    :second_garment_model_design, :third_garment_model_design, :competition, :first_garment_technical_design,
                                    :second_garment_technical_design, :third_garment_technical_design)
-    end
+  end
 
   def first_vote(design)
     if design.get_upvotes.size == 1
       UserMailer.first_vote_notification(design).deliver
-       end
     end
+  end
+
 end
