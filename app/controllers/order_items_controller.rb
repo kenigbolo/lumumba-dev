@@ -5,7 +5,7 @@ class OrderItemsController < ApplicationController
   def create
     item = OrderItem.new(order_item_params)
     order = current_user.orders.open.first
-    amount = Product.find(params[:product_id]).price * item.quantity
+    amount = Product.friendly.find(params[:product_id]).price * item.quantity
 
     if order
       save_item_and_order(item, order, amount)
