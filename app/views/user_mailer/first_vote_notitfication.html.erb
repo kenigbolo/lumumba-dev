@@ -265,9 +265,11 @@
                   <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <h1>Hi<br><b><%= @resource.email %></b>, congratulations! !</h1>
+                        <h1>Hi<br><b><%= @design.user.email %></b>, congratulations! !</h1>
                          <p>
-                        You're one step closer to win! You received your first vote in the competition. Is it a friend? Mom and pop? Discover here: </p>
+                           You're one step closer to win! You received your first vote in the competition. To increase your chances you can share the link to your design with your friends
+                        </p><br>
+                        <p> Link to share: <%= design_path(@design) %> </p>
 
                         <hr>
                           <!-- TODO: link needs to be changed -->
@@ -279,7 +281,8 @@
                                   <tbody>
                                     <tr>
                                       <td>
-                                        <a><%= link_to 'Change my password', edit_password_url(@resource, reset_password_token: @token) %></a></td>
+
+                                      </td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -287,8 +290,6 @@
                             </tr>
                           </tbody>
                         </table>
-                        <p>If you didn't request this, please ignore this email.</p>
-                        <p>Your password won't change until you access the link above and create a new one.</p>
                       </td>
                     </tr>
                   </table>

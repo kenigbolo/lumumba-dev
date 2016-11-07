@@ -265,12 +265,11 @@
                   <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <h1>Welcome to the Lumumba tribe <br><b><%= @resource.email %></b>!</h1>
+                        <h1>Welcome to the Lumumba tribe <br><b><%= @user.email %></b>!</h1>
                          <p>We are bringing traditional cultures to the spotlight by creating meaningful clothes you can wear on your skin. We collaborate with renowned designers from countries in Asia, Africa and beyond. Every month the Lumumba community comes together to participate in an online design competition for fashion students and young designers.
                         <br> <p>Our motto: Wear the world.</p>
                         <p>This is the Beta Version of Lumumba, which means you are one of our first users. We welcome you to send us feedback at tribe@lumumba.com or through any of our social media channels. Thank you.</p>
                         <hr>
-                        <p>Please confirm your account</p>
                         <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>
@@ -279,7 +278,7 @@
                                   <tbody>
                                     <tr>
                                       <td>
-                                        <a><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></a></td>
+                                      </td>
                                     </tr>
                                   </tbody>
                                 </table>
