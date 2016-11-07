@@ -4,5 +4,6 @@ FactoryGirl.define do
     image { SpecHelpers.any_image }
     description { SecureRandom.hex(500) }
     author { SecureRandom.hex }
+    user
   end
 end

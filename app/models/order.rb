@@ -6,6 +6,8 @@ class Order < ApplicationRecord
   has_many :order_items
   has_one :address
 
+  validates :user, presence: true
+
   after_initialize :set_default_values
 
   extend FriendlyId
