@@ -38,3 +38,6 @@ countries = [['BE',	0.21],
 countries.each do |country|
   country = Tax.create(country: country[0], vat_rate: country[1])
 end
+
+10.times { FactoryGirl.create :article }
+10.times { FactoryGirl.create :product }
