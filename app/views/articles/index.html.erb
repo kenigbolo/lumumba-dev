@@ -37,18 +37,16 @@
                     <div class="blog__image-wrapper" style="background-image: url(<%=  blog.image.url.to_s %>);"></div>
                     <div class="blog__info">
                         <div class="blog__title"><%= blog.title%>                           </div>
-                        <div class="blog__author"><%= blog.user.last_name%>  <%= blog.user.first_name%></div>
+                        <div class="blog__author"><%= blog.user.try :last_name %>  <%= blog.user.try :first_name%></div>
                         <div class="blog__preview"><%= blog.description%></div>
                         <div class="blog__date"><%= blog.created_at%></div>
 
                         <div class="blog__actions">
 
                             <td><%= link_to 'Continue Reading', article_path(blog), class: "button button_blue blog__button button__text" %></td>
-                            <% unless current_user.blank? %>
-                            <% unless (current_user.id != blog.user.id) %>
+                            <% if current_user.present? && (current_user.id == blog.user.try(:id)) %>
                                 <td><%= link_to 'Edit', edit_article_path(blog), class: "button button_blue blog__button button__text" %></td>
                                 <td><%= link_to 'Destroy', article_path(blog), method: :delete, data: { confirm: 'Are you sure?' }, class: "button button_blue blog__button button__text" %></td>
-                            <% end %>
                             <% end %>
 
                             <div class="blog__action">
