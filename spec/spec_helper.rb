@@ -27,12 +27,3 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
-
-def any_image
-  Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'blank.png'))
-end
-
-def controller_ok(status = 200)
-  expect(response.status).to be status
-  expect(response.body).to be_present
-end
