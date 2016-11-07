@@ -11,7 +11,7 @@ require 'capybara/rspec'
 RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
-    if ENV['CODESHIP'] # linting is very slow to file uploads in factories, so it's restricted to Codeship for now.
+    if ENV['CODESHIP'] # linting is very slow due to file uploads in factories, so it's restricted to Codeship for now.
       FactoryGirl.lint
       DatabaseCleaner.clean_with(:truncation) # clean what FactoryGirl created
     end

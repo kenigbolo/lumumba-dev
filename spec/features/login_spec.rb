@@ -39,7 +39,7 @@ describe 'Logging in' do
 
     let!(:user){ FactoryGirl.create :user, password: password, password_confirmation: password, confirmed_at: nil }
 
-    it "works" do
+    it "doesn't work" do
 
       fill_form
 
