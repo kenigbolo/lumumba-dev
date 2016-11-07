@@ -6,6 +6,10 @@ class Order < ApplicationRecord
   has_many :order_items
 
   validates :user, presence: true
+  validates :payment_method, presence: true
+  validates :order_number, presence: true
+  validates :total_amount, presence: true
+  validates :status, presence: true
 
   after_initialize :set_default_values
 
