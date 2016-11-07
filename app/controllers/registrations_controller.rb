@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  
   protected
 
   def sign_up_params
@@ -18,4 +19,5 @@ class RegistrationsController < Devise::RegistrationsController
   def after_update_path_for(resource)
     user_path(resource.slug)
   end
+
 end

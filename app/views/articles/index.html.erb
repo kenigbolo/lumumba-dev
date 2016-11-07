@@ -2,12 +2,12 @@
     <!-- Top post start -->
     <div class="top-post">
         <div class="top-post__wrapper">
-            <div class="top-post__image-wrapper" style="background-image: url(<%= asset_path @articles.first.image.url.to_s %>);"></div>
+            <div class="top-post__image-wrapper" style="background-image: url(<%= first_article_image_url %>);"></div>
             <div class="top-post__info">
                 <div class="top-post__heading">Top post</div>
-                <div class="top-post__title"><%= @articles.first.title%></div>
+                <div class="top-post__title"><%= @articles.first.try :title%></div>
                 <div class="top-post__author">by </div>
-                <div class="top-post__preview"><%= @articles.first.description%></div>
+                <div class="top-post__preview"><%= @articles.first.try :description%></div>
 
             </div>
         </div>

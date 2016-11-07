@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
+
   before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @articles = Article.all.page(params[:page]).per(5)
   end
@@ -10,11 +12,10 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.user_id = current_user.id
-    @article.save
+    @article.user = current_user
 
-    if @article.persisted?
-      flash['notice'] = 'Post successfully created'
+    if @article.save
+      flash['notice'] = 'Post successfully created.'
       article_notification(article)
       redirect_to article
     else
@@ -30,8 +31,8 @@ class ArticlesController < ApplicationController
     article = Article.find(params[:id])
     unless current_user.voted_for? article
       article.upvote_by current_user
-      flash[:notice] = 'Thanks for liking the blog post'
-      vote_notification
+      flash[:notice] = 'Liked!'
+      vote_notification article
     end
     redirect_to :back
   end
@@ -40,6 +41,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if article.update(article_params)
+      flash[:notice] = 'Post successfully updated.'
       redirect_to @article
     else
       render 'edit'
@@ -48,14 +50,17 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
-    redirect_to @article if current_user.id != @article.user.id
+    unless current_user == @article.user
+      redirect_to @article
+      return
+    end
   end
 
   def destroy
     article = Article.find(params[:id])
-    if current_user.id == article.user.id
+    if article.user == current_user
       article.destroy
-      flash['notice'] = 'successfully deleted this post'
+      flash['notice'] = 'Successfully deleted this post.'
     else
       flash['notice'] = 'You do not hae the permission to delete this post'
     end
@@ -66,24 +71,27 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :description, :image)
-    end
+  end
 
-  def vote_notification
-    notice = Notification.new(notice: "Your blogpost was liked by #{current_user.first_name}. View it [here](#{article_path(article.slug)})", user_id: current_user.id)
-    save_notice(notice)
-    end
+  def vote_notification(article)
+    message = "Your blogpost was liked by #{current_user.first_name}. View it [here](#{article_path(article.slug)})"
+    notice = Notification.new(notice: message, user: current_user)
+    save_notification(notice)
+  end
 
   def article_notification(article)
-    notice = Notification.new(notice: "You created a blogpost. View it [here](#{article_path(article.slug)})", user_id: current_user.id)
-    save_notice(notice)
-    end
+    message = "You created a blogpost. View it [here](#{article_path(article.slug)})"
+    notice = Notification.new(notice: message, user: current_user)
+    save_notification(notice)
+  end
 
-  def save_notice(notice)
-    notice.save
-    unless notice.persisted?
-      msg = "Notification failed: #{notification.error.messages}"
-      Rollbar.warn msg
-      Rails.logger.warn msg
+  def save_notification(notification)
+    notification.save
+    unless notification.persisted?
+      message = "Notification failed: #{notification.errors.messages}"
+      Rollbar.warn message
+      Rails.logger.warn message
     end
-     end
+  end
+
 end
