@@ -13,3 +13,5 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.render_views
 end
+
+include SpecHelpers

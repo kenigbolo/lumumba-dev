@@ -43,7 +43,7 @@
 
       <div class="field form-group">
         <%= f.label :gender %><br />
-        <%= f.select :gender, options_for_select(["Male", "Female", "Gender Free"]), autofocus: true, include_blank: true %>
+        <%= f.select :gender, options_for_select(User::GENDERS), autofocus: true, include_blank: true %>
       </div>
 
       <div class="field form-group">

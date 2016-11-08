@@ -1,4 +1,4 @@
-<%= render 'designs/countdown' %>
+<%= render 'designs/countdown' if false %>
 
 <% if @order.nil? %>
   <p id="fontSize" > You have no existing items for this order </p>
@@ -12,7 +12,7 @@
         <h1 class="title_h1_checkout">Shopping cart</h1>
         <div style="margin-top:20px;"></div>
         <p id="fontSize" >Your order overview</p>
-        
+
         <% @order.order_items.each do |item| %>
           <div class="cart_item_lc">
             <p class="cart_p"><b><%= item.get_product.name %></b><br>Color: <%= item.color %></p>
@@ -56,14 +56,14 @@
             <b>€ <%= @order.vat %> </b><br>€ <%= number_with_precision(@order.total_amount, precision: 2) %>
           </p>
         </div>
-        
+
         <% if @order.shipping != nil %>
           <div style="margin-top:60px;"></div><br>
           <form id="checkout" method="post" action="/checkout">
             <div id="payment-form"></div>
             <input id="order" name="order" type="tel" value="<%= @order.slug %>" hidden="true">
             <input type="submit" value="Pay € <%= @order.total_amount %>" class="button button_orange button_principal">
-          </form>          
+          </form>
         <% end %>
       </div>
     </div>
@@ -78,6 +78,3 @@
       container: "payment-form"
     });
 </script>
-
-
-

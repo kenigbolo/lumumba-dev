@@ -109,7 +109,11 @@ ActiveRecord::Schema.define(version: 20161103185245) do
   create_table "orders", force: :cascade do |t|
     t.string   "order_number",                   null: false
     t.string   "payment_method"
+<<<<<<< HEAD
+    t.decimal  "total_amount"
+=======
     t.decimal  "total_amount",                   null: false
+>>>>>>> staging
     t.string   "status",                         null: false
     t.integer  "user_id"
     t.datetime "created_at",                     null: false

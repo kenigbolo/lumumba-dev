@@ -3,17 +3,15 @@ class OrderItemsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    item = OrderItem.new(order_item_params)
-    order = current_user.orders.open.first
-    amount = Product.friendly.find(params[:product_id]).price * item.quantity
 
-    if order
-      save_item_and_order(item, order, amount)
-    else
-      new_order = current_user.orders.create(status: Order::OPEN)
-      save_item_and_order(item, new_order, amount)
-    end
-    redirect_to products_path
+    item = OrderItem.new(order_item_params)
+    order = current_user.orders.open.first || current_user.orders.new(status: Order::OPEN)
+    amount = the_product.price * item.quantity
+
+    save_item_and_order(item, order, amount)
+
+    redirect_to :back
+
   end
 
   def destroy
@@ -39,8 +37,8 @@ class OrderItemsController < ApplicationController
   private
 
   def save_item_and_order(item, order, amount)
-    item.order_id = order.id
-    item.product_id = params[:product_id]
+    item.order = order
+    item.product = the_product
     order.sub_total += amount
 
     begin
@@ -49,13 +47,17 @@ class OrderItemsController < ApplicationController
         order.save!
         flash['notice'] = 'Item successfully added to the Cart.'
       end
-    rescue
+    rescue => e
       flash['notice'] = 'Item could not be added to your cart, please try again.'
     end
   end
 
   def order_item_params
     params.require(:order_item).permit(:quantity, :size, :color)
+  end
+
+  def the_product
+    @the_product ||= Product.friendly.find(params[:product_id])
   end
 
 end

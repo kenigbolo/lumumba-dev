@@ -146,9 +146,9 @@
                    </li>
                    <li class="nav__item">
                       <% if user_signed_in? %>
-                        <a class="nav__link" href="/users/<%= current_user.slug%>">
+                        <a class="nav__link" href="<%= user_path current_user.slug%>">
                       <% else %>
-                        <a class="nav__link" href="#">
+                        <a class="nav__link" href="<%= new_user_session_path %>">
                       <% end %>
                          <div class="nav__link-icon">
                             <svg width="42" height="43" viewBox="0 0 42 43" xmlns="http://www.w3.org/2000/svg">

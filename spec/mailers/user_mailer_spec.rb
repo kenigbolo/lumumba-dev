@@ -12,7 +12,8 @@ RSpec.describe UserMailer, type: :mailer do
     end
 
     it 'renders the body' do
-      expect(mail.body.encoded).to match(message.message)
+      expect(mail.body.encoded).to include("Contact us request from #{mail.from.first}")
+      expect(mail.body.encoded).to include(message.message)
     end
   end
 end

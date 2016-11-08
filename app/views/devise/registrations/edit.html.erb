@@ -38,7 +38,7 @@
 
       <div class="field">
         <%= f.label :gender %><br />
-        <%= f.select :gender, options_for_select(["Male", "Female", "Gender Free"]), autofocus: true %>
+        <%= f.select :gender, options_for_select(User::GENDERS), autofocus: true %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

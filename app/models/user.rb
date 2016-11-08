@@ -16,6 +16,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :omniauthable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  MALE = 'Male'
+  FEMALE = 'Female'
+  OTHER_GENDER = 'Gender Free'
+  GENDERS = [MALE, FEMALE, OTHER_GENDER]
+
+  validates :gender, inclusion: GENDERS, allow_blank: true
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider

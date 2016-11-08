@@ -1,4 +1,4 @@
-<%= render 'designs/countdown' %>
+<%= render 'designs/countdown' if false %>
 <% if @order.nil? %>
   <p id="fontSize" > You have no existing items for this order </p>
 <% else %>
@@ -9,7 +9,7 @@
     <div style="margin-top:40px;"></div>
     <% if @addresses.empty? %>
       <!-- Render create new address form -->
-      <%= render 'addresses/new_address_form' %> 
+      <%= render 'addresses/new_address_form' %>
     <% else %>
       <div id="addresses">
         <% @addresses.each do |address| %>
@@ -22,12 +22,12 @@
             <%= link_to "Select Shipping Address", shipping_path(address.id), method: :post, class: 'button button_orange button_principal' %>
           <% end %>
         <% end %>
-        
+
         <div class="clearfix"></div>
         <hr id="hrC">
 
         <a class="button button_orange button_principal" id="new-form">
-          <div class="button__text">Add Address</div> 
+          <div class="button__text">Add Address</div>
         </a>
       </div>
 
@@ -81,11 +81,11 @@
         <b>€ <%= @order.vat %> </b><br>€ <%= number_with_precision(@order.total_amount, precision: 2) %>
       </p>
     </div>
-    
+
     <% if @order.shipping != nil %>
     <div style="margin-top:60px;"></div><br>
     <a href="payment/<%= @order.slug %>" class="button button_orange button_principal">
-      <div class="button__text">Checkout</div> 
+      <div class="button__text">Checkout</div>
     </a>
     <% end %>
   </div>

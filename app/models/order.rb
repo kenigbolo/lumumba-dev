@@ -4,7 +4,12 @@ class Order < ApplicationRecord
 
   belongs_to :user
   has_many :order_items
-  has_one :address
+
+  validates :user, presence: true
+  validates :order_number, presence: true
+  validates :total_amount, presence: true, unless: :open?
+  validates :payment_method, presence: true, unless: :open?
+  validates :status, presence: true
 
   after_initialize :set_default_values
 
@@ -18,6 +23,10 @@ class Order < ApplicationRecord
 
   def self.open
     where(status: OPEN)
+  end
+
+  def open?
+    self.status == OPEN
   end
 
 end
