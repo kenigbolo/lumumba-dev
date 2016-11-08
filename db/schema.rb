@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20161103185245) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "order_number",                   null: false
-    t.string   "payment_method",                 null: false
+    t.string   "payment_method"
     t.decimal  "total_amount",                   null: false
     t.string   "status",                         null: false
     t.integer  "user_id"
