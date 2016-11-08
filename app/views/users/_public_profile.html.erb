@@ -44,7 +44,7 @@
         <ul class="designs-wrapper">
           <% @designs.each do |design| %>
             <li class="designs">
-              <a href="/designs/<%= design.id %>">
+              <a href="<%= design_path design.id %>">
 
                 <div class="design-image" style="background-image: url(<%= asset_path design.image.url %>);"></div>
 
@@ -77,11 +77,11 @@
               </a>
               <div class="blog-description">
                 <h4><%= article.title %></h4>
-                <span>By <a href="/users/<%= article.user.slug %>"><%= @user.last_name %> <%= @user.first_name %></a> · </span>
+                <span>By <a href="<%= user_path article.user.slug %>"><%= @user.last_name %> <%= @user.first_name %></a> · </span>
                 <span><%= article.created_at.strftime("%d-%B-%Y")%></span>
                 <p> <%= article.description[0,300]%>...
                 <br><br>
-                <a href="articles/<%= article.id %>" class="read-more">Continue reading »</a></p>
+                <a href="<%= article_path article.id %>" class="read-more">Continue reading »</a></p>
               </div>
             </li>
           <% end %>

@@ -8,7 +8,7 @@
       <div class="columns__left-menu">
           <%= render "left_menu" %>
       </div>
-      <!-- Left menu finish --> 
+      <!-- Left menu finish -->
 
       <!-- Render orders div start-->
       <!-- <div class="dummy"> -->
@@ -17,20 +17,20 @@
             <div class="page_info">
               <%= paginate @articles %>
             </div><br>
-            
-            <h3>blog posts</h3><br> 
+
+            <h3>blog posts</h3><br>
             <% if @articles.empty? %>
               <p> This user has no blogpost available </p>
             <% else %>
               <ul>
-                <% @articles.each do |article| %>                
+                <% @articles.each do |article| %>
                     <div class="">
                       <h4>TITLE: <%= article.title %></h4><br>
-                      <span>By <a href="/users/<%= article.user.slug %>"><%= current_user.last_name %> <%= current_user.first_name %></a> · </span>  
+                      <span>By <a href="<%= user_path article.user.slug %>"><%= current_user.last_name %> <%= current_user.first_name %></a> · </span>
                       <span><%= article.created_at.strftime("%d-%B-%Y")%></span><br><br>
-                      <p> <%= article.description[0,300]%>...   
-                      
-                      <a href="articles/<%= article.id %>" class="read-more">Continue reading »</a></p>
+                      <p> <%= article.description[0,300]%>...
+
+                      <a href="<%= article_path article.id %>" class="read-more">Continue reading »</a></p>
                     </div>
                 <% end %>
               </ul>
