@@ -13,4 +13,22 @@ module SpecHelpers
     expect(response.body).to be_present
   end
 
+  def sign_as user_options=nil
+
+    let(:user){ FactoryGirl.create(:user, *user_options) }
+
+    type = @metadata.fetch(:type)
+
+    before do
+
+      if type == :feature
+        login_as(user, scope: :user)
+      else
+        sign_in(user, scope: :user)
+      end
+
+    end
+
+  end
+
 end
