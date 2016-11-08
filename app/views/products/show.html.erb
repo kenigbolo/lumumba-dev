@@ -26,7 +26,20 @@
               <div class="product__title"><%= @product.name %></div>
               <div class="product__price">€ <%= @product.price %></div>
               <!-- Test form for payment integration -->
-              <%= simple_form_for @product.order_items.new, url: product_order_items_path(@product), html: {class: "form "} do |f| %>
+              <%= simple_form_for @order_item, url: product_order_items_path(@product), html: {class: "form "} do |f| %>
+                <% if @order_item.errors.any? %>
+                  <div id="error_explanation">
+                    <h2>
+                      <%= pluralize(@order_item.errors.count, "error") %> prohibited
+                      this design from being saved:
+                    </h2>
+                    <ul>
+                      <% @order_item.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
                 <dl class="product__param-list"><dt class="product__param-title">Color</dt>
                   <dd class="product__param-value colors">
                     <%= f.collection_radio_buttons :color, [['red', 'Red'] ,['blue', 'Blue']], :first, :last, label: 'select a color please', class: 'product__input'%>
@@ -42,7 +55,8 @@
                 <% end %>
                 <%= f.button :submit, class: 'button button_blue' %>
               <% end %>
-
+              <div class="product__desc-title">Description</div>
+              <p class="product__desc"> <%= @product.description %></p>
       </div>
   </div>
   <!-- Product finish -->
