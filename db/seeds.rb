@@ -1,7 +1,11 @@
-10.times { FactoryGirl.create :article }
-10.times { FactoryGirl.create :product }
+if Rails.env.development?
 
-FactoryGirl.create :user, email: 'vemv@vemv.net', password: 'p', password_confirmation: 'p'
+  10.times { FactoryGirl.create :article }
+  10.times { FactoryGirl.create :product }
+
+  FactoryGirl.create :user, email: 'vemv@vemv.net', password: 'p', password_confirmation: 'p'
+
+end
 
 countries = [['BE',	0.21],
              ['BG', 0.20],
