@@ -28,10 +28,10 @@
               <!-- Test form for payment integration -->
               <%= simple_form_for @order_item, url: product_order_items_path(@product), html: {class: "form "} do |f| %>
                 <% if @order_item.errors.any? %>
-                  <div id="error_explanation">
+                  <div class="alert fade in alert-danger">
                     <h2>
                       <%= pluralize(@order_item.errors.count, "error") %> prohibited
-                      this design from being saved:
+                      this item from being added to the cart:
                     </h2>
                     <ul>
                       <% @order_item.errors.full_messages.each do |msg| %>
