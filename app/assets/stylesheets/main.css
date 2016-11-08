@@ -1009,7 +1009,6 @@ hr {
   color: #CCCCCC;
   border-bottom: 1px solid #CCCCCC; }
   .left-menu__link:hover {
-    cursor: pointer;
     color: #A2DEF7; }
   @media screen and (max-width: 762px) {
     .left-menu__link {
@@ -1144,7 +1143,9 @@ hr {
   overflow: hidden; }
 
 .winner__wrapper {
-  text-align:center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: 375px;
   padding: 0 40px;
   overflow: hidden; }
@@ -1586,6 +1587,7 @@ hr {
 .countdown__wrapper {
   min-height: 120px;
   padding-top: 30px;
+  padding-bottom: 30px;
   background: url("countdown_bg.png") 75% 0 no-repeat;
   text-align: center;
   overflow: hidden; }
