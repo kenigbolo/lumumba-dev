@@ -38,11 +38,11 @@ Rails.application.routes.draw do
   get '/add-to-competition/:id', to: 'designs#add_to_competition'
 
   # These are static pages, not necessarily having a controller method for each:
-  get '/themes', to: 'home#themes'
-  get '/guide', to: 'home#guide'
-  get '/about', to: 'home#about'
-  get '/faq', to: 'home#faq'
-  get '/privacy', to: 'home#privacy'
+  get '/themes', to: 'home#themes', as: :themes
+  get '/guide', to: 'home#guide', as: :guide
+  get '/about', to: 'home#about', as: :about
+  get '/faq', to: 'home#faq', as: :faq
+  get '/privacy', to: 'home#privacy', as: :privacy
 
   post '/checkout', to: 'orders#checkout', as: :checkout
   post 'orders/shipping/:id', to: 'orders#shipping', as: :shipping

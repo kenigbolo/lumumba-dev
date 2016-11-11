@@ -86,7 +86,7 @@
             <ol class="top-designers">
               <% @designs.each do |design| %>
                 <li class="top-designers__item">
-                    <a class="top-designers__link" href="/users/<%= design.user.slug %>">
+                    <a class="top-designers__link" href="<%= user_path design.user.slug %>">
                         <div class="top-designers__project-wrapper">
                           <div class="top-designers__project" style="background-image: url(<%= asset_path design.image_url %>);"></div>
                         </div>

@@ -1,6 +1,9 @@
 <!-- Section tittle -->
 <h1 class="title_h1_description">Become a Lumumba Designer</h1>
-<p class="page-description">Become a Lumumba Designer Applying for the competition is easy and fun. Create and design a great outfit that people will love. You can get inspiration from the Theme page. The guidelines are found in the <a href="/guide">Design Guide</a></p>
+<p class="page-description">
+  Become a Lumumba Designer Applying for the competition is easy and fun. Create and design a great outfit that people will love.
+  You can get inspiration from the Theme page. The guidelines are found in the <a href="<%= guide_path %>">Design Guide</a>
+</p>
 <!-- End Section tittle -->
 
 <!-- Section Icon and small description become -->
@@ -10,7 +13,7 @@
         <li class="become__item_3">
            <div class="columns__content">
                 <%= image_tag "design.svg", id: "svg_img" %>
-                <p class="p_become">Design 1 outfit after reading the competition  <a href="./designer_guide.html">Designer Guide</a><p>
+                <p class="p_become">Design 1 outfit after reading the competition <a href="<%= guide_path %>">Designer Guide</a><p>
            </div>
         </li>
          <li class="become__item_3">
@@ -29,10 +32,10 @@
    </center>
 
    <div class="buttons_become">
-     <a  href="/guide" class="button button_orange button_become_left">
+     <a  href="<%= guide_path %>" class="button button_orange button_become_left">
          <div class="button__text">Design Guide</div>
      </a>
-     <a href="/designs/new" class="button button_orange button_become_right">
+     <a href="<%= new_design_path %>" class="button button_orange button_become_right">
          <div class="button__text">Get Started</div>
      </a>
    </div>
