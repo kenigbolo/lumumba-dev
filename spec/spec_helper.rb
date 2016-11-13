@@ -13,6 +13,18 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation) # clean what FactoryGirl created
   end
 
+    config.before(:each) do |example|
+      Rails.cache.clear
+      unless example.metadata[:clean_database_manually]
+        DatabaseCleaner.strategy = (example.metadata[:js] || example.metadata[:truncate]) ? :truncation : :transaction
+        DatabaseCleaner.start
+      end
+    end
+
+    config.after(:each) do |example|
+      DatabaseCleaner.clean unless example.metadata[:clean_database_manually]
+    end
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
