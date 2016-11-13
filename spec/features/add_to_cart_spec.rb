@@ -13,9 +13,10 @@ describe 'Adding an item to cart', js: true do
 
       visit product_path(product.slug)
 
-      find('#order_item_size_l', visible: false).find(:xpath, 'following-sibling::label').click
-      # ideally we would use `find(:xpath, 'following-sibling::label')` here too, but it doesn't work
+      # these two are not ideal (because of the `visible: false`), but otherwise I cannot get it to work locally AND in Codeship
+      find('#order_item_size_l', visible: false).click
       find('#order_item_color_blue', visible: false).click
+
       find("#order_item_quantity option[value='#{3}']").select_option
 
       expect {

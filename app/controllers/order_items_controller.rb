@@ -48,6 +48,9 @@ class OrderItemsController < ApplicationController
         flash['notice'] = 'Item successfully added to the Cart.'
       end
     rescue => e
+      puts e.inspect
+      (puts item.errors.messages) rescue nil
+      (puts item.order.messages) rescue nil
       flash['notice'] = 'Item could not be added to your cart, please try again.'
     end
   end
