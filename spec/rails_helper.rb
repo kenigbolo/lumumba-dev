@@ -18,6 +18,9 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   config.render_views
+  config.before(:each, :js) do
+    page.driver.browser.manage.window.resize_to(1440, 900) # a reasonably big size (the default is much smaller). else some tests can fail
+  end
 end
 
 include SpecHelpers
