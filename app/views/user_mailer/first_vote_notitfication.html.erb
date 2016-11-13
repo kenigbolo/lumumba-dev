@@ -265,9 +265,30 @@
                   <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <h1>Hello <br><b><%= @user.email %></b>!</h1>
-                        <p>We're contacting you to notify you that your password has been changed.</p>
-                      
+                        <h1>Hi<br><b><%= @design.user.email %></b>, congratulations! !</h1>
+                         <p>
+                           You're one step closer to win! You received your first vote in the competition. To increase your chances you can share the link to your design with your friends
+                        </p><br>
+                        <p> Link to share: <%= design_path(@design) %> </p>
+
+                        <hr>
+                          <!-- TODO: link needs to be changed -->
+                        <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                          <tbody>
+                            <tr>
+                              <td align="left">
+                                <table border="0" cellpadding="0" cellspacing="0">
+                                  <tbody>
+                                    <tr>
+                                      <td>
+
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
                         </table>
                       </td>
                     </tr>
