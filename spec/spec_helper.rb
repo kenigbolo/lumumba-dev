@@ -6,8 +6,6 @@ if (RSpec.configuration.instance_variable_get :@files_or_directories_to_run) == 
   end
 end
 
-require 'capybara/rspec'
-
 RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
