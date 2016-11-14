@@ -1,5 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
-  
+  before_filter :configure_permitted_parameters, :only => [:create]
+
   protected
 
   def sign_up_params
@@ -20,4 +21,8 @@ class RegistrationsController < Devise::RegistrationsController
     user_path(resource.slug)
   end
 
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :gender, :location, :phone_number,
+                                 :description, :avatar, :image_status, :image) }
+  end
 end
