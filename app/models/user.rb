@@ -33,8 +33,8 @@ class User < ApplicationRecord
       user.last_name = auth.info.last_name
       user.location = auth.info.location
       user.description = auth.info.about
-      user.gender = auth.extra.raw_info.gender
-      user.save
+      user.gender = auth.extra.raw_info.gender.capitalize
+      user.save!
     end
   end
 
