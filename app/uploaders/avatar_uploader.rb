@@ -20,4 +20,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
       resize_to_fit(50, 50)
     end
   end
+
+  version :product do
+    unless Rails.env.test?
+      process resize_to_fill: [260, 260, :north]
+    end
+  end
 end
