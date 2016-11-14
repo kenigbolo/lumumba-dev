@@ -31,7 +31,7 @@ describe 'Adding an item to cart', js: true do
       expect(order_item.size).to eq 'L'
       expect(order_item.quantity).to eq 3
 
-      expect(page).to have_content("Item successfully added to the Cart")
+      expect(page).to have_content("Item successfully added to cart")
 
     end
 
