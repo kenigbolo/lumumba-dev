@@ -14,6 +14,7 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
+  config.serve_static_files = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
   config.active_support.deprecation = :log

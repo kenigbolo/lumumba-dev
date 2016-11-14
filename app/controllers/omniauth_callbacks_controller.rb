@@ -2,7 +2,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def all
     user = User.from_omniauth(request.env['omniauth.auth'])
     if user.persisted?
-      flash['notice'] = 'Authenticated via facebook'
+      if user.confirmed?
+        flash['notice'] = 'Authenticated via facebook'
+      end
       sign_in user
       redirect_to controller: 'users', action: 'show', id: user.slug
     else

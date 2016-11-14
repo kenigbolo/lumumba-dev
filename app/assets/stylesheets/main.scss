@@ -483,13 +483,15 @@ textarea {
 
 @font-face {
   font-family: 'MF I Love Glitter';
-  src: url("fonts/mf_i_love_glitter.woff2") format("woff2"), url("fonts/mf_i_love_glitter.woff") format("woff");
+  src: font-url("mf_i_love_glitter.woff2") format("woff2");
+  src: font-url("mf_i_love_glitter.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Chalkboard';
-  src: url("fonts/chalkboard.woff2") format("woff2"), url("fonts/chalkboard.woff") format("woff");
+  src: font-url("chalkboard.woff2") format("woff2");
+  src: font-url("chalkboard.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
