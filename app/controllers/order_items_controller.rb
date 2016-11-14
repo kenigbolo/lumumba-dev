@@ -45,10 +45,12 @@ class OrderItemsController < ApplicationController
       ActiveRecord::Base.transaction do
         item.save!
         order.save!
-        flash['notice'] = 'Item successfully added to the Cart.'
+        flash['notice'] = 'Item successfully added to cart.'
       end
     rescue => e
-      flash['notice'] = 'Item could not be added to your cart, please try again.'
+      Rollbar.warn e
+      Rails.logger.warn e
+      flash['notice'] = 'The item could not be added to your cart. Please try again!'
     end
   end
 

@@ -39,6 +39,7 @@ RSpec.describe HomeController, type: :controller do
       end
 
       describe '#competition' do
+
         context 'when there are no designs' do
           before { expect(Design.count).to eq 0 }
           it 'loads correctly' do
@@ -46,6 +47,7 @@ RSpec.describe HomeController, type: :controller do
             controller_ok
           end
         end
+
         context 'when there are a few designs' do
           before do
             3.times do
@@ -57,6 +59,7 @@ RSpec.describe HomeController, type: :controller do
             controller_ok
           end
         end
+
         context 'when there are enough designs to use pagination' do
           before do
             n = described_class::DESIGNS_PER_COMPETITION_PAGE + 1
@@ -69,6 +72,7 @@ RSpec.describe HomeController, type: :controller do
             controller_ok
           end
         end
+
       end
 
       describe '#contact' do
