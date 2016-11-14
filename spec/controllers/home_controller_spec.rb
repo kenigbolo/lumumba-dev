@@ -78,6 +78,19 @@ RSpec.describe HomeController, type: :controller do
         end
       end
 
+      describe 'The static pages' do
+
+        %i(themes guide about faq privacy).each do |static_page|
+          describe "/#{static_page}" do
+            it 'loads correctly' do
+              get static_page
+              controller_ok
+            end
+          end
+        end
+
+      end
+
       describe '#contact_us' do
         let(:params) { { message: FactoryGirl.build(:message).attributes.with_indifferent_access.slice(:name, :email, :message) } }
         describe 'success' do
