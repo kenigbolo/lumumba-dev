@@ -10,7 +10,7 @@ class OrderItemsController < ApplicationController
 
     save_item_and_order(item, order, amount)
 
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
 
   end
 
@@ -50,7 +50,11 @@ class OrderItemsController < ApplicationController
     rescue => e
       Rollbar.warn e
       Rails.logger.warn e
-      flash['notice'] = 'The item could not be added to your cart. Please try again!'
+      if item.size.blank?
+        flash['notice'] = 'Please select a size for your clothing purchase!'
+      else
+        flash['notice'] = 'The item could not be added to your cart. Please try again!'
+      end
     end
   end
 

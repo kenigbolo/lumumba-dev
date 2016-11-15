@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
+
   protect_from_forgery with: :exception
   include ActionController::HttpAuthentication::Basic::ControllerMethods
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def after_sign_in_path_for(resource)
     user_path(resource.slug)
@@ -14,4 +16,9 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def not_found
+    render file: Rails.root.join('public', '404.html'), layout: false, status: 404
+  end
+
 end

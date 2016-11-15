@@ -483,8 +483,6 @@ textarea {
 
 @font-face {
   font-family: 'MF I Love Glitter';
-  src: font-url("mf_i_love_glitter.woff2") format("woff2");
-  src: font-url("mf_i_love_glitter.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -1338,8 +1336,15 @@ hr {
 
 .catalog__photo {
   display: block;
-  width: 260px;
-  height: 100%;}
+  width: 260%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.catalog__photo img {
+  max-width: 100%;
+  height: auto;
+}
 
 .catalog__name {
   display: block;
