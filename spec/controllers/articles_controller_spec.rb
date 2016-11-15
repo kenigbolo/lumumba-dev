@@ -190,19 +190,131 @@ RSpec.describe ArticlesController, type: :controller do
 
   describe '#edit' do
 
+    let!(:article){ FactoryGirl.create(:article, user: user) }
+    let(:article_params){
+      {
+        id: article.id
+      }
+    }
 
+    context "signed in" do
+      sign_as
+      it "loads correctly" do
+        get :edit, params: article_params
+        controller_ok
+      end
+
+      context "attempting to edit an article I don't own" do
+
+        let!(:article){ FactoryGirl.create(:article) }
+
+        it "redirects me somewhere else" do
+          get :edit, params: article_params
+          controller_ok 302
+        end
+
+      end
+
+    end
+
+    context "signed out" do
+      let!(:article){ FactoryGirl.create(:article) }
+      it "is unauthorized" do
+        get :edit, article_params
+        expect_unauthorized
+      end
+    end
 
   end
 
   describe '#update' do
 
+    let!(:article){ FactoryGirl.create(:article, user: user) }
+    let(:reference_article){ FactoryGirl.build(:article) }
+    let(:article_params){
+      {
+        id: article.id,
+        article: {
+          title: reference_article.title,
+          description: reference_article.description,
+        }
+      }
+    }
 
+    context "signed in" do
+      sign_as
+      it "works" do
+        expect {
+          put :update, article_params
+        }.to change {
+          article.reload.updated_at
+        }.and change {
+          article.reload.title
+        }.and change {
+          article.reload.description
+        }
+      end
+    end
+
+    context "signed out" do
+      let!(:article){ FactoryGirl.create(:article) }
+      it "is unauthorized" do
+        expect {
+          put :update, article_params
+        }.to_not change {
+          Article.pluck :updated_at
+        }
+        expect_unauthorized
+      end
+    end
 
   end
 
   describe '#destroy' do
 
+    let!(:article){ FactoryGirl.create(:article, user: user) }
+    let(:article_params){ {id: article.id} }
 
+    context "signed in" do
+
+      sign_as
+      it "works" do
+        expect {
+          delete :destroy, article_params
+        }.to change {
+          Article.count
+        }.by(-1)
+      end
+
+      context "attempting to delete an article I don't own" do
+
+        let!(:article){ FactoryGirl.create(:article) }
+
+        it "is forbidden" do
+          expect {
+            delete :destroy, article_params
+          }.to_not change {
+            Article.count
+          }
+        end
+
+      end
+
+    end
+
+    context "signed out" do
+
+      let!(:article){ FactoryGirl.create(:article) }
+
+      it "is forbidden" do
+        expect {
+          delete :destroy, article_params
+        }.to_not change {
+          Article.count
+        }
+      end
+
+    end
 
   end
 
