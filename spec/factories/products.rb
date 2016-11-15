@@ -5,7 +5,7 @@ FactoryGirl.define do
     first_thumbnail { SpecHelpers.any_image }
     second_thumbnail { SpecHelpers.any_image }
     third_thumbnail { SpecHelpers.any_image }
-    price '9.99'
+    price{ (Random.rand * 9 + 1).round(2).to_s }
     description { SecureRandom.hex }
     designer { SecureRandom.hex }
     preview false
