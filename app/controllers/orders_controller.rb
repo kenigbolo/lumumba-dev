@@ -50,6 +50,7 @@ class OrdersController < ApplicationController
 
     if result.success? || result.transaction
       order.transaction_id = result.transaction.id
+      order.payment_method = result.transaction.credit_card_details.card_type
       order.status = result.transaction.status
       order.save!
     else
