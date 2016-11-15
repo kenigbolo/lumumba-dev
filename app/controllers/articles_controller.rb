@@ -1,9 +1,11 @@
 class ArticlesController < ApplicationController
 
+  ARTICLES_PER_PAGE = 5
+
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @articles = Article.all.page(params[:page]).per(5)
+    @articles = Article.all.page(params[:page]).per(ARTICLES_PER_PAGE)
   end
 
   def new
@@ -13,11 +15,12 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user = current_user
+    @article.author = current_user.to_s
 
     if @article.save
       flash['notice'] = 'Post successfully created.'
-      article_notification(article)
-      redirect_to article
+      article_notification(@article)
+      redirect_to @article
     else
       render 'new'
     end
@@ -29,18 +32,20 @@ class ArticlesController < ApplicationController
 
   def upvote
     article = Article.find(params[:id])
-    unless current_user.voted_for? article
+    if current_user.voted_for? article
+      flash[:error] = 'You already liked this article!'
+    else
       article.upvote_by current_user
       flash[:notice] = 'Liked!'
       vote_notification article
     end
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   def update
     @article = Article.find(params[:id])
 
-    if article.update(article_params)
+    if @article.update(article_params)
       flash[:notice] = 'Post successfully updated.'
       redirect_to @article
     else
@@ -74,13 +79,13 @@ class ArticlesController < ApplicationController
   end
 
   def vote_notification(article)
-    message = "Your blogpost was liked by #{current_user.first_name}. View it [here](#{article_path(article.slug)})"
+    message = "Your blogpost was liked by #{current_user.first_name}. View it [here](#{article_path(article)})"
     notice = Notification.new(notice: message, user: current_user)
     save_notification(notice)
   end
 
   def article_notification(article)
-    message = "You created a blogpost. View it [here](#{article_path(article.slug)})"
+    message = "You created a blogpost. View it [here](#{article_path(article)})"
     notice = Notification.new(notice: message, user: current_user)
     save_notification(notice)
   end
