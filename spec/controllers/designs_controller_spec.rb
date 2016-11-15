@@ -263,7 +263,9 @@ RSpec.describe DesignsController, type: :controller do
       }
 
       context "signed in" do
+
         sign_as
+
         it "works" do
           expect {
             put :update, params: design_params
@@ -277,6 +279,22 @@ RSpec.describe DesignsController, type: :controller do
             design.reload.third_garment_desc
           }
         end
+
+        context "attempting to update a Design I don't own" do
+
+          let!(:design){ FactoryGirl.create(:design) }
+
+          it "returns 404" do
+            expect {
+              put :update, params: design_params
+            }.to_not change {
+              Design.pluck :updated_at
+            }
+            controller_ok(404)
+          end
+
+        end
+
       end
 
       context "signed out" do

@@ -242,7 +242,9 @@ RSpec.describe ArticlesController, type: :controller do
     }
 
     context "signed in" do
+
       sign_as
+
       it "works" do
         expect {
           put :update, article_params
@@ -254,6 +256,22 @@ RSpec.describe ArticlesController, type: :controller do
           article.reload.description
         }
       end
+
+      context "attempting to update an Article I don't own" do
+
+        let!(:article){ FactoryGirl.create(:article) }
+
+        it "returns 404" do
+          expect {
+            put :update, params: article_params
+          }.to_not change {
+            Article.pluck :updated_at
+          }
+          controller_ok(404)
+        end
+
+      end
+
     end
 
     context "signed out" do

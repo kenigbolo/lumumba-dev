@@ -31,7 +31,7 @@ class DesignsController < ApplicationController
   end
 
   def update
-    @design = Design.find(params[:id])
+    @design = Design.where(user: current_user).find(params[:id])
     if @design.update(design_params)
       redirect_to @design
     else
@@ -75,7 +75,7 @@ class DesignsController < ApplicationController
     else
       design.upvote_by current_user
       first_vote(design)
-      flash[:notice] = 'Liked'
+      flash[:notice] = 'You have successfully voted!'
     end
     redirect_back(fallback_location: root_path)
   end
