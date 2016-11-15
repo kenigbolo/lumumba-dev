@@ -61,17 +61,15 @@ class Design < ApplicationRecord
     competition.present?
   end
 
-  # converts nils into trues
   def for_competition_default_value
-    unless [false, 'false'].include?(self.for_competition)
-      self.for_competition = true
+    if self.for_competition.nil?
+      self.for_competition = false
     end
   end
 
-  # converts nils into trues
   def competition_default_value
-    unless [false, 'false'].include?(self.competition)
-      self.competition = true
+    if self.competition.nil?
+      self.competition = false
     end
   end
 
