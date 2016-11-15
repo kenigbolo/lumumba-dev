@@ -65,4 +65,9 @@ class User < ApplicationRecord
   def after_confirmation
     WelcomeMailer.signup_confirmation(self).deliver
   end
+
+  def to_s
+    "#{first_name} #{last_name}"
+  end
+
 end

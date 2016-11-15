@@ -53,7 +53,7 @@ class DesignsController < ApplicationController
     else
       flash[:notice] = 'Sorry, there has been a problem when processing your design.'
     end
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
@@ -74,7 +74,7 @@ class DesignsController < ApplicationController
       flash[:notice] = 'You have successfully voted!'
     end
     first_vote(design)
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   private

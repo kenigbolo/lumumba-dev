@@ -31,4 +31,9 @@ module SpecHelpers
 
   end
 
+  def expect_unauthorized
+    controller_ok 302
+    expect(flash[:alert]).to include("You need to sign in or sign up before continuing")
+  end
+
 end
