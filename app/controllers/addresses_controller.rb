@@ -32,7 +32,7 @@ class AddressesController < ApplicationController
   end
 
   def update
-    @address = Address.where(user: current_user)
+    @address = Address.find_by!(user: current_user)
 
     if @address.update(address_params)
       flash['notice'] = 'Address successfully updated'
