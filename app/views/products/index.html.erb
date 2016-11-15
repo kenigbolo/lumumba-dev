@@ -91,7 +91,9 @@
                             </svg>
                         </div>
                         <a class="catalog__link" href="/products/<%= product.id %>">
-                          <div class="catalog__photo" style="background-image: url(<%= asset_path product.main_image_url %>)" ></div></span> <span class="catalog__price">€ <%= product.price %></span></a>
+                          <div class="catalog__photo" >
+                            <img src="<%= asset_path product.main_image_url(:product) %>" alt="" />
+                          </div></span> <span class="catalog__price">€ <%= product.price %></span></a>
                     </li>
                 <% end %>
             </ul>
