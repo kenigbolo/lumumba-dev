@@ -1338,8 +1338,15 @@ hr {
 
 .catalog__photo {
   display: block;
-  width: 260px;
-  height: 100%;}
+  width: 260%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.catalog__photo img {
+  max-width: 100%;
+  height: auto;
+}
 
 .catalog__name {
   display: block;
