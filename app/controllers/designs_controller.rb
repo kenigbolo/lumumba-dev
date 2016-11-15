@@ -1,5 +1,7 @@
 class DesignsController < ApplicationController
 
+  ARTICLES_PER_PAGE = 4
+
   before_action :authenticate_user!, except: [:index, :competition]
 
   def index
@@ -25,12 +27,11 @@ class DesignsController < ApplicationController
 
   def show
     @design = Design.find(params[:id])
-    @other_designs = other_designs.where.not(id: @design.id).page(params[:page]).per(4)
+    @other_designs = Design.where.not(id: @design.id).page(params[:page]).per(ARTICLES_PER_PAGE)
   end
 
   def update
-    @design = Design.find(params[:id])
-
+    @design = Design.where(user: current_user).find(params[:id])
     if @design.update(design_params)
       redirect_to @design
     else
@@ -69,11 +70,13 @@ class DesignsController < ApplicationController
 
   def upvote
     design = Design.find(params[:id])
-    unless current_user.voted_for? design
+    if current_user.voted_for? design
+      flash[:error] = 'You already liked this design!'
+    else
       design.upvote_by current_user
+      first_vote(design)
       flash[:notice] = 'You have successfully voted!'
     end
-    first_vote(design)
     redirect_back(fallback_location: root_path)
   end
 

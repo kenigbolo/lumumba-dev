@@ -43,7 +43,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
+    @article = Article.where(user: current_user.id).find(params[:id])
 
     if @article.update(article_params)
       flash[:notice] = 'Post successfully updated.'
