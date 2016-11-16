@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show]
+  ARTICLES_PER_PAGE = 5
+
   before_action :authenticate_admin!, except: [:index, :show]
 
   def index
-    @products = Product.all.page(params[:page]).per(5)
+    @products = Product.all.page(params[:page]).per(ARTICLES_PER_PAGE)
   end
 
   def new
@@ -15,10 +16,10 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      flash['notice'] = 'Product successfully created'
+      flash['notice'] = 'Product successfully created.'
       redirect_to @product
     else
-      flash['notice'] = 'Product could not be added'
+      flash['notice'] = 'Sorry, the product could not be created.'
     end
   end
 
@@ -50,8 +51,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :main_image, :price, :first_thumbnail,
-                                    :second_thumbnail, :third_thumbnail)
+    params.require(:product).permit(:name, :description, :main_image, :price, :first_thumbnail, :second_thumbnail, :third_thumbnail, :designer)
   end
 
 end

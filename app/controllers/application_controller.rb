@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_admin!
+    authenticate_user!
     unless current_user.nil?
       unless current_user.is_admin?
         flash[:error] = 'Access denied'
