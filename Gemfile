@@ -48,7 +48,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 2.1'
+  gem 'capybara', '~> 3.13'
   gem 'rspec-rails', '~> 3.5'
   gem 'selenium-webdriver', '~> 3.141'
   gem 'simplecov', '~> 0.12'

@@ -49,13 +49,14 @@ GEM
       builder (>= 2.0.0)
     builder (3.2.3)
     byebug (9.0.6)
-    capybara (2.10.1)
+    capybara (3.13.2)
       addressable
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.2)
+      xpath (~> 3.2)
     carmen (1.0.2)
       activesupport (>= 3.0.0)
     carmen-rails (1.0.1)
@@ -249,6 +250,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    regexp_parser (1.3.0)
     remotipart (1.4.2)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
@@ -356,8 +358,8 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
-    xpath (2.0.0)
-      nokogiri (~> 1.3)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
@@ -366,7 +368,7 @@ DEPENDENCIES
   acts_as_votable (~> 0.12.0)
   braintree (~> 2.68)
   byebug
-  capybara (~> 2.1)
+  capybara (~> 3.13)
   carmen-rails (~> 1.0)
   carrierwave (>= 1.0.0.rc, < 2.0)
   cloudinary (~> 1.2)
