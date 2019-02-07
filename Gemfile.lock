@@ -91,7 +91,7 @@ GEM
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
     currencies (0.4.2)
-    database_cleaner (1.5.3)
+    database_cleaner (1.7.0)
     devise (4.2.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -374,7 +374,7 @@ DEPENDENCIES
   cloudinary (~> 1.2)
   coffee-rails (~> 4.2)
   country_select (~> 2.5)
-  database_cleaner (~> 1.5)
+  database_cleaner (~> 1.7)
   devise (~> 4.2)
   factory_girl_rails
   figaro (~> 1.1)
