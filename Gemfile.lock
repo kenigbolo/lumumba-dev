@@ -189,7 +189,7 @@ GEM
     parallel (1.13.0)
     parser (2.6.0.0)
       ast (~> 2.4.0)
-    pg (0.18.1)
+    pg (1.1.4)
     powerpack (0.1.2)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -389,7 +389,7 @@ DEPENDENCIES
   oj (~> 2.12)
   omniauth (~> 1.9)
   omniauth-facebook (~> 5)
-  pg (= 0.18.1)
+  pg (= 1.1.4)
   pry-rails
   puma (~> 3.12)
   rails (= 5.0.7.1)
