@@ -116,7 +116,7 @@ GEM
       thor (~> 0.14)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
-    friendly_id (5.1.0)
+    friendly_id (5.2.5)
       activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -378,7 +378,7 @@ DEPENDENCIES
   devise (~> 4.2)
   factory_girl_rails
   figaro (~> 1.1)
-  friendly_id (~> 5.1)
+  friendly_id (~> 5.2)
   jquery-rails (~> 4.2)
   kaminari (~> 0.17)
   letter_opener
