@@ -8,7 +8,7 @@ gem 'carmen-rails', '~> 1.0'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0' # Add carriewave gem to upload pictures to user profile
 gem 'cloudinary', '~> 1.2'
 gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
-gem 'country_select', '~> 2.5'
+gem 'country_select', '~> 4.0'
 gem 'devise', '~> 4.2' # Use devise gem for user authentication
 gem 'figaro', '~> 1.1' # Use figaro gem for environment variables
 gem 'friendly_id', '~> 5.1' # Use friendly_id for user profile urls
