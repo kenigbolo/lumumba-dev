@@ -54,5 +54,5 @@ group :test do
   gem 'simplecov', '~> 0.16'
   gem 'webmock', '~> 3.5'
   gem "database_cleaner", '~> 1.7'
-  gem "shoulda-matchers", "~> 3.1"
+  gem "shoulda-matchers", "~> 4.0"
 end
