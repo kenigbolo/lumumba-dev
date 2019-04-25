@@ -50,7 +50,7 @@ end
 group :test do
   gem 'capybara', '~> 3.18'
   gem 'rspec-rails', '~> 3.8'
-  gem 'selenium-webdriver', '~> 3.141'
+  gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', '~> 0.16'
   gem 'webmock', '~> 3.5'
   gem "database_cleaner", '~> 1.7'
