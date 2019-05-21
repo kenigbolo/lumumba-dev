@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '5.2.3'
 
 gem 'acts_as_votable', '~> 0.12.0' # Voteable Gem
-gem 'braintree', '~> 2.95'
+gem 'braintree', '~> 2.96'
 gem 'carmen-rails', '~> 1.0'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0' # Add carriewave gem to upload pictures to user profile
 gem 'cloudinary', '~> 1.11'
