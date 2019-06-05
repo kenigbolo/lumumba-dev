@@ -52,7 +52,7 @@ group :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', '~> 0.16'
-  gem 'webmock', '~> 3.5'
+  gem 'webmock', '~> 3.6'
   gem "database_cleaner", '~> 1.7'
   gem "shoulda-matchers", "~> 4.0"
 end
