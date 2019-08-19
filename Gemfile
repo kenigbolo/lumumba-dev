@@ -5,7 +5,7 @@ gem 'rails', '5.2.3'
 gem 'acts_as_votable', '~> 0.12.1' # Voteable Gem
 gem 'braintree', '~> 2.98'
 gem 'carmen-rails', '~> 1.0'
-gem 'carrierwave', '>= 1.0.0.rc', '< 2.0' # Add carriewave gem to upload pictures to user profile
+gem 'carrierwave', '>= 1.0.0.rc', '< 3.0' # Add carriewave gem to upload pictures to user profile
 gem 'cloudinary', '~> 1.11'
 gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
 gem 'country_select', '~> 4.0'
