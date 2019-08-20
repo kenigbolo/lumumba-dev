@@ -9,7 +9,7 @@ gem 'carrierwave', '>= 1.0.0.rc', '< 3.0' # Add carriewave gem to upload picture
 gem 'cloudinary', '~> 1.11'
 gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
 gem 'country_select', '~> 4.0'
-gem 'devise', '~> 4.6' # Use devise gem for user authentication
+gem 'devise', '~> 4.7' # Use devise gem for user authentication
 gem 'figaro', '~> 1.1' # Use figaro gem for environment variables
 gem 'friendly_id', '~> 5.2' # Use friendly_id for user profile urls
 gem 'jquery-rails', '~> 4.3' # Use jquery as the JavaScript library
