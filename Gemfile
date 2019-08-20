@@ -21,7 +21,7 @@ gem 'pg', '1.1.4' # Use pg as the database for Active Record [Production Environ
 gem 'puma', '~> 4.1' # Use Puma as the app server
 gem 'rails_admin', '~> 2.0' # gem for administration
 gem 'rollbar', '~> 2.21'
-gem 'sass-rails', '~> 5.1' # Use SCSS for stylesheets
+gem 'sass-rails', '~> 6.0' # Use SCSS for stylesheets
 gem 'simple_form', '~> 4.1' # Use simple form as default for forms
 gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
