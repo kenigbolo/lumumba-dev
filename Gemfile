@@ -11,7 +11,7 @@ gem 'coffee-rails', '~> 5.0' # Use CoffeeScript for .coffee assets and views
 gem 'country_select', '~> 4.0'
 gem 'devise', '~> 4.7' # Use devise gem for user authentication
 gem 'figaro', '~> 1.1' # Use figaro gem for environment variables
-gem 'friendly_id', '~> 5.2' # Use friendly_id for user profile urls
+gem 'friendly_id', '~> 5.3' # Use friendly_id for user profile urls
 gem 'jquery-rails', '~> 4.3' # Use jquery as the JavaScript library
 gem 'kaminari', '~> 1.1' # Gem for Rails 3+, Sinatra, and Merb Pagination
 gem 'oj', '~> 3.9'
