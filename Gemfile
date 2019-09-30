@@ -22,7 +22,7 @@ gem 'puma', '~> 4.2' # Use Puma as the app server
 gem 'rails_admin', '~> 2.0' # gem for administration
 gem 'rollbar', '~> 2.22'
 gem 'sass-rails', '~> 6.0' # Use SCSS for stylesheets
-gem 'simple_form', '~> 4.1' # Use simple form as default for forms
+gem 'simple_form', '~> 5.0' # Use simple form as default for forms
 gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'uglifier', '~> 4' # Use Uglifier as compressor for JavaScript assets
