@@ -67,7 +67,7 @@ GEM
     aws_cf_signer (0.1.3)
     bcrypt (3.1.13)
     bindex (0.8.1)
-    braintree (2.98.0)
+    braintree (2.99.0)
       builder (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.1)
@@ -406,7 +406,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable (~> 0.12.1)
-  braintree (~> 2.98)
+  braintree (~> 2.99)
   byebug
   capybara (~> 3.29)
   carmen-rails (~> 1.0)
