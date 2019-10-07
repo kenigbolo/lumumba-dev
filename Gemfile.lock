@@ -149,7 +149,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (1.6.0)
+    i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     i18n_data (0.8.0)
     image_processing (1.9.3)
@@ -259,8 +259,8 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.2.0)
-      loofah (~> 2.2, >= 2.2.2)
+    rails-html-sanitizer (1.3.0)
+      loofah (~> 2.3)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -345,7 +345,7 @@ GEM
       rubyzip (>= 1.2.2)
     shoulda-matchers (4.1.2)
       activesupport (>= 4.2.0)
-    simple_form (5.0.0)
+    simple_form (5.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     simplecov (0.17.1)
