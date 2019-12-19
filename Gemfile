@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '6.0.2'
+gem 'rails', '6.0.2.1'
 
 gem 'acts_as_votable', '~> 0.12.1' # Voteable Gem
 gem 'braintree', '~> 2.100'
