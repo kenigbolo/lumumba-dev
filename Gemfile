@@ -15,7 +15,7 @@ gem 'friendly_id', '~> 5.3' # Use friendly_id for user profile urls
 gem 'jquery-rails', '~> 4.3' # Use jquery as the JavaScript library
 gem 'kaminari', '~> 1.1' # Gem for Rails 3+, Sinatra, and Merb Pagination
 gem 'oj', '~> 3.10'
-gem 'omniauth-facebook', '~> 5'
+gem 'omniauth-facebook', '~> 6'
 gem 'omniauth', '~> 1.9' # Use omniauth for oauth
 gem 'pg', '1.2.2' # Use pg as the database for Active Record [Production Environment]
 gem 'puma', '~> 4.3' # Use Puma as the app server
