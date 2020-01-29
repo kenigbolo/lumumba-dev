@@ -51,7 +51,7 @@ group :test do
   gem 'capybara', '~> 3.31'
   gem 'rspec-rails', '~> 3.9'
   gem 'selenium-webdriver', '~> 3.142'
-  gem 'simplecov', '~> 0.17'
+  gem 'simplecov', '~> 0.18'
   gem 'webmock', '~> 3.8'
   gem "database_cleaner", '~> 1.7'
   gem "shoulda-matchers", "~> 4.2"
