@@ -53,6 +53,6 @@ group :test do
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', '~> 0.18'
   gem 'webmock', '~> 3.8'
-  gem "database_cleaner", '~> 1.7'
+  gem "database_cleaner", '~> 1.8'
   gem "shoulda-matchers", "~> 4.2"
 end
