@@ -71,7 +71,7 @@ GEM
       builder (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.1)
-    capybara (3.31.0)
+    capybara (3.32.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -288,7 +288,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    regexp_parser (1.6.0)
+    regexp_parser (1.7.0)
     remotipart (1.4.4)
     responders (3.0.0)
       actionpack (>= 5.0)
@@ -408,7 +408,7 @@ DEPENDENCIES
   acts_as_votable (~> 0.12.1)
   braintree (~> 2.101)
   byebug
-  capybara (~> 3.31)
+  capybara (~> 3.32)
   carmen-rails (~> 1.0)
   carrierwave (>= 1.0.0.rc, < 3.0)
   cloudinary (~> 1.13)
