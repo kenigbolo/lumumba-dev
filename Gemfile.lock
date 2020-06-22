@@ -71,7 +71,7 @@ GEM
       builder (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
-    capybara (3.32.2)
+    capybara (3.33.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -410,7 +410,7 @@ DEPENDENCIES
   acts_as_votable (~> 0.12.1)
   braintree (~> 2.102)
   byebug
-  capybara (~> 3.32)
+  capybara (~> 3.33)
   carmen-rails (~> 1.0)
   carrierwave (>= 1.0.0.rc, < 3.0)
   cloudinary (~> 1.15)
