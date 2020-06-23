@@ -20,7 +20,7 @@ gem 'omniauth', '~> 1.9' # Use omniauth for oauth
 gem 'pg', '1.2.3' # Use pg as the database for Active Record [Production Environment]
 gem 'puma', '~> 4.3' # Use Puma as the app server
 gem 'rails_admin', '~> 2.0' # gem for administration
-gem 'rollbar', '~> 2.25'
+gem 'rollbar', '~> 2.26'
 gem 'sass-rails', '~> 6.0' # Use SCSS for stylesheets
 gem 'simple_form', '~> 5.0' # Use simple form as default for forms
 gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
