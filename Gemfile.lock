@@ -298,7 +298,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.4)
-    rollbar (2.26.0)
+    rollbar (2.27.0)
     rspec-core (3.9.2)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.2)
@@ -434,7 +434,7 @@ DEPENDENCIES
   rails (= 6.0.3.2)
   rails_12factor
   rails_admin (~> 2.0)
-  rollbar (~> 2.26)
+  rollbar (~> 2.27)
   rspec-rails (~> 4.0)
   rubocop
   sass-rails (~> 6.0)
