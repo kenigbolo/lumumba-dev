@@ -14,7 +14,7 @@ gem 'figaro', '~> 1.2' # Use figaro gem for environment variables
 gem 'friendly_id', '~> 5.3' # Use friendly_id for user profile urls
 gem 'jquery-rails', '~> 4.4' # Use jquery as the JavaScript library
 gem 'kaminari', '~> 1.2' # Gem for Rails 3+, Sinatra, and Merb Pagination
-gem 'oj', '~> 3.10'
+gem 'oj', '~> 3.12'
 gem 'omniauth-facebook', '~> 6'
 gem 'omniauth', '~> 1.9' # Use omniauth for oauth
 gem 'pg', '1.2.3' # Use pg as the database for Active Record [Production Environment]
